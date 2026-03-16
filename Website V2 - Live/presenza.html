@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presenza — Content. Consistency. Presence. | Y Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --navy-mid: #162840;
+    --navy-deep: #0e1520;
+    --gold: #d4af5a;
+    --gold-light: #e8c97a;
+    --gold-dim: #9a7a3a;
+    --cream: #faf8f3;
+    --off-white: #f4f0e8;
+    --text: #2a2a3a;
+    --muted: #6a6a7a;
+    --light-border: #e8e0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.4s, padding 0.3s;
+  }
+
+  nav.scrolled {
+    background: rgba(26, 26, 46, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 14px 60px;
+    border-bottom: 1px solid rgba(212, 175, 90, 0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+
+  .nav-logo-box {
+    border: 1px solid var(--gold);
+    padding: 8px 14px;
+    text-align: center;
+    width: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-logo-y {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-logo-rule {
+    border: none;
+    border-top: 1px solid var(--gold);
+    margin: 3px 0;
+    width: 100%;
+  }
+
+  .nav-logo-media {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 500;
+    display: block;
+    text-align: center;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 3px;
+  }
+
+  .nav-home { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); padding: 7px 16px; transition: all 0.2s; }
+  .nav-home:hover { color: var(--gold); border-color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: transparent !important;
+    border: 1px solid var(--gold) !important;
+    color: var(--gold) !important;
+    padding: 7px 14px;
+    font-size: 9px !important;
+    letter-spacing: 1.5px;
+    transition: all 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(212,175,90,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(212,175,90,0.04) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(212,175,90,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,90,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 60px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-headline {
+    opacity: 1 !important;
+    transform: none !important;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 64px);
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+
+  .hero-headline em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 14px 32px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 14px 32px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* Hero mockup */
+  .hero-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .mockup-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,90,0.2);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .mockup-header {
+    background: var(--navy-deep);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212,175,90,0.2);
+  }
+
+  .mockup-header-title {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .mockup-post {
+    padding: 0;
+    border-bottom: 1px solid rgba(212,175,90,0.1);
+  }
+
+  .mockup-post-header {
+    background: rgba(212,175,90,0.08);
+    padding: 8px 18px;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .mockup-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    border-bottom: 1px solid rgba(212,175,90,0.08);
+  }
+
+  .mockup-label {
+    background: rgba(255,255,255,0.03);
+    padding: 8px 10px;
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(212,175,90,0.08);
+  }
+
+  .mockup-value {
+    padding: 8px 12px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .mockup-body {
+    padding: 12px 18px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(212,175,90,0.15);
+  }
+
+  .hero-stats > div {
+    padding: 12px 20px;
+    border-right: 1px solid rgba(212,175,90,0.15);
+    text-align: center;
+  }
+
+  .hero-stats > div:first-child { padding-left: 0; }
+  .hero-stats > div:last-child { border-right: none; }
+
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 60px; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    color: var(--navy);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    color: var(--gold-dim);
+    font-style: italic;
+  }
+
+  .section-intro {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 580px;
+    font-weight: 300;
+  }
+
+  /* ── WHAT WE OFFER ── */
+  .offer { background: var(--cream); }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .offer-features { display: flex; flex-direction: column; gap: 20px; }
+
+  .feature-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px;
+    border: 1px solid var(--light-border);
+    background: #fff;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .feature-item:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .feature-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .feature-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .offer-right { position: sticky; top: 100px; }
+
+  .post-preview {
+    border: 1px solid var(--light-border);
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .post-preview:hover { border-color: var(--gold); }
+
+  .post-preview-header {
+    background: var(--navy);
+    padding: 8px 16px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .post-preview-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    border-bottom: 1px solid #f0ece4;
+  }
+
+  .post-preview-key {
+    background: #faf8f3;
+    padding: 7px 10px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #aaa;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-right: 1px solid #f0ece4;
+    display: flex;
+    align-items: center;
+  }
+
+  .post-preview-val {
+    padding: 7px 12px;
+    font-size: 11px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .post-preview-body {
+    padding: 10px 16px 14px;
+    font-size: 11px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .post-preview-label {
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: #aaa;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 16px 4px;
+  }
+
+  /* ── CATEGORIES ── */
+  .categories-section { background: var(--navy); }
+
+  .categories-section .section-title { color: #fff; }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    margin-top: 48px;
+    border: 1px solid rgba(212,175,90,0.15);
+  }
+
+  .cat-item {
+    padding: 24px 20px;
+    border-right: 1px solid rgba(212,175,90,0.08);
+    border-bottom: 1px solid rgba(212,175,90,0.08);
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .cat-item:hover { background: rgba(212,175,90,0.06); }
+
+  .cat-item-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    color: rgba(212,175,90,0.4);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .cat-item-name {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--off-white); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 56px;
+    max-width: 860px;
+    align-items: stretch;
+  }
+
+  .price-card {
+    background: #fff;
+    border: 1px solid var(--light-border);
+    overflow: hidden;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-card:hover { border-color: var(--gold); }
+
+  .price-card.featured { border-color: var(--gold); position: relative; }
+
+  .price-card-badge {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    padding: 5px 14px;
+    text-transform: uppercase;
+  }
+
+  .price-card-top {
+    background: var(--navy);
+    padding: 32px 32px 28px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .price-tier {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .price-amount {
+    font-size: 44px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .price-amount sup {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    vertical-align: top;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .price-caption {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+  }
+
+  .price-card-body { padding: 28px 32px; display: flex; flex-direction: column; min-height: 320px; }
+
+  .price-feature {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+
+  .price-dash {
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .price-feature-text {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .price-cta {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    background: var(--navy);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 14px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .price-cta:hover { background: var(--gold); color: var(--navy); }
+
+  .pricing-note {
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 16px 24px;
+    border-left: 2px solid var(--gold);
+    background: #fff;
+    max-width: 860px;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: var(--cream); }
+
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .steps-row::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+  }
+
+  .step-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── NOT INCLUDED ── */
+  .not-included { background: var(--navy); }
+  .not-included .section-title { color: #fff; }
+  .not-included .section-intro { color: rgba(255,255,255,0.5); }
+
+  .not-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 48px;
+    border: 1px solid rgba(212,175,90,0.15);
+  }
+
+  .not-item {
+    padding: 28px 28px;
+    border-right: 1px solid rgba(212,175,90,0.1);
+  }
+
+  .not-item-x {
+    font-size: 18px;
+    color: rgba(212,175,90,0.3);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .not-item-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  .not-callout {
+    margin-top: 40px;
+    padding: 24px 32px;
+    border-left: 3px solid var(--gold);
+    background: rgba(212,175,90,0.05);
+  }
+
+  .not-callout p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--navy);
+    padding: 60px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,90,0.07) 0%, transparent 70%);
+  }
+
+  .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .cta-title em { color: var(--gold); font-style: italic; }
+
+  .cta-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 48px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .cta-email {
+    display: block;
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212,175,90,0.3);
+    padding-bottom: 4px;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+
+  .cta-email:hover { border-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-deep);
+    padding: 40px 60px;
+    border-top: 1px solid rgba(212,175,90,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: rgba(212,228,245,0.8);
+  }
+
+  .footer-tagline {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-contact {
+    font-size: 12px;
+    color: rgba(212,175,90,0.7);
+    letter-spacing: 1px;
+  }
+
+  .footer-copy {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    margin-top: 4px;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+  .fade-up:nth-child(5) { transition-delay: 0.4s; }
+  .fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    nav.scrolled { padding: 12px 20px; }
+    section { padding: 60px 20px; }
+    body { overflow-x: hidden; }
+
+    /* HERO */
+    .hero-inner { flex-direction: column; gap: 32px; padding: 90px 20px 50px; text-align: center; }
+    .hero-headline {
+    opacity: 1 !important;
+    transform: none !important; font-size: 36px; }
+    .hero-sub {
+    opacity: 1 !important;
+    transform: none !important; font-size: 15px; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-buttons { justify-content: center; }
+
+    /* STATS - 2x2 grid on mobile */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: visible;
+      padding-bottom: 0;
+      border: 1px solid rgba(212,175,90,0.15);
+      padding-top: 0;
+      margin-top: 32px;
+    }
+    .hero-stats > div {
+      padding: 18px 16px;
+      border-right: 1px solid rgba(212,175,90,0.15);
+      border-bottom: 1px solid rgba(212,175,90,0.15);
+      text-align: center;
+    }
+    .hero-stats > div:nth-child(2) { border-right: none; }
+    .hero-stats > div:nth-child(3) { border-bottom: none; }
+    .hero-stats > div:nth-child(4) { border-right: none; border-bottom: none; }
+    .hero-stats > div:first-child { padding-left: 16px; }
+    .hero-stat-num { font-size: 16px; }
+    .hero-stat-label { font-size: 10px; }
+
+    /* TIER BOXES */
+    .hero-right { display: flex; width: 100%; justify-content: center; }
+    .hero-badge-stack { grid-template-columns: 1fr 1fr; max-width: 100%; }
+    .hero-badge { padding: 20px 16px; }
+    .hero-badge-tier { font-size: 14px; letter-spacing: 2px; }
+    .hero-badge-num { font-size: 22px; }
+    .hero-badge-label { font-size: 10px; }
+
+    /* SECTIONS */
+    .offer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .offer-right { position: static; }
+    .steps-row { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .steps-row::before { display: none; }
+    .step-item { padding: 0 4px; }
+    .step-num { width: 44px; height: 44px; font-size: 16px; }
+    .step-title { font-size: 10px; }
+    .step-desc { font-size: 10px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .not-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 28px; }
+    .cta-title { font-size: 28px; }
+    .cta-section { padding: 60px 20px; }
+
+    /* FOOTER */
+    footer { flex-direction: column; text-align: center; padding: 32px 20px; gap: 16px; }
+    .footer-right { text-align: center; }
+  }
+
+  /* ── WHY SECTION ── */
+  .why-section { background: #fff; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+    border: 1px solid var(--light-border);
+  }
+
+  .why-card {
+    padding: 40px 32px;
+    border-right: 1px solid var(--light-border);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .why-card:hover { background: #faf8f3; }
+
+  .why-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: rgba(212,175,90,0.5);
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .why-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .why-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ── HERO BADGES ── */
+  .hero-badge-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .hero-badge {
+    border: 1px solid rgba(212,175,90,0.3);
+    background: rgba(255,255,255,0.03);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .hero-badge:hover {
+    border-color: rgba(212,175,90,0.6);
+    background: rgba(212,175,90,0.05);
+  }
+
+  .hero-badge-tier {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .hero-badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .hero-badge-num-suffix {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    display: block;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-badge-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    font-weight: 300;
+    display: block;
+    border-top: 1px solid rgba(212,175,90,0.15);
+    padding-top: 16px;
+    margin-top: auto;
+  }
+
+  .hero-badge-detail {
+    font-size: 10px;
+    color: rgba(212,175,90,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+  }
+
+  .hero-badge-quote {
+    border-left: 2px solid var(--gold);
+    padding: 16px 20px;
+    background: rgba(212,175,90,0.04);
+  }
+
+  .hero-badge-q {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .hero-badge-sig {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+
+  /* ── SERVICE GRID ── */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+    background: var(--light-border);
+  }
+
+  .service-box {
+    background: #fff;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .service-box:hover { background: #faf8f3; }
+
+  .service-box-examples {
+    background: var(--gold);
+    cursor: pointer;
+  }
+
+  .service-box-examples:hover { background: var(--gold-light); }
+
+  .service-box-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .service-box-examples .service-box-icon {
+    background: var(--navy);
+  }
+
+  .service-box-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .service-box-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    .service-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 500px) {
+    .service-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-box">
+      <span class="nav-logo-y">Y</span>
+      <hr class="nav-logo-rule">
+      <span class="nav-logo-media">MEDIA</span>
+    </div>
+    <span class="nav-brand">Presenza</span>
+  </a>
+  <a href="index.html" class="nav-home">← Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="hero-headline">
+        Your presence.<br>
+        <em>Perfected.</em><br>
+        Without the pressure.
+      </h1>
+      <p class="hero-sub">Presenza is a done-for-you content creation service — delivering professionally written, ready-to-post content that keeps your brand consistent, engaging, and visible online.</p>
+      <div class="hero-buttons">
+        <a href="#pricing" class="btn-primary">View Packages</a>
+        <a href="/cdn-cgi/l/email-protection#4a332f2b3839262f33272f2e232b0a2d272b23266429252775393f28202f293e771a382f392f24302b6f787a0f243b3f233833" class="btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num">Effortless</span>
+          <span class="hero-stat-label">Done for you, start to finish</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">Consistent</span>
+          <span class="hero-stat-label">Show up online every day</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">Professional</span>
+          <span class="hero-stat-label">Content that reflects your brand</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">Convenient</span>
+          <span class="hero-stat-label">Ready when you need it</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-badge-stack fade-up">
+        <div class="hero-badge">
+          <span class="hero-badge-tier">Tier 1</span>
+          <span class="hero-badge-num">15</span>
+          <span class="hero-badge-num-suffix">posts</span>
+          <span class="hero-badge-label">Ready-to-post captions, professionally written and formatted<br><br>Delivered within 5 working days</span>
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-tier">Tier 2</span>
+          <span class="hero-badge-num">30</span>
+          <span class="hero-badge-num-suffix">posts</span>
+          <span class="hero-badge-label">Captions, reel scripts &amp; carousels — a full month of content<br><br>Delivered within 7 working days</span>
+        </div>
+        <div style="grid-column: 1 / -1; border-left: 2px solid var(--gold); padding: 16px 24px; background: rgba(212,175,90,0.04);">
+          <div class="hero-badge-q">"Stop worrying about what to post. We've got it covered."</div>
+          <div class="hero-badge-sig">— Presenza by Y Media</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- WHAT WE OFFER -->
+<section class="offer" id="offer">
+  <div class="section-inner">
+    <div class="section-label">The Service</div>
+    <h2 class="section-title">Everything written.<br><em>Conveniently and consistently.</em></h2>
+    <p class="section-intro">We handle the words that keep your social media active, consistent, and on-brand — so you can focus on what actually matters.</p>
+
+    <div class="service-grid">
+      <div class="service-box fade-up">
+        <div class="service-box-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="#d4af5a" fill="none" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="service-box-title">Professionally Written Content</div>
+        <div class="service-box-desc">Every post crafted to reflect your tone, your audience, and what you stand for. Real content that sounds like you.</div>
+      </div>
+      <div class="service-box fade-up">
+        <div class="service-box-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="#d4af5a" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="service-box-title">Theme · Hook · Caption Format</div>
+        <div class="service-box-desc">Every post structured with a topic, a scroll-stopping opening line, and a full caption — ready to post instantly.</div>
+      </div>
+      <div class="service-box fade-up">
+        <div class="service-box-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="#d4af5a" fill="none" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="service-box-title">Variety Across Every Package</div>
+        <div class="service-box-desc">Every package covers a wide range of topics — so your content stays fresh, varied, and engaging every time.</div>
+      </div>
+      <div class="service-box fade-up">
+        <div class="service-box-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="#d4af5a" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="service-box-title">5–7 Day Turnaround</div>
+        <div class="service-box-desc">Tier 1 delivered within 5 working days. Tier 2 delivered within 7 working days. From onboarding form to your inbox.</div>
+      </div>
+      <div class="service-box fade-up">
+        <div class="service-box-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="#d4af5a" fill="none" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="service-box-title">Branded Delivery Document</div>
+        <div class="service-box-desc">Your content arrives in a clean, professional Presenza document — formatted, numbered, and ready to go.</div>
+      </div>
+      <div class="service-box service-box-examples fade-up" onclick="window.open('examples.html','_blank')">
+        <div class="service-box-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="#1a1a2e" fill="none" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="service-box-title" style="color:var(--navy);">See Example Posts</div>
+        <div class="service-box-desc" style="color:rgba(26,26,46,0.7);">Click to see real sample posts — and how Presenza transforms basic content into something that actually works.</div>
+        <div style="margin-top:16px;font-size:10px;letter-spacing:2px;font-weight:600;color:var(--navy);">VIEW EXAMPLES →</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PRESENZA -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="section-label">Why Presenza</div>
+    <h2 class="section-title">Built for those who want quality content,<br><em>without the time.</em></h2>
+
+    <div class="why-grid">
+
+      <div class="why-card fade-up">
+        <div class="why-num">01</div>
+        <div class="why-title">No more staring at a blank screen</div>
+        <div class="why-desc">Coming up with what to post — every single day — is exhausting. It pulls you out of the work you're actually good at. Presenza removes that friction entirely. Your content is written, formatted, and ready to go before you've even thought about it.</div>
+      </div>
+
+      <div class="why-card fade-up">
+        <div class="why-num">02</div>
+        <div class="why-title">Consistency without the commitment</div>
+        <div class="why-desc">Showing up consistently online is one of the hardest parts of building a business. Life gets in the way. Things run over. Energy runs out. With Presenza, your content is ready weeks in advance — so your presence never slips, even when your schedule does.</div>
+      </div>
+
+      <div class="why-card fade-up">
+        <div class="why-num">03</div>
+        <div class="why-title">Professional content, accessible price</div>
+        <div class="why-desc">A freelance copywriter charges hundreds per month. A social media manager, more. Presenza gives you expertly written, on-brand content at a price that makes sense for where you are right now — without compromising on quality.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categories">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--gold);">Content Library</div>
+    <h2 class="section-title" style="color:#fff;">Content across<br><em style="color:var(--gold-dim);">every topic that matters.</em></h2>
+    <p class="section-intro" style="color:rgba(255,255,255,0.45);">Every package draws across all of these categories as standard — but we're not limited to them. If you need something different, we can write for it.</p>
+
+    <div class="cat-grid">
+      <div class="cat-item fade-up"><span class="cat-item-num">01</span><span class="cat-item-name">Motivation &amp; Mindset</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">02</span><span class="cat-item-name">Fitness &amp; Training</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">03</span><span class="cat-item-name">Nutrition &amp; Healthy Eating</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">04</span><span class="cat-item-name">Weight Loss &amp; Body Transformation</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">05</span><span class="cat-item-name">Life Coaching &amp; Personal Development</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">06</span><span class="cat-item-name">Mental Health &amp; Wellness</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">07</span><span class="cat-item-name">Habit Building &amp; Routine</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">08</span><span class="cat-item-name">Coaching Business &amp; Online Presence</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">09</span><span class="cat-item-name">Confidence &amp; Self-Belief</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">10</span><span class="cat-item-name">Community &amp; Engagement</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">11</span><span class="cat-item-name">Mindset for Coaches</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">12</span><span class="cat-item-name">Goal Setting &amp; Success</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">13</span><span class="cat-item-name">Self-Care &amp; Balance</span></div>
+      <div class="cat-item fade-up"><span class="cat-item-num">14</span><span class="cat-item-name">Energy, Sleep &amp; Recovery</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Up and running<br><em>in six simple steps.</em></h2>
+    <p class="section-intro">Getting started is straightforward. Here's exactly what happens after you decide to go ahead.</p>
+
+    <div class="steps-row">
+      <div class="step-item fade-up">
+        <div class="step-num">1</div>
+        <div class="step-title">Choose Your Package</div>
+        <div class="step-desc">Pick Tier 1 (15 posts) or Tier 2 (30 posts)</div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">2</div>
+        <div class="step-title">Service Agreement</div>
+        <div class="step-desc">We send you a service agreement to review and sign</div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">3</div>
+        <div class="step-title">Secure Your Spot</div>
+        <div class="step-desc">Once payment is received, you'll get your onboarding form</div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">4</div>
+        <div class="step-title">Onboarding Form</div>
+        <div class="step-desc">10 minutes to tell us about your brand and voice</div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">5</div>
+        <div class="step-title">We Write</div>
+        <div class="step-desc">Content delivered within the agreed timeframe</div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">6</div>
+        <div class="step-title">Copy &amp; Post</div>
+        <div class="step-desc">Download, copy, and post — your content is ready to go</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOT INCLUDED -->
+<section class="not-included">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--gold);">Transparency</div>
+    <h2 class="section-title">What we don't offer</h2>
+    <p class="section-intro">We believe in being completely clear so there are no surprises.</p>
+
+    <div class="not-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="not-item">
+        <span class="not-item-x">✕</span>
+        <div class="not-item-text">We do not post on your behalf or manage your social media accounts</div>
+      </div>
+      <div class="not-item">
+        <span class="not-item-x">✕</span>
+        <div class="not-item-text">We do not create graphics, images, Reels production, or video content</div>
+      </div>
+      <div class="not-item">
+        <span class="not-item-x">✕</span>
+        <div class="not-item-text">We do not guarantee follower growth, engagement rates, or leads</div>
+      </div>
+    </div>
+
+    <div class="not-callout">
+      <p>"This reflects what Presenza offers right now. We are actively developing additional services and tools — so watch this space. What we do today, we do exceptionally well."</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Packages</div>
+    <h2 class="section-title">Simple, transparent pricing.<br><em>No contracts. No surprises.</em></h2>
+    <p class="section-intro">Payment is taken in full before work begins. All prices are in GBP.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-card-top">
+          <span class="price-tier">Tier 1</span>
+          <span class="price-amount">£30</span>
+          <span class="price-caption">15 ready-to-post captions</span>
+        </div>
+        <div class="price-card-body">
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">All captions formatted with Theme, Hook &amp; Caption</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Tailored to your tone of voice and audience</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Content spread across a wide range of topics</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 5 working days</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Clean branded delivery document</span></div>
+        </div>
+        <a href="/cdn-cgi/l/email-protection#2b524e4a5958474e52464e4f424a6b4c464a42470548444614585e49414e485f167b594e584e45514a0e191b6e455a5e425952" class="price-cta">Get Started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-card-badge">Most Popular</div>
+        <div class="price-card-top">
+          <span class="price-tier">Tier 2</span>
+          <span class="price-amount">£40</span>
+          <span class="price-caption">30 ready-to-post captions</span>
+        </div>
+        <div class="price-card-body">
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Everything in Tier 1</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Double the content — enough to post every day for a month</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Mix of captions, reel scripts, and carousels</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Ideal for anyone posting consistently every day</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 7 working days</span></div>
+        </div>
+        <a href="/cdn-cgi/l/email-protection#d0a9b5b1a2a3bcb5a9bdb5b4b9b190b7bdb1b9bcfeb3bfbdefa3a5b2bab5b3a4ed80a2b5a3b5beaab1f5e2e095bea1a5b9a2a9" class="price-cta">Get Started</a>
+      </div>
+    </div>
+
+    <div class="pricing-note">
+      Payment is taken in full before work begins. Once payment is confirmed and your onboarding form is complete, your content will be delivered within the agreed timeframe. Please note that refunds are not available once content has been written and delivered.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content:center;margin-bottom:24px;">Ready to get started</div>
+    <h2 class="cta-title">Stop worrying about<br><em>what to post.</em></h2>
+    <p class="cta-sub">Drop us an email and we'll take it from there.</p>
+    <a href="/cdn-cgi/l/email-protection#add4c8ccdfdec1c8d4c0c8c9c4ccedcac0ccc4c183cec2c092ded8cfc7c8ced990fddfc8dec8c3d7cc889f9de8c3dcd8c4dfd4" class="btn-primary" style="font-size:14px;letter-spacing:3px;padding:18px 48px;">Contact Us Here</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Presenza by Y Media</div>
+    <div class="footer-tagline">CONTENT · CONSISTENCY · PRESENCE</div>
+  </div>
+  <div class="footer-right">
+    <div class="footer-contact">yearsleymedia&#64;gmail&#46;com</div>
+    <a href="https://www.instagram.com/yearsleymedia" target="_blank" style="display:inline-block;margin-top:8px;font-size:11px;color:var(--gold);letter-spacing:1px;text-decoration:none;opacity:0.8;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">&#x1F4F7; @yearsleymedia</a>
+    <div class="footer-copy">© 2025 Y Media. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(
