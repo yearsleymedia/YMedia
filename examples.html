@@ -25,23 +25,6 @@
   body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text); }
 
   /* NAV */
-  nav {
-    background: var(--navy);
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--gold);
-  }
-
-  .nav-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 14px; text-align: center; width: 64px; display: flex; flex-direction: column; align-items: center; }
-  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 46px; color: var(--gold); line-height: 1; display: block; text-align: center; width: 100%; }
-  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
-  .nav-logo-media { font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 500; display: block; text-align: center; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 46px; color: #fff; font-weight: 400; letter-spacing: 3px; }
-  .nav-back { font-size: 9px; letter-spacing: 1.5px; color: rgba(255,255,255,0.6); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; transition: all 0.2s; white-space: nowrap; }
-  .nav-back:hover { color: var(--gold); border-color: var(--gold); }
 
   /* PAGE HEADER */
   .page-header {
@@ -130,10 +113,6 @@
 
   @media (max-width: 900px) {
     nav { padding: 14px 20px; }
-    .nav-brand { font-size: 24px; }
-    .nav-logo-box { width: 44px; padding: 6px 10px; }
-    .nav-logo-y { font-size: 28px; }
-    .nav-back { font-size: 9px; letter-spacing: 1px; padding: 6px 12px; }
     .page-header { padding: 40px 20px 60px; }
     .page-header-title { font-size: 32px; }
     .section { padding: 60px 20px; }
@@ -147,6 +126,36 @@
     .ig-likes { font-size: 10px; }
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
     .footer-right { text-align: center; }
+  }
+
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26,26,46,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,90,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 13px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 60px; }
+  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); line-height: 1; display: block; }
+  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
+  .nav-logo-media { font-size: 8px; letter-spacing: 3px; color: var(--gold); font-weight: 500; display: block; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; letter-spacing: 2px; }
+  .nav-home { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(212,175,90,0.4); padding: 8px 20px; transition: all 0.2s; font-weight: 500; white-space: nowrap; }
+  .nav-home:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-logo-box { width: 46px; padding: 6px 10px; }
+    .nav-logo-y { font-size: 30px; }
+    .nav-logo-media { font-size: 7px; letter-spacing: 2px; }
+    .nav-brand { font-size: 26px; letter-spacing: 1px; }
+    .nav-home { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
   }
 
 </style>
@@ -163,7 +172,7 @@
     </div>
     <span class="nav-brand">Presenza</span>
   </a>
-  <a href="presenza.html" class="nav-back">← Back to Home</a>
+  <a href="index.html" class="nav-home">Home</a>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -555,7 +564,7 @@
     <div class="footer-tagline">CONTENT · CONSISTENCY · PRESENCE</div>
   </div>
   <div class="footer-right">
-    <div class="footer-contact"><span id="em"></span><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
+    <div class="footer-contact"><span id="em"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
     <a href="https://www.instagram.com/yearsleymedia" target="_blank" style="display:inline-block;margin-top:8px;font-size:11px;color:rgba(212,175,90,0.7);text-decoration:none;">📷 @yearsleymedia</a>
     <div class="footer-copy">© 2025 Y Media. All rights reserved.</div>
   </div>
@@ -593,10 +602,4 @@
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+      if (entry.isIntersect

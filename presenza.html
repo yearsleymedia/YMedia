@@ -33,84 +33,6 @@
   }
 
   /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.4s, padding 0.3s;
-  }
-
-  nav.scrolled {
-    background: rgba(26, 26, 46, 0.97);
-    backdrop-filter: blur(12px);
-    padding: 14px 60px;
-    border-bottom: 1px solid rgba(212, 175, 90, 0.2);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-  }
-
-  .nav-logo-box {
-    border: 1px solid var(--gold);
-    padding: 8px 14px;
-    text-align: center;
-    width: 76px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-logo-y {
-    font-family: 'Playfair Display', serif;
-    font-size: 46px;
-    color: var(--gold);
-    line-height: 1;
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
-
-  .nav-logo-rule {
-    border: none;
-    border-top: 1px solid var(--gold);
-    margin: 3px 0;
-    width: 100%;
-  }
-
-  .nav-logo-media {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    font-weight: 500;
-    display: block;
-    text-align: center;
-  }
-
-  .nav-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 46px;
-    color: #fff;
-    font-weight: 400;
-    letter-spacing: 3px;
-  }
-
-  .nav-home { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); padding: 7px 16px; transition: all 0.2s; }
-  .nav-home:hover { color: var(--gold); border-color: var(--gold); }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-  }
 
   .nav-links a {
     font-size: 11px;
@@ -1239,6 +1161,36 @@
     .service-grid { grid-template-columns: 1fr; }
   }
 
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26,26,46,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,90,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 13px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 60px; }
+  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); line-height: 1; display: block; }
+  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
+  .nav-logo-media { font-size: 8px; letter-spacing: 3px; color: var(--gold); font-weight: 500; display: block; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; letter-spacing: 2px; }
+  .nav-home { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(212,175,90,0.4); padding: 8px 20px; transition: all 0.2s; font-weight: 500; white-space: nowrap; }
+  .nav-home:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-logo-box { width: 46px; padding: 6px 10px; }
+    .nav-logo-y { font-size: 30px; }
+    .nav-logo-media { font-size: 7px; letter-spacing: 2px; }
+    .nav-brand { font-size: 26px; letter-spacing: 1px; }
+    .nav-home { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1253,7 +1205,7 @@
     </div>
     <span class="nav-brand">Presenza</span>
   </a>
-  <a href="index.html" class="nav-home">← Home</a>
+  <a href="index.html" class="nav-home">Home</a>
 </nav>
 
 <!-- HERO -->
@@ -1269,7 +1221,7 @@
       <p class="hero-sub">Presenza is a done-for-you content creation service — delivering professionally written, ready-to-post content that keeps your brand consistent, engaging, and visible online.</p>
       <div class="hero-buttons">
         <a href="#pricing" class="btn-primary">View Packages</a>
-        <a href="/cdn-cgi/l/email-protection#4a332f2b3839262f33272f2e232b0a2d272b23266429252775393f28202f293e771a382f392f24302b6f787a0f243b3f233833" class="btn-ghost">Get In Touch</a>
+        <a href="mailto:yearsleymedia@gmail.com?subject=Presenza%20Enquiry" class="btn-ghost">Get In Touch</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -1519,7 +1471,7 @@
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 5 working days</span></div>
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Clean branded delivery document</span></div>
         </div>
-        <a href="/cdn-cgi/l/email-protection#2b524e4a5958474e52464e4f424a6b4c464a42470548444614585e49414e485f167b594e584e45514a0e191b6e455a5e425952" class="price-cta">Get Started</a>
+        <a href="mailto:yearsleymedia@gmail.com?subject=Presenza%20Enquiry" class="price-cta">Get Started</a>
       </div>
 
       <div class="price-card featured">
@@ -1536,7 +1488,7 @@
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Ideal for anyone posting consistently every day</span></div>
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 7 working days</span></div>
         </div>
-        <a href="/cdn-cgi/l/email-protection#d0a9b5b1a2a3bcb5a9bdb5b4b9b190b7bdb1b9bcfeb3bfbdefa3a5b2bab5b3a4ed80a2b5a3b5beaab1f5e2e095bea1a5b9a2a9" class="price-cta">Get Started</a>
+        <a href="mailto:yearsleymedia@gmail.com?subject=Presenza%20Enquiry" class="price-cta">Get Started</a>
       </div>
     </div>
 
@@ -1552,7 +1504,7 @@
     <div class="section-label" style="justify-content:center;margin-bottom:24px;">Ready to get started</div>
     <h2 class="cta-title">Stop worrying about<br><em>what to post.</em></h2>
     <p class="cta-sub">Drop us an email and we'll take it from there.</p>
-    <a href="/cdn-cgi/l/email-protection#add4c8ccdfdec1c8d4c0c8c9c4ccedcac0ccc4c183cec2c092ded8cfc7c8ced990fddfc8dec8c3d7cc889f9de8c3dcd8c4dfd4" class="btn-primary" style="font-size:14px;letter-spacing:3px;padding:18px 48px;">Contact Us Here</a>
+    <a href="mailto:yearsleymedia@gmail.com?subject=Presenza%20Enquiry" class="btn-primary" style="font-size:14px;letter-spacing:3px;padding:18px 48px;">Contact Us Here</a>
   </div>
 </section>
 
