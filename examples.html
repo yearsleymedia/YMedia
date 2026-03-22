@@ -544,7 +544,7 @@
     <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:36px;line-height:1.8;font-weight:300;">Head back and choose your package — or get in touch and we'll take it from there.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="presenza.html#pricing" style="background:var(--gold);color:var(--navy);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background 0.2s;">View Packages</a>
-      <a href="mailto:yearsleymedia@gmail.com?subject=Presenza%20Enquiry" style="background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;">Get In Touch</a>
+      <a href="/cdn-cgi/l/email-protection#19607c786b6a757c60747c7d7078597e74787075377a7674266a6c7b737c7a6d24496b7c6a7c7763783c2b295c77686c706b60" style="background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;">Get In Touch</a>
     </div>
   </div>
 </div>
@@ -564,9 +564,8 @@
     <div class="footer-tagline">CONTENT · CONSISTENCY · PRESENCE</div>
   </div>
   <div class="footer-right">
-    <div class="footer-contact"><span id="em"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
-    <a href="https://www.instagram.com/yearsleymedia" target="_blank" style="display:inline-block;margin-top:8px;font-size:11px;color:rgba(212,175,90,0.7);text-decoration:none;">📷 @yearsleymedia</a>
-    <div class="footer-copy">© 2025 Y Media. All rights reserved.</div>
+    <div class="footer-contact"><span id="em"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
+    <a href="https://www.instagram.com/yearsleymedia" targY Media. All rights reserved.</div>
   </div>
 </footer>
 
@@ -602,4 +601,10 @@
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersect
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
