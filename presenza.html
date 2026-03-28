@@ -939,11 +939,11 @@
 
     /* TIER BOXES */
     .hero-right { display: flex; width: 100%; justify-content: center; }
-    .hero-badge-stack { grid-template-columns: 1fr 1fr; max-width: 100%; }
+    .hero-badge-stack { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 12px; }
     .hero-badge { padding: 20px 16px; }
-    .hero-badge-tier { font-size: 14px; letter-spacing: 2px; }
-    .hero-badge-num { font-size: 22px; }
-    .hero-badge-label { font-size: 10px; }
+    .hero-badge-tier { font-size: 16px; letter-spacing: 2px; }
+    .hero-badge-num { font-size: 28px; }
+    .hero-badge-label { font-size: 13px; }
 
     /* SECTIONS */
     .offer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -954,7 +954,19 @@
     .step-num { width: 44px; height: 44px; font-size: 16px; }
     .step-title { font-size: 10px; }
     .step-desc { font-size: 10px; }
-    .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 100%; gap: 16px; }
+    .price-card-top { padding: 24px 20px 20px; }
+    .price-card-body { padding: 20px 20px; }
+    .price-tier { font-size: 18px; }
+    .price-amount { font-size: 36px; }
+    .price-strike { font-size: 18px; }
+    .price-caption { font-size: 12px; }
+    .price-feature-text { font-size: 13px; }
+    .hero-badge-stack { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 12px; }
+    .hero-badge { padding: 20px 16px; }
+    .hero-badge-tier { font-size: 16px; letter-spacing: 2px; }
+    .hero-badge-num { font-size: 28px; }
+    .hero-badge-label { font-size: 13px; }
     .not-grid { grid-template-columns: 1fr; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: 1fr; }
@@ -1180,6 +1192,19 @@
 
   @media (max-width: 500px) {
     .service-grid { grid-template-columns: 1fr; }
+    .hero-headline { font-size: 30px; }
+    .hero-sub { font-size: 14px; }
+    .section-title { font-size: 24px; }
+    .price-tier { font-size: 16px; }
+    .price-amount { font-size: 32px; }
+    .price-card-top { padding: 20px 16px 16px; }
+    .price-card-body { padding: 16px; }
+    .price-feature-text { font-size: 12px; }
+    .hero-badge-tier { font-size: 14px; }
+    .hero-badge-num { font-size: 24px; }
+    .hero-badge-label { font-size: 12px; }
+    .steps-row { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
   }
 
 
