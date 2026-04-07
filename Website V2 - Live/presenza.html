@@ -33,84 +33,6 @@
   }
 
   /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.4s, padding 0.3s;
-  }
-
-  nav.scrolled {
-    background: rgba(26, 26, 46, 0.97);
-    backdrop-filter: blur(12px);
-    padding: 14px 60px;
-    border-bottom: 1px solid rgba(212, 175, 90, 0.2);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-  }
-
-  .nav-logo-box {
-    border: 1px solid var(--gold);
-    padding: 8px 14px;
-    text-align: center;
-    width: 76px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-logo-y {
-    font-family: 'Playfair Display', serif;
-    font-size: 46px;
-    color: var(--gold);
-    line-height: 1;
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
-
-  .nav-logo-rule {
-    border: none;
-    border-top: 1px solid var(--gold);
-    margin: 3px 0;
-    width: 100%;
-  }
-
-  .nav-logo-media {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    font-weight: 500;
-    display: block;
-    text-align: center;
-  }
-
-  .nav-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 46px;
-    color: #fff;
-    font-weight: 400;
-    letter-spacing: 3px;
-  }
-
-  .nav-home { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); padding: 7px 16px; transition: all 0.2s; }
-  .nav-home:hover { color: var(--gold); border-color: var(--gold); }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-  }
 
   .nav-links a {
     font-size: 11px;
@@ -175,8 +97,18 @@
     padding: 120px 60px 80px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 48px;
     width: 100%;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 780px;
   }
 
   .hero-eyebrow {
@@ -228,6 +160,7 @@
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .btn-primary {
@@ -272,7 +205,7 @@
   /* Hero mockup */
   .hero-right {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
   }
@@ -604,11 +537,29 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2px;
     margin-top: 56px;
-    max-width: 860px;
+    max-width: 1200px;
     align-items: stretch;
+    grid-auto-rows: 1fr;
+  }
+
+  .price-strike {
+    font-size: 22px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: line-through;
+    margin-right: 8px;
+    font-weight: 400;
+  }
+
+  .price-intro-note {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-top: 8px;
+    display: block;
+    font-style: italic;
   }
 
   .price-card {
@@ -618,6 +569,7 @@
     transition: border-color 0.2s;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   .price-card:hover { border-color: var(--gold); }
@@ -674,7 +626,7 @@
     font-style: italic;
   }
 
-  .price-card-body { padding: 28px 32px; display: flex; flex-direction: column; min-height: 320px; }
+  .price-card-body { padding: 28px 32px; display: flex; flex-direction: column; flex: 1; }
 
   .price-feature {
     display: flex;
@@ -725,7 +677,7 @@
     padding: 16px 24px;
     border-left: 2px solid var(--gold);
     background: #fff;
-    max-width: 860px;
+    max-width: 1200px;
   }
 
   /* ── PROCESS ── */
@@ -998,11 +950,11 @@
 
     /* TIER BOXES */
     .hero-right { display: flex; width: 100%; justify-content: center; }
-    .hero-badge-stack { grid-template-columns: 1fr 1fr; max-width: 100%; }
+    .hero-badge-stack { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 12px; }
     .hero-badge { padding: 20px 16px; }
-    .hero-badge-tier { font-size: 14px; letter-spacing: 2px; }
-    .hero-badge-num { font-size: 22px; }
-    .hero-badge-label { font-size: 10px; }
+    .hero-badge-tier { font-size: 16px; letter-spacing: 2px; }
+    .hero-badge-num { font-size: 28px; }
+    .hero-badge-label { font-size: 13px; }
 
     /* SECTIONS */
     .offer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1013,7 +965,19 @@
     .step-num { width: 44px; height: 44px; font-size: 16px; }
     .step-title { font-size: 10px; }
     .step-desc { font-size: 10px; }
-    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 100%; gap: 16px; }
+    .price-card-top { padding: 24px 20px 20px; }
+    .price-card-body { padding: 20px 20px; }
+    .price-tier { font-size: 18px; }
+    .price-amount { font-size: 36px; }
+    .price-strike { font-size: 18px; }
+    .price-caption { font-size: 12px; }
+    .price-feature-text { font-size: 13px; }
+    .hero-badge-stack { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 12px; }
+    .hero-badge { padding: 20px 16px; }
+    .hero-badge-tier { font-size: 16px; letter-spacing: 2px; }
+    .hero-badge-num { font-size: 28px; }
+    .hero-badge-label { font-size: 13px; }
     .not-grid { grid-template-columns: 1fr; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: 1fr; }
@@ -1082,6 +1046,7 @@
     gap: 16px;
     width: 100%;
     max-width: 700px;
+    align-items: stretch;
   }
 
   .hero-badge {
@@ -1091,6 +1056,7 @@
     display: flex;
     flex-direction: column;
     transition: border-color 0.2s, background 0.2s;
+    height: 100%;
   }
 
   .hero-badge:hover {
@@ -1237,6 +1203,49 @@
 
   @media (max-width: 500px) {
     .service-grid { grid-template-columns: 1fr; }
+    .hero-headline { font-size: 30px; }
+    .hero-sub { font-size: 14px; }
+    .section-title { font-size: 24px; }
+    .price-tier { font-size: 16px; }
+    .price-amount { font-size: 32px; }
+    .price-card-top { padding: 20px 16px 16px; }
+    .price-card-body { padding: 16px; }
+    .price-feature-text { font-size: 12px; }
+    .hero-badge-tier { font-size: 14px; }
+    .hero-badge-num { font-size: 24px; }
+    .hero-badge-label { font-size: 12px; }
+    .steps-row { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26,26,46,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,90,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 13px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 60px; }
+  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); line-height: 1; display: block; }
+  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
+  .nav-logo-media { font-size: 8px; letter-spacing: 3px; color: var(--gold); font-weight: 500; display: block; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; letter-spacing: 2px; }
+  .nav-home { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(212,175,90,0.4); padding: 8px 20px; transition: all 0.2s; font-weight: 500; white-space: nowrap; }
+  .nav-home:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-logo-box { width: 46px; padding: 6px 10px; }
+    .nav-logo-y { font-size: 30px; }
+    .nav-logo-media { font-size: 7px; letter-spacing: 2px; }
+    .nav-brand { font-size: 26px; letter-spacing: 1px; }
+    .nav-home { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
   }
 
 </style>
@@ -1253,7 +1262,7 @@
     </div>
     <span class="nav-brand">Presenza</span>
   </a>
-  <a href="index.html" class="nav-home">← Home</a>
+  <a href="index.html" class="nav-home">Home</a>
 </nav>
 
 <!-- HERO -->
@@ -1269,7 +1278,7 @@
       <p class="hero-sub">Presenza is a done-for-you content creation service — delivering professionally written, ready-to-post content that keeps your brand consistent, engaging, and visible online.</p>
       <div class="hero-buttons">
         <a href="#pricing" class="btn-primary">View Packages</a>
-        <a href="/cdn-cgi/l/email-protection#4a332f2b3839262f33272f2e232b0a2d272b23266429252775393f28202f293e771a382f392f24302b6f787a0f243b3f233833" class="btn-ghost">Get In Touch</a>
+        <a href="mailto:yearsleymedia@gmail.com" class="btn-ghost">Get In Touch</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -1292,18 +1301,24 @@
     </div>
 
     <div class="hero-right">
-      <div class="hero-badge-stack fade-up">
-        <div class="hero-badge">
+      <div class="hero-badge-stack fade-up" style="grid-template-columns: 1fr 1fr 1fr; max-width: 900px; align-items: stretch;">
+        <div class="hero-badge" style="display:flex; flex-direction:column;">
           <span class="hero-badge-tier">Tier 1</span>
           <span class="hero-badge-num">15</span>
           <span class="hero-badge-num-suffix">posts</span>
-          <span class="hero-badge-label">Ready-to-post captions, professionally written and formatted<br><br>Delivered within 5 working days</span>
+          <span class="hero-badge-label" style="margin-top:auto;">Ready-to-post captions, professionally written and formatted<br><br>Delivered within 5 working days</span>
         </div>
-        <div class="hero-badge">
+        <div class="hero-badge" style="display:flex; flex-direction:column;">
           <span class="hero-badge-tier">Tier 2</span>
           <span class="hero-badge-num">30</span>
           <span class="hero-badge-num-suffix">posts</span>
-          <span class="hero-badge-label">Captions, reel scripts &amp; carousels — a full month of content<br><br>Delivered within 7 working days</span>
+          <span class="hero-badge-label" style="margin-top:auto;">Captions, reel scripts &amp; carousels — a full month of content<br><br>Delivered within 7 working days</span>
+        </div>
+        <div class="hero-badge" style="display:flex; flex-direction:column;">
+          <span class="hero-badge-tier">Tier 3</span>
+          <span class="hero-badge-num">30</span>
+          <span class="hero-badge-num-suffix">posts + visuals</span>
+          <span class="hero-badge-label" style="margin-top:auto;">Everything in Tier 2 plus custom branded visuals for every post<br><br>Delivered within 10 working days</span>
         </div>
         <div style="grid-column: 1 / -1; border-left: 2px solid var(--gold); padding: 16px 24px; background: rgba(212,175,90,0.04);">
           <div class="hero-badge-q">"Stop worrying about what to post. We've got it covered."</div>
@@ -1349,8 +1364,8 @@
         <div class="service-box-icon">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="#d4af5a" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="service-box-title">5–7 Day Turnaround</div>
-        <div class="service-box-desc">Tier 1 delivered within 5 working days. Tier 2 delivered within 7 working days. From onboarding form to your inbox.</div>
+        <div class="service-box-title">5–10 Day Turnaround</div>
+        <div class="service-box-desc">Tier 1 delivered within 5 working days. Tier 2 within 7. Tier 3 Premium within 10 working days. From onboarding form to your inbox.</div>
       </div>
       <div class="service-box fade-up">
         <div class="service-box-icon">
@@ -1439,7 +1454,7 @@
       <div class="step-item fade-up">
         <div class="step-num">1</div>
         <div class="step-title">Choose Your Package</div>
-        <div class="step-desc">Pick Tier 1 (15 posts) or Tier 2 (30 posts)</div>
+        <div class="step-desc">Pick Tier 1 (15 posts), Tier 2 (30 posts) or Tier 3 (30 posts + visuals)</div>
       </div>
       <div class="step-item fade-up">
         <div class="step-num">2</div>
@@ -1484,7 +1499,7 @@
       </div>
       <div class="not-item">
         <span class="not-item-x">✕</span>
-        <div class="not-item-text">We do not create graphics, images, Reels production, or video content</div>
+        <div class="not-item-text">We do not create graphics or visuals for Tier 1 or Tier 2 — these are writing-only packages</div>
       </div>
       <div class="not-item">
         <span class="not-item-x">✕</span>
@@ -1493,7 +1508,7 @@
     </div>
 
     <div class="not-callout">
-      <p>"This reflects what Presenza offers right now. We are actively developing additional services and tools — so watch this space. What we do today, we do exceptionally well."</p>
+      <p>"Tier 3 Premium includes custom branded visuals for every post. Tiers 1 and 2 are writing-only packages — delivering professionally crafted captions, reel scripts, and carousel copy. What we do, we do exceptionally well."</p>
     </div>
   </div>
 </section>
@@ -1519,7 +1534,6 @@
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 5 working days</span></div>
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Clean branded delivery document</span></div>
         </div>
-        <a href="/cdn-cgi/l/email-protection#2b524e4a5958474e52464e4f424a6b4c464a42470548444614585e49414e485f167b594e584e45514a0e191b6e455a5e425952" class="price-cta">Get Started</a>
       </div>
 
       <div class="price-card featured">
@@ -1536,7 +1550,22 @@
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Ideal for anyone posting consistently every day</span></div>
           <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 7 working days</span></div>
         </div>
-        <a href="/cdn-cgi/l/email-protection#d0a9b5b1a2a3bcb5a9bdb5b4b9b190b7bdb1b9bcfeb3bfbdefa3a5b2bab5b3a4ed80a2b5a3b5beaab1f5e2e095bea1a5b9a2a9" class="price-cta">Get Started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-card-badge">Premium</div>
+        <div class="price-card-top">
+          <span class="price-tier">Tier 3</span>
+          <span class="price-amount"><span class="price-strike">£90</span>£80</span>
+          <span class="price-caption">30 ready-to-post pieces with custom branded visuals</span>
+        </div>
+        <div class="price-card-body">
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Everything in Tier 2</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Custom branded visuals for every post</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">15 captions, 5 reel scripts &amp; 10 carousel sets</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Your photos, colours and brand — fully designed</span></div>
+          <div class="price-feature"><span class="price-dash">—</span><span class="price-feature-text">Delivered within 10 working days</span></div>
+        </div>
       </div>
     </div>
 
@@ -1552,7 +1581,7 @@
     <div class="section-label" style="justify-content:center;margin-bottom:24px;">Ready to get started</div>
     <h2 class="cta-title">Stop worrying about<br><em>what to post.</em></h2>
     <p class="cta-sub">Drop us an email and we'll take it from there.</p>
-    <a href="/cdn-cgi/l/email-protection#add4c8ccdfdec1c8d4c0c8c9c4ccedcac0ccc4c183cec2c092ded8cfc7c8ced990fddfc8dec8c3d7cc889f9de8c3dcd8c4dfd4" class="btn-primary" style="font-size:14px;letter-spacing:3px;padding:18px 48px;">Contact Us Here</a>
+    <a href="mailto:yearsleymedia@gmail.com" class="btn-primary" style="font-size:14px;letter-spacing:3px;padding:18px 48px;">Contact Us Here</a>
   </div>
 </section>
 
@@ -1569,13 +1598,4 @@
   </div>
 </footer>
 
-<script>
-  // Nav scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Fade-up on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(
+<script
