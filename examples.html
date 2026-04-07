@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Posts — Presenza by Y Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --navy-mid: #162840;
+    --gold: #d4af5a;
+    --gold-light: #e8c97a;
+    --gold-dim: #9a7a3a;
+    --cream: #faf8f3;
+    --off-white: #f4f0e8;
+    --text: #2a2a3a;
+    --muted: #6a6a7a;
+    --light-border: #e8e0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text); }
+
+  /* NAV */
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    padding: 60px 60px 80px;
+    text-align: center;
+  }
+
+  .page-header-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; display: block; }
+  .page-header-title { font-family: 'Playfair Display', serif; font-size: 48px; color: #fff; font-weight: 400; margin-bottom: 16px; }
+  .page-header-title em { color: var(--gold); font-style: italic; }
+  .page-header-sub { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; line-height: 1.8; font-weight: 300; }
+
+  /* SECTION */
+  .section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 400; margin-bottom: 48px; }
+
+  /* POST EXAMPLES */
+  .post-block { border: 1px solid var(--light-border); background: #fff; margin-bottom: 24px; overflow: hidden; }
+  .post-block-header { background: var(--navy); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); }
+  .post-block-header-title { font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 600; }
+  .post-block-header-type { font-size: 9px; letter-spacing: 1px; color: rgba(212,175,90,0.5); }
+  .post-meta { display: grid; grid-template-columns: 80px 1fr; }
+  .post-meta-key { background: #faf8f3; font-size: 8px; letter-spacing: 1px; color: #aaa; padding: 8px 12px; font-weight: 600; text-transform: uppercase; border-right: 1px solid var(--light-border); border-bottom: 1px solid var(--light-border); display: flex; align-items: center; }
+  .post-meta-val { padding: 8px 14px; font-size: 11px; color: #444; border-bottom: 1px solid var(--light-border); line-height: 1.5; }
+  .post-content-label { font-size: 8px; letter-spacing: 1px; color: #aaa; padding: 10px 20px 4px; font-weight: 600; text-transform: uppercase; }
+  .post-content-body { padding: 4px 20px 20px; font-size: 12px; color: #444; line-height: 1.8; }
+  .post-content-body strong { font-size: 9px; letter-spacing: 1px; color: #aaa; display: block; margin-bottom: 4px; margin-top: 12px; }
+
+  /* BEFORE / AFTER */
+  .compare-section { background: var(--navy); padding: 80px 60px; }
+  .compare-inner { max-width: 1100px; margin: 0 auto; }
+  .compare-title { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; margin-bottom: 12px; text-align: center; }
+  .compare-title em { color: var(--gold); font-style: italic; }
+  .compare-sub { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 56px; line-height: 1.7; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* IG MOCKUP */
+  .ig-phone {
+    background: #fff;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    border: 6px solid #1a1a1a;
+  }
+
+  .ig-phone-top { background: #1a1a1a; padding: 14px 24px 8px; display: flex; justify-content: center; }
+  .ig-phone-notch { width: 100px; height: 20px; background: #000; border-radius: 0 0 16px 16px; }
+
+  .ig-post { background: #fff; }
+  .ig-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid #f0f0f0; }
+  .ig-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ig-avatar-inner { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+  .ig-avatar-y { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--gold); font-weight: 700; }
+  .ig-username { font-size: 12px; font-weight: 600; color: #000; }
+  .ig-handle { font-size: 10px; color: #888; }
+  .ig-more { margin-left: auto; font-size: 16px; color: #000; }
+  .ig-image { width: 100%; aspect-ratio: 1; background: var(--navy); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .ig-image-before { background: #f5f5f5; }
+  .ig-image-text { font-family: 'Playfair Display', serif; font-size: 22px; color: rgba(255,255,255,0.15); text-align: center; padding: 20px; }
+  .ig-before-text { color: #ccc; font-size: 14px; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+  .ig-actions { padding: 10px 14px 6px; display: flex; gap: 14px; }
+  .ig-action-icon { font-size: 20px; }
+  .ig-caption { padding: 4px 14px 12px; font-size: 11px; line-height: 1.6; color: #000; }
+  .ig-caption strong { font-weight: 700; }
+  .ig-likes { padding: 0 14px 6px; font-size: 11px; font-weight: 600; color: #000; }
+  .ig-time { padding: 0 14px 12px; font-size: 9px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .compare-label { text-align: center; margin-bottom: 20px; }
+  .compare-badge { display: inline-block; padding: 6px 20px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+  .compare-badge-before { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+  .compare-badge-after { background: var(--gold); color: var(--navy); }
+
+  /* FOOTER */
+  footer { background: #0e1520; padding: 40px 60px; border-top: 1px solid rgba(212,175,90,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-right { text-align: right; }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: rgba(212,228,245,0.8); }
+  .footer-tagline { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; margin-top: 4px; }
+  .footer-contact { font-size: 12px; color: rgba(212,175,90,0.7); letter-spacing: 1px; }
+  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 4px; }
+
+  @media (max-width: 900px) {
+    nav { padding: 14px 20px; }
+    .page-header { padding: 40px 20px 60px; }
+    .page-header-title { font-size: 32px; }
+    .section { padding: 60px 20px; }
+    .compare-section { padding: 60px 20px; }
+    div[style*="padding: 80px 60px"] { padding: 60px 20px !important; }
+    .compare-grid { grid-template-columns: 1fr; gap: 32px; }
+    .profile-compare-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .compare-section { padding: 40px 20px; }
+    .ig-phone { max-width: 280px; width: 90%; }
+    .ig-caption { font-size: 10px; }
+    .ig-likes { font-size: 10px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+  }
+
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26,26,46,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,90,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 13px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 60px; }
+  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); line-height: 1; display: block; }
+  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
+  .nav-logo-media { font-size: 8px; letter-spacing: 3px; color: var(--gold); font-weight: 500; display: block; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; letter-spacing: 2px; }
+  .nav-home { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(212,175,90,0.4); padding: 8px 20px; transition: all 0.2s; font-weight: 500; white-space: nowrap; }
+  .nav-home:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-logo-box { width: 46px; padding: 6px 10px; }
+    .nav-logo-y { font-size: 30px; }
+    .nav-logo-media { font-size: 7px; letter-spacing: 2px; }
+    .nav-brand { font-size: 26px; letter-spacing: 1px; }
+    .nav-home { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="presenza.html" class="nav-logo">
+    <div class="nav-logo-box">
+      <span class="nav-logo-y">Y</span>
+      <hr class="nav-logo-rule">
+      <span class="nav-logo-media">MEDIA</span>
+    </div>
+    <span class="nav-brand">Presenza</span>
+  </a>
+  <a href="index.html" class="nav-home">Home</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <span class="page-header-label">Sample Content</span>
+  <h1 class="page-header-title">What your content<br><em>looks like.</em></h1>
+  <p class="page-header-sub">These are sample posts to give you an idea of the content you will receive. Every package is written fresh — tailored to your tone, your audience, and your brand.</p>
+  <p style="font-size:13px;color:rgba(255,255,255,0.35);margin-top:20px;font-style:italic;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.8;">We can't guarantee likes or follower growth — no one honestly can. What we can guarantee is professionally written content, delivered on time, every time.</p>
+</div>
+
+<!-- EXAMPLE POSTS -->
+<div class="section">
+  <div class="section-label">Example Posts</div>
+  <h2 class="section-title">Three formats.<br>One service.</h2>
+
+  <!-- POST 01 -->
+  <div class="post-block">
+    <div class="post-block-header">
+      <span class="post-block-header-title">POST 01 &nbsp;·&nbsp; CAPTION</span>
+      <span class="post-block-header-type">MOTIVATION &amp; MINDSET</span>
+    </div>
+    <div class="post-meta">
+      <div class="post-meta-key">Theme</div><div class="post-meta-val">Starting before you're ready</div>
+      <div class="post-meta-key">Hook</div><div class="post-meta-val">Some days the motivation just isn't there — and honestly? That's completely okay.</div>
+    </div>
+    <div class="post-content-label">Caption</div>
+    <div class="post-content-body">Some days the motivation just isn't there — and honestly? That's completely okay. You don't need to feel ready. You just need to start. One small step today is still a step forward.<br><br>What's one thing you're going to do for yourself today? Drop it in the comments 👇</div>
+  </div>
+
+  <!-- POST 02 -->
+  <div class="post-block">
+    <div class="post-block-header">
+      <span class="post-block-header-title">POST 02 &nbsp;·&nbsp; REEL SCRIPT</span>
+      <span class="post-block-header-type">FITNESS &amp; TRAINING</span>
+    </div>
+    <div class="post-meta">
+      <div class="post-meta-key">Theme</div><div class="post-meta-val">Consistency beats intensity every time</div>
+      <div class="post-meta-key">Hook</div><div class="post-meta-val">Three sessions a week will always beat six done sporadically — here's why.</div>
+    </div>
+    <div class="post-content-label">Reel Script</div>
+    <div class="post-content-body">
+      <strong>OPEN (0–3s)</strong>
+      "If you've ever burned out trying to do all the things — this is for you."<br>
+      <strong>MIDDLE (3–20s)</strong>
+      "Three sessions a week, done consistently, will always beat six done sporadically. The best plan isn't the most impressive one — it's the one you actually stick to. On the hard weeks as well as the easy ones."<br>
+      <strong>CLOSE (20–30s)</strong>
+      "Build the sustainable version first. That's where the results actually live." 📅<br>
+      <strong>Caption</strong>
+      Consistency > intensity. Every single time. Save this if you needed the reminder.
+    </div>
+  </div>
+
+  <!-- POST 03 -->
+  <div class="post-block">
+    <div class="post-block-header">
+      <span class="post-block-header-title">POST 03 &nbsp;·&nbsp; CAROUSEL</span>
+      <span class="post-block-header-type">NUTRITION &amp; WELLNESS</span>
+    </div>
+    <div class="post-meta">
+      <div class="post-meta-key">Theme</div><div class="post-meta-val">Sustainable eating, not dieting</div>
+      <div class="post-meta-key">Hook</div><div class="post-meta-val">The best diet is the one you can maintain for life — not just until Friday.</div>
+    </div>
+    <div class="post-content-label">Carousel Slides</div>
+    <div class="post-content-body">
+      <strong>Slide 1 — Cover</strong>
+      The best diet is the one you can maintain for life — not just until Friday. 🥗<br>
+      <strong>Slide 2</strong>
+      Restriction leads to rebound. Misery leads to quitting. An approach you hate will always fail.<br>
+      <strong>Slide 3</strong>
+      Instead of "what should I cut out?" ask: "what could I add in?"<br>
+      <strong>Slide 4</strong>
+      Start here → More protein. More veg. More water. More colour on your plate.<br>
+      <strong>Slide 5</strong>
+      Add before you subtract. That's a foundation you can build on for life.<br>
+      <strong>Slide 6 — CTA</strong>
+      Ready to build a nutrition approach that actually lasts? DM me to get started.<br>
+      <strong>Caption</strong>
+      Swipe to shift your mindset around food for good. 👉 Save this one.
+    </div>
+  </div>
+</div>
+
+
+<!-- PROFILE GRID COMPARISON -->
+<div style="background: var(--off-white); padding: 80px 60px;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="text-align:center; margin-bottom: 56px;">
+      <div style="font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:12px;"><span style="display:block;width:24px;height:1px;background:var(--gold);"></span>The Bigger Picture<span style="display:block;width:24px;height:1px;background:var(--gold);"></span></div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:var(--navy);font-weight:400;margin-bottom:12px;">What your page looks like<br><em style="color:var(--gold-dim);">with and without Presenza.</em></h2>
+      <p style="font-size:14px;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8;font-weight:300;">Presenza isn't just about one great post. It's about showing up consistently — every week, without the stress.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;" class="profile-compare-grid">
+
+      <!-- WITHOUT -->
+      <div>
+        <div style="text-align:center;margin-bottom:16px;">
+          <span style="display:inline-block;padding:6px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;background:rgba(255,255,255,0.6);color:var(--muted);border:1px solid var(--light-border);">Without Presenza</span>
+        </div>
+        <div style="background:#fff;border:1px solid var(--light-border);overflow:hidden;max-width:320px;margin:0 auto;">
+          <!-- Profile header -->
+          <div style="padding:16px;border-bottom:1px solid #f0f0f0;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:42px;height:42px;border-radius:50%;background:#ccc;display:flex;align-items:center;justify-content:center;font-size:16px;color:#999;">?</div>
+              </div>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:#000;">YMedia</div>
+                <div style="font-size:11px;color:#888;margin-top:2px;">12 posts · 342 followers</div>
+              </div>
+            </div>
+            <div style="font-size:11px;color:#666;line-height:1.5;">Just trying to post when I can... 🤷</div>
+          </div>
+          <!-- Grid -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;">
+            <!-- Row 1 - some posts, some gaps -->
+            <div style="aspect-ratio:1;background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">3 weeks ago</div>
+            <div style="aspect-ratio:1;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:18px;margin-bottom:2px;">📸</div><div style="font-size:8px;color:#bbb;">2 months ago</div></div>
+            </div>
+            <div style="aspect-ratio:1;background:#eeeeee;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">5 weeks ago</div>
+            <!-- Row 2 -->
+            <div style="aspect-ratio:1;background:#f8f8f8;display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;font-size:20px;">🕐</div>
+            </div>
+            <div style="aspect-ratio:1;background:#e5e5e5;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">7 weeks ago</div>
+            <div style="aspect-ratio:1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:18px;margin-bottom:2px;">📸</div><div style="font-size:8px;color:#bbb;">3 months ago</div></div>
+            </div>
+            <!-- Row 3 - long gap -->
+            <div style="aspect-ratio:1;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:20px;">🕐</div>
+            <div style="aspect-ratio:1;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:20px;">🕐</div>
+            <div style="aspect-ratio:1;background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">5 months ago</div>
+          </div>
+          <!-- Stats -->
+          <div style="padding:12px 16px;background:#fafafa;border-top:1px solid #f0f0f0;display:flex;justify-content:space-around;text-align:center;">
+            <div><div style="font-size:13px;font-weight:600;color:#000;">12</div><div style="font-size:9px;color:#aaa;">avg likes</div></div>
+            <div><div style="font-size:13px;font-weight:600;color:#000;">0</div><div style="font-size:9px;color:#aaa;">avg comments</div></div>
+            <div><div style="font-size:13px;font-weight:600;color:#000;">Irregular</div><div style="font-size:9px;color:#aaa;">posting</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WITH PRESENZA -->
+      <div>
+        <div style="text-align:center;margin-bottom:16px;">
+          <span style="display:inline-block;padding:6px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;background:var(--gold);color:var(--navy);">With Presenza</span>
+        </div>
+        <div style="background:#fff;border:1px solid var(--gold);overflow:hidden;max-width:320px;margin:0 auto;box-shadow:0 8px 32px rgba(212,175,90,0.15);">
+          <!-- Profile header -->
+          <div style="padding:16px;border-bottom:1px solid #f0f0f0;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(45deg,#d4af5a,#f0d080);display:flex;align-items:center;justify-content:center;">
+                <div style="width:42px;height:42px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);">Y</div>
+              </div>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:#000;">YMedia</div>
+                <div style="font-size:11px;color:#888;margin-top:2px;">47 posts · 1,284 followers ↑</div>
+              </div>
+            </div>
+            <div style="font-size:11px;color:#333;line-height:1.5;font-weight:500;">Professional content. Consistent presence. <span style="color:var(--gold-dim);">Presenza by Y Media ✨</span></div>
+          </div>
+          <!-- Grid - full, consistent, active -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;">
+            <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">Today</div></div>
+            <div style="aspect-ratio:1;background:#f0ece4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-size:8px;color:var(--muted);line-height:1.4;">Yesterday</div></div>
+            <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">2 days ago</div></div>
+            <div style="aspect-ratio:1;background:#f0ece4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-size:8px;color:var(--muted);line-height:1.4;">3 days ago</div></div>
+            <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">4 days ago</div></div>
+            <div style="aspect-ratio:1;background:#f0ece4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-size:8px;color:var(--muted);line-height:1.4;">5 days ago</div></div>
+            <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">6 days ago</div></div>
+            <div style="aspect-ratio:1;background:#f0ece4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-size:8px;color:var(--muted);line-height:1.4;">1 week ago</div></div>
+            <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">1 week ago</div></div>
+          </div>
+          <!-- Stats -->
+          <div style="padding:12px 16px;background:#faf8f3;border-top:1px solid #f0ece4;display:flex;justify-content:space-around;text-align:center;">
+            <div><div style="font-size:13px;font-weight:600;color:#000;">847</div><div style="font-size:9px;color:#aaa;">avg likes</div></div>
+            <div><div style="font-size:13px;font-weight:600;color:#000;">94</div><div style="font-size:9px;color:#aaa;">avg comments</div></div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--gold-dim);">Daily</div><div style="font-size:9px;color:#aaa;">posting</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:40px;font-style:italic;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8;">Results and engagement figures are illustrative. Your results will depend on your audience, niche, and how consistently you post.</p>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<div class="compare-section">
+  <div class="compare-inner">
+    <h2 class="compare-title">See the <em>difference.</em></h2>
+    <p class="compare-sub">This is what content looks like without Presenza — and with it. Same topic. Completely different impact.</p>
+
+    <div class="compare-grid">
+
+      <!-- BEFORE -->
+      <div>
+        <div class="compare-label">
+          <span class="compare-badge compare-badge-before">Without Presenza</span>
+        </div>
+        <div class="ig-phone">
+          <div class="ig-phone-top"><div class="ig-phone-notch"></div></div>
+          <div class="ig-post">
+            <div class="ig-header">
+              <div class="ig-avatar">
+                <div class="ig-avatar-inner"><span class="ig-avatar-y">Y</span></div>
+              </div>
+              <div>
+                <div class="ig-username">YMedia</div>
+                <div class="ig-handle">Y Media</div>
+              </div>
+              <div class="ig-more">···</div>
+            </div>
+
+            <!-- BEFORE CAROUSEL -->
+            <div style="position:relative;width:100%;aspect-ratio:1;overflow:hidden;">
+              <div id="before-carousel" style="display:flex;width:500%;height:100%;transition:transform 0.4s ease;">
+                <div style="width:20%;height:100%;flex-shrink:0;background:#f2f2f2;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
+                  <div style="font-size:15px;color:#555;font-family:Arial;line-height:1.6;">How to be more consistent 💪😊</div>
+                </div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;border:1px solid #eee;">
+                  <div style="font-family:Arial;">
+                    <div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 1</div>
+                    <div style="font-size:13px;color:#777;line-height:1.6;">Just show up every day even when you don't feel like it!</div>
+                  </div>
+                </div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#f9f9f9;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
+                  <div style="font-family:Arial;">
+                    <div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 2</div>
+                    <div style="font-size:13px;color:#777;line-height:1.6;">Make a schedule and stick to it. Simple!!</div>
+                  </div>
+                </div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;border:1px solid #eee;">
+                  <div style="font-family:Arial;">
+                    <div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 3</div>
+                    <div style="font-size:13px;color:#777;line-height:1.6;">Don't give up when it gets hard lol</div>
+                  </div>
+                </div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#f2f2f2;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
+                  <div style="font-family:Arial;font-size:13px;color:#888;line-height:1.8;">Hope this was helpful!! 😊<br>Like and follow for more tips<br><span style="font-size:11px;color:#bbb;">👍👍👍</span></div>
+                </div>
+              </div>
+              <button onclick="beforePrev()" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8592;</button>
+              <button onclick="beforeNext()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8594;</button>
+              <div style="position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.4);color:#fff;font-size:9px;padding:3px 8px;border-radius:10px;" id="before-counter">1 / 5</div>
+            </div>
+
+            <div class="ig-actions">
+              <span class="ig-action-icon">🤍</span>
+              <span class="ig-action-icon">💬</span>
+              <span class="ig-action-icon">📤</span>
+            </div>
+            <div class="ig-likes">3 likes</div>
+            <div class="ig-caption"><strong>YMedia</strong> Consistency is so important!! Swipe for my tips 😊👉 #consistency #motivation #mindset #selfimprovement #health #fitness #goals #habits #growthmindset #nevergiveup #keepgoing #positivevibes #dailymotivation #success #grind</div>
+            <div class="ig-time">4 days ago</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AFTER -->
+      <div>
+        <div class="compare-label">
+          <span class="compare-badge compare-badge-after">With Presenza</span>
+        </div>
+        <div class="ig-phone">
+          <div class="ig-phone-top"><div class="ig-phone-notch"></div></div>
+          <div class="ig-post">
+            <div class="ig-header">
+              <div class="ig-avatar">
+                <div class="ig-avatar-inner"><span class="ig-avatar-y">Y</span></div>
+              </div>
+              <div>
+                <div class="ig-username">YMedia</div>
+                <div class="ig-handle">Y Media</div>
+              </div>
+              <div class="ig-more">···</div>
+            </div>
+
+            <!-- AFTER CAROUSEL -->
+            <div style="position:relative;width:100%;aspect-ratio:1;overflow:hidden;">
+              <div id="after-carousel" style="display:flex;width:600%;height:100%;transition:transform 0.4s ease;">
+                <!-- Slide 1 - Hook Cover -->
+                <!-- Slide 1 - Hook Cover -->
+                <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
+                  <div style="width:30px;height:1px;background:var(--gold);margin-bottom:18px;"></div>
+                  <div style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;line-height:1.6;margin-bottom:10px;">Consistency isn't about motivation. It's about something far more powerful...</div>
+                  <div style="font-size:10px;letter-spacing:2px;color:rgba(212,175,90,0.6);text-transform:uppercase;margin-top:12px;">Swipe to find out →</div>
+                </div>
+                <!-- Slide 2 -->
+                <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
+                  <div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:600;">The Truth</div>
+                  <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);line-height:1.5;">Motivation is a visitor.<br><br><span style="color:var(--gold);">Discipline is a resident.</span></div>
+                  <div style="width:30px;height:1px;background:var(--gold);margin:16px auto;"></div>
+                  <div style="font-size:12px;color:var(--muted);line-height:1.7;">Build the habit. Not the hype.</div>
+                </div>
+                <!-- Slide 3 -->
+                <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--off-white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
+                  <div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:600;">Stop Waiting For</div>
+                  <div style="font-size:13px;color:var(--navy);line-height:2;">The perfect moment.<br>The right mood.<br>The motivation to strike.<br><br><span style="font-weight:600;color:var(--gold);">It's not coming.</span></div>
+                </div>
+                <!-- Slide 4 -->
+                <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:28px;">
+                  <div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:600;">Start With This</div>
+                  <div style="display:flex;flex-direction:column;gap:14px;width:100%;">
+                    <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);">→</span><span style="font-size:12px;color:#fff;line-height:1.5;">Show up on the hard days</span></div>
+                    <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);">→</span><span style="font-size:12px;color:#fff;line-height:1.5;">Do less than you think you need to</span></div>
+                    <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);">→</span><span style="font-size:12px;color:#fff;line-height:1.5;">Repeat until it's just who you are</span></div>
+                  </div>
+                </div>
+                <!-- Slide 5 -->
+                <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
+                  <div style="width:30px;height:1px;background:var(--gold);margin:0 auto 20px;"></div>
+                  <div style="font-size:13px;color:var(--navy);line-height:1.8;">The secret to consistency<br>is simply<br><span style="font-weight:600;color:var(--gold);">not stopping.</span></div>
+                </div>
+                <!-- Slide 6 - CTA -->
+                <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
+                  <div style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:20px;line-height:1.6;">Save this for the next time you want to quit.</div>
+                  <div style="border:1px solid var(--gold);color:var(--gold);padding:8px 20px;font-size:9px;letter-spacing:2px;font-weight:600;text-transform:uppercase;margin-bottom:16px;">Drop a comment below</div>
+                  <div style="font-size:8px;letter-spacing:2px;color:rgba(212,175,90,0.4);text-transform:uppercase;">Presenza · Y Media</div>
+                </div>
+              </div>
+              <button onclick="afterPrev()" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8592;</button>
+              <button onclick="afterNext()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8594;</button>
+              <div style="position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.4);color:#fff;font-size:9px;padding:3px 8px;border-radius:10px;" id="after-counter">1 / 6</div>
+            </div>
+
+            <div class="ig-actions">
+              <span class="ig-action-icon">❤️</span>
+              <span class="ig-action-icon">💬</span>
+              <span class="ig-action-icon">📤</span>
+              <span style="margin-left:auto;font-size:20px;">🔖</span>
+            </div>
+            <div class="ig-likes">847 likes</div>
+            <div style="padding:4px 14px 2px;font-size:10px;color:var(--gold);letter-spacing:1px;font-style:italic;">👇 Tap <strong style="font-style:normal;">more</strong> below to read the full caption</div>
+            <div class="ig-caption">
+              <strong>YMedia</strong>
+              <span id="caption-short"> Consistency isn't about motivation. It's about something far more powerful... <span style="color:#999;cursor:pointer;text-decoration:underline;" onclick="document.getElementById('caption-short').style.display='none';document.getElementById('caption-full').style.display='inline';">more</span></span>
+              <span id="caption-full" style="display:none;"> Consistency isn't about motivation. It's about something far more powerful.<br><br>
+              Motivation is a visitor. Discipline is a resident.<br><br>
+              Stop waiting for the perfect moment, the right mood, or the motivation to strike.<br><br>
+              It's not coming.<br><br>
+              Show up on the hard days.<br>
+              Do less than you think you need to.<br>
+              Repeat until it's just who you are.<br><br>
+              The secret to consistency is simply not stopping. 🔁<br><br>
+              Save this for the next time you want to quit.<br><br>
+              Drop a comment below if this hit home 👇</span>
+            </div>
+            <div style="padding:2px 14px 6px;font-size:11px;color:#0095f6;">View all 94 comments</div>
+            <div class="ig-time">2 hours ago</div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- BOTTOM CTA -->
+<div style="background:var(--navy);padding:60px 60px;text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <div style="font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Ready to get started?</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:#fff;font-weight:400;margin-bottom:12px;">Like what you see?</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:36px;line-height:1.8;font-weight:300;">Head back and choose your package — or get in touch and we'll take it from there.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="presenza.html#pricing" style="background:var(--gold);color:var(--navy);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background 0.2s;">View Packages</a>
+      <a href="/cdn-cgi/l/email-protection#19607c786b6a757c60747c7d7078597e74787075377a7674266a6c7b737c7a6d24496b7c6a7c7763783c2b295c77686c706b60" style="background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div style="background:var(--cream);padding:40px 60px;">
+  <div style="max-width:1100px;margin:0 auto;border-left:3px solid var(--gold);padding:20px 28px;background:#fff;">
+    <div style="font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:8px;">Please Note</div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.8;">Presenza provides written content across all tiers — captions, reel scripts, and carousel copy. Tier 3 Premium additionally includes custom branded visuals for every post. The images shown in the examples above are for illustrative purposes only. Tiers 1 and 2 are writing-only packages.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Presenza by Y Media</div>
+    <div class="footer-tagline">CONTENT · CONSISTENCY · PRESENCE</div>
+  </div>
+  <div class="footer-right">
+    <div class="footer-contact"><span id="em"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
+    <a href="https://www.instagram.com/yearsleymedia" targY Media. All rights reserved.</div>
+  </div>
+</footer>
+
+
+
+<script>
+  let beforeCurrent = 0;
+  let afterCurrent = 0;
+
+  function beforeNext() {
+    beforeCurrent = beforeCurrent < 4 ? beforeCurrent + 1 : 0;
+    document.getElementById('before-carousel').style.transform = 'translateX(-' + (100/5 * beforeCurrent) + '%)';
+    document.getElementById('before-counter').textContent = (beforeCurrent+1) + ' / 5';
+  }
+  function beforePrev() {
+    beforeCurrent = beforeCurrent > 0 ? beforeCurrent - 1 : 4;
+    document.getElementById('before-carousel').style.transform = 'translateX(-' + (100/5 * beforeCurrent) + '%)';
+    document.getElementById('before-counter').textContent = (beforeCurrent+1) + ' / 5';
+  }
+
+  function afterNext() {
+    afterCurrent = afterCurrent < 5 ? afterCurrent + 1 : 0;
+    document.getElementById('after-carousel').style.transform = 'translateX(-' + (100/6 * afterCurrent) + '%)';
+    document.getElementById('after-counter').textContent = (afterCurrent+1) + ' / 6';
+  }
+  function afterPrev() {
+    afterCurrent = afterCurrent > 0 ? afterCurrent - 1 : 5;
+    document.getElementById('after-carousel').style.transform = 'translateX(-' + (100/6 * afterCurrent) + '%)';
+    document.getElementById('after-counter').textContent = (afterCurrent+1) + ' / 6';
+  }
+
+  setInterval(afterNext, 6000);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
