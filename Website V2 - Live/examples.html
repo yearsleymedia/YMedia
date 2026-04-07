@@ -25,23 +25,6 @@
   body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text); }
 
   /* NAV */
-  nav {
-    background: var(--navy);
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--gold);
-  }
-
-  .nav-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 14px; text-align: center; width: 64px; display: flex; flex-direction: column; align-items: center; }
-  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 46px; color: var(--gold); line-height: 1; display: block; text-align: center; width: 100%; }
-  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
-  .nav-logo-media { font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 500; display: block; text-align: center; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 46px; color: #fff; font-weight: 400; letter-spacing: 3px; }
-  .nav-back { font-size: 9px; letter-spacing: 1.5px; color: rgba(255,255,255,0.6); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; transition: all 0.2s; white-space: nowrap; }
-  .nav-back:hover { color: var(--gold); border-color: var(--gold); }
 
   /* PAGE HEADER */
   .page-header {
@@ -130,10 +113,6 @@
 
   @media (max-width: 900px) {
     nav { padding: 14px 20px; }
-    .nav-brand { font-size: 24px; }
-    .nav-logo-box { width: 44px; padding: 6px 10px; }
-    .nav-logo-y { font-size: 28px; }
-    .nav-back { font-size: 9px; letter-spacing: 1px; padding: 6px 12px; }
     .page-header { padding: 40px 20px 60px; }
     .page-header-title { font-size: 32px; }
     .section { padding: 60px 20px; }
@@ -147,6 +126,36 @@
     .ig-likes { font-size: 10px; }
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
     .footer-right { text-align: center; }
+  }
+
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26,26,46,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,90,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-box { border: 1px solid var(--gold); padding: 8px 13px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 60px; }
+  .nav-logo-y { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); line-height: 1; display: block; }
+  .nav-logo-rule { border: none; border-top: 1px solid var(--gold); margin: 3px 0; width: 100%; }
+  .nav-logo-media { font-size: 8px; letter-spacing: 3px; color: var(--gold); font-weight: 500; display: block; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; letter-spacing: 2px; }
+  .nav-home { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(212,175,90,0.4); padding: 8px 20px; transition: all 0.2s; font-weight: 500; white-space: nowrap; }
+  .nav-home:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-logo-box { width: 46px; padding: 6px 10px; }
+    .nav-logo-y { font-size: 30px; }
+    .nav-logo-media { font-size: 7px; letter-spacing: 2px; }
+    .nav-brand { font-size: 26px; letter-spacing: 1px; }
+    .nav-home { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
   }
 
 </style>
@@ -163,7 +172,7 @@
     </div>
     <span class="nav-brand">Presenza</span>
   </a>
-  <a href="presenza.html" class="nav-back">← Back to Home</a>
+  <a href="index.html" class="nav-home">Home</a>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -535,7 +544,7 @@
     <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:36px;line-height:1.8;font-weight:300;">Head back and choose your package — or get in touch and we'll take it from there.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="presenza.html#pricing" style="background:var(--gold);color:var(--navy);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background 0.2s;">View Packages</a>
-      <a href="mailto:yearsleymedia@gmail.com?subject=Presenza%20Enquiry" style="background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;">Get In Touch</a>
+      <a href="/cdn-cgi/l/email-protection#19607c786b6a757c60747c7d7078597e74787075377a7674266a6c7b737c7a6d24496b7c6a7c7763783c2b295c77686c706b60" style="background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;">Get In Touch</a>
     </div>
   </div>
 </div>
@@ -544,7 +553,7 @@
 <div style="background:var(--cream);padding:40px 60px;">
   <div style="max-width:1100px;margin:0 auto;border-left:3px solid var(--gold);padding:20px 28px;background:#fff;">
     <div style="font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:8px;">Please Note</div>
-    <p style="font-size:13px;color:var(--muted);line-height:1.8;">Presenza provides written content only — captions, reel scripts, and carousel copy. We do not produce, source, or provide imagery, graphics, video, or any other visual assets. The images shown in the examples above are for illustrative purposes only and are not part of the service.</p>
+    <p style="font-size:13px;color:var(--muted);line-height:1.8;">Presenza provides written content across all tiers — captions, reel scripts, and carousel copy. Tier 3 Premium additionally includes custom branded visuals for every post. The images shown in the examples above are for illustrative purposes only. Tiers 1 and 2 are writing-only packages.</p>
   </div>
 </div>
 
@@ -555,9 +564,8 @@
     <div class="footer-tagline">CONTENT · CONSISTENCY · PRESENCE</div>
   </div>
   <div class="footer-right">
-    <div class="footer-contact"><span id="em"></span><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
-    <a href="https://www.instagram.com/yearsleymedia" target="_blank" style="display:inline-block;margin-top:8px;font-size:11px;color:rgba(212,175,90,0.7);text-decoration:none;">📷 @yearsleymedia</a>
-    <div class="footer-copy">© 2025 Y Media. All rights reserved.</div>
+    <div class="footer-contact"><span id="em"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
+    <a href="https://www.instagram.com/yearsleymedia" targY Media. All rights reserved.</div>
   </div>
 </footer>
 
