@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Onboarding — Presenza by Y Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a1a2e;--navy-deep:#0e1520;--gold:#d4af5a;--gold-light:#e8c97a;--gold-dim:#9a7a3a;--cream:#faf8f3;--off-white:#f4f0e8;--text:#2a2a3a;--muted:#6a6a7a;--light-border:#e8e0d0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:rgba(26,26,46,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,90,0.15);padding:16px 60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav-logo-box{border:1px solid var(--gold);padding:6px 10px;display:flex;flex-direction:column;align-items:center;width:50px;}
+.nav-logo-y{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);line-height:1;}
+.nav-logo-rule{border:none;border-top:1px solid var(--gold);margin:2px 0;width:100%;}
+.nav-logo-media{font-size:7px;letter-spacing:3px;color:var(--gold);font-weight:500;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:28px;color:#fff;font-weight:400;letter-spacing:2px;}
+.nav-doc-label{font-size:9px;letter-spacing:2px;color:rgba(212,175,90,0.6);text-transform:uppercase;border:1px solid rgba(212,175,90,0.25);padding:6px 14px;}
+.page-header{background:var(--navy);padding:60px 60px 56px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(212,175,90,0.05) 0%,transparent 70%);}
+.ph-inner{position:relative;z-index:1;max-width:760px;}
+.ph-label{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.ph-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.ph-title{font-family:'Playfair Display',serif;font-size:42px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:16px;}
+.ph-title em{color:var(--gold);font-style:italic;}
+.ph-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;font-weight:300;max-width:560px;}
+.ph-note{margin-top:20px;padding:14px 20px;background:rgba(212,175,90,0.08);border-left:2px solid var(--gold);font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:560px;}
+.form-wrap{max-width:800px;margin:0 auto;padding:60px 60px 80px;}
+.form-section{margin-bottom:48px;}
+.fs-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--light-border);}
+.fs-num{width:36px;height:36px;background:var(--navy);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);flex-shrink:0;}
+.fs-title{font-size:14px;font-weight:600;color:var(--navy);}
+.fs-desc{font-size:12px;color:var(--muted);margin-top:2px;}
+.field{margin-bottom:22px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px;}
+.fl{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--navy);margin-bottom:7px;}
+.fl .req{color:var(--gold);margin-left:3px;}
+.fl .hint{font-size:10px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:400;margin-left:6px;}
+input[type=text],input[type=email],select,textarea{width:100%;background:#fff;border:1px solid var(--light-border);padding:12px 16px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;appearance:none;border-radius:0;}
+input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{border-color:var(--gold);}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af5a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+textarea{resize:vertical;min-height:100px;line-height:1.7;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;}
+.ci{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--light-border);background:#fff;cursor:pointer;transition:border-color 0.15s,background 0.15s;font-size:12px;color:var(--text);line-height:1.4;user-select:none;}
+.ci:hover{border-color:var(--gold);background:#faf8f3;}
+.ci.selected{border-color:var(--gold);background:rgba(212,175,90,0.06);}
+.ci-box{width:14px;height:14px;border:1.5px solid var(--light-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.ci.selected .ci-box{background:var(--gold);border-color:var(--gold);}
+.ci-tick{display:none;font-size:9px;color:var(--navy);font-weight:700;}
+.ci.selected .ci-tick{display:block;}
+.radio-stack{display:flex;flex-direction:column;gap:8px;}
+.ri{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border:1px solid var(--light-border);background:#fff;cursor:pointer;transition:border-color 0.15s,background 0.15s;user-select:none;}
+.ri:hover{border-color:var(--gold);background:#faf8f3;}
+.ri.selected{border-color:var(--gold);background:rgba(212,175,90,0.06);}
+.ri-dot{width:16px;height:16px;border:1.5px solid var(--light-border);border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.ri.selected .ri-dot{border-color:var(--gold);background:var(--gold);}
+.ri-inner{width:6px;height:6px;border-radius:50%;background:var(--navy);display:none;}
+.ri.selected .ri-inner{display:block;}
+.ri-label{font-size:12px;font-weight:500;color:var(--navy);}
+.ri-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.scale-wrap{display:flex;gap:6px;}
+.sb{width:42px;height:42px;background:#fff;border:1px solid var(--light-border);font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:'Montserrat',sans-serif;}
+.sb:hover{border-color:var(--gold);color:var(--navy);}
+.sb.active{background:var(--navy);border-color:var(--gold);color:var(--gold);}
+.scale-labels{display:flex;justify-content:space-between;margin-top:6px;max-width:222px;}
+.sl-text{font-size:10px;color:var(--muted);}
+.submit-area{background:var(--navy);padding:44px 48px;margin-top:16px;border:1px solid rgba(212,175,90,0.2);}
+.submit-title{font-family:'Playfair Display',serif;font-size:26px;color:#fff;margin-bottom:10px;}
+.submit-sub{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:32px;font-weight:300;max-width:560px;}
+.submit-buttons{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-submit{background:var(--gold);color:var(--navy);border:none;padding:16px 32px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-submit:hover{background:var(--gold-light);}
+.btn-sec{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:16px 24px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-sec:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.submit-note{margin-top:20px;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.7;}
+.success-banner{display:none;margin-top:24px;padding:18px 22px;background:rgba(45,180,100,0.1);border:1px solid rgba(45,180,100,0.3);border-left:3px solid #2db464;color:#2db464;font-size:13px;line-height:1.7;}
+.form-footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,90,0.12);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ff-brand{font-family:'Playfair Display',serif;font-size:15px;color:rgba(212,228,245,0.6);}
+.ff-note{font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:1px;margin-top:2px;}
+.ff-right{font-size:11px;color:rgba(212,175,90,0.5);}
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .page-header{padding:40px 20px;}
+  .ph-title{font-size:30px;}
+  .form-wrap{padding:40px 20px;}
+  .field-row{grid-template-columns:1fr;}
+  .check-grid{grid-template-columns:1fr;}
+  .submit-area{padding:32px 24px;}
+  .form-footer{flex-direction:column;text-align:center;padding:24px 20px;}
+  .ff-right{text-align:center;}
+}
+@media print{nav,.submit-area{display:none;}.form-wrap{padding:20px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="presenza.html" class="nav-logo">
+    <div class="nav-logo-box">
+      <span class="nav-logo-y">Y</span>
+      <hr class="nav-logo-rule">
+      <span class="nav-logo-media">MEDIA</span>
+    </div>
+    <span class="nav-brand">Presenza</span>
+  </a>
+  <div class="nav-doc-label">Client Onboarding</div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-label">Paying Clients Only — Confidential</div>
+    <h1 class="ph-title">Tell us about<br><em>your brand.</em></h1>
+    <p class="ph-sub">This takes about 10 minutes. The more detail you give us, the better your content will be. When you're done, hit the button at the bottom and your answers will come straight to us.</p>
+    <div class="ph-note">Everything you share is confidential and used only to create your content.</div>
+  </div>
+</div>
+
+<div class="form-wrap">
+
+  <!-- 1. ABOUT YOU -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">1</div>
+      <div><div class="fs-title">About You</div><div class="fs-desc">Your name, business, and what you do</div></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label class="fl">Your name <span class="req">*</span></label><input type="text" id="f_name"></div>
+      <div class="field"><label class="fl">Business / brand name <span class="req">*</span></label><input type="text" id="f_biz"></div>
+    </div>
+    <div class="field"><label class="fl">What do you do? <span class="req">*</span> <span class="hint">Be as specific as possible</span></label><textarea id="f_what"></textarea></div>
+    <div class="field-row">
+      <div class="field"><label class="fl">Your email address <span class="req">*</span></label><input type="email" id="f_email"></div>
+      <div class="field"><label class="fl">Instagram handle <span class="hint">(optional)</span></label><input type="text" id="f_insta"></div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label class="fl">Package selected <span class="req">*</span></label>
+        <select id="f_pkg">
+          <option value="" disabled selected>Select your tier</option>
+          <option>Tier 1 — 15 Captions (£30)</option>
+          <option>Tier 2 — 30 Posts (£40)</option>
+          <option>Tier 3 Premium — 30 Posts + Visuals (£80)</option>
+        </select>
+      </div>
+      <div class="field"><label class="fl">Order reference <span class="hint">(from confirmation email)</span></label><input type="text" id="f_ref"></div>
+    </div>
+  </div>
+
+  <!-- 2. YOUR AUDIENCE -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">2</div>
+      <div><div class="fs-title">Your Audience</div><div class="fs-desc">Who are you talking to?</div></div>
+    </div>
+    <div class="field"><label class="fl">Describe your ideal client <span class="req">*</span></label><textarea id="f_client"></textarea></div>
+    <div class="field"><label class="fl">Their biggest struggle or pain point</label><textarea id="f_pain"></textarea></div>
+    <div class="field"><label class="fl">What transformation do you help them achieve?</label><textarea id="f_transform"></textarea></div>
+  </div>
+
+  <!-- 3. TONE OF VOICE -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">3</div>
+      <div><div class="fs-title">Tone of Voice</div><div class="fs-desc">How you communicate — so we write like you, not like us</div></div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Your tone <span class="req">*</span> <span class="hint">Select all that apply</span></label>
+      <div class="check-grid" id="tone-grid">
+        <div class="ci" data-group="tone" data-val="Warm and supportive" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Warm &amp; supportive</div>
+        <div class="ci" data-group="tone" data-val="Direct and confident" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Direct &amp; confident</div>
+        <div class="ci" data-group="tone" data-val="Motivating and energetic" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Motivating &amp; energetic</div>
+        <div class="ci" data-group="tone" data-val="Calm and reassuring" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Calm &amp; reassuring</div>
+        <div class="ci" data-group="tone" data-val="Educational and informative" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Educational &amp; informative</div>
+        <div class="ci" data-group="tone" data-val="Real and honest" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Real &amp; honest</div>
+        <div class="ci" data-group="tone" data-val="Witty and humorous" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Witty &amp; humorous</div>
+        <div class="ci" data-group="tone" data-val="Professional and polished" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Professional &amp; polished</div>
+        <div class="ci" data-group="tone" data-val="Casual and conversational" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Casual &amp; conversational</div>
+        <div class="ci" data-group="tone" data-val="Tough love and no-nonsense" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Tough love / no-nonsense</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Formality level <span class="req">*</span></label>
+      <div class="scale-wrap" id="formality-wrap">
+        <button type="button" class="sb" onclick="pickScale('formality',1,this)">1</button>
+        <button type="button" class="sb" onclick="pickScale('formality',2,this)">2</button>
+        <button type="button" class="sb" onclick="pickScale('formality',3,this)">3</button>
+        <button type="button" class="sb" onclick="pickScale('formality',4,this)">4</button>
+        <button type="button" class="sb" onclick="pickScale('formality',5,this)">5</button>
+      </div>
+      <div class="scale-labels"><span class="sl-text">Very casual</span><span class="sl-text">Very formal</span></div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Do you use emoji? <span class="req">*</span></label>
+      <div class="radio-stack">
+        <div class="ri" data-group="emoji" data-val="Yes, quite a lot" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Yes, quite a lot</div></div></div>
+        <div class="ri" data-group="emoji" data-val="Occasionally — one or two" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Occasionally — one or two</div></div></div>
+        <div class="ri" data-group="emoji" data-val="No, I prefer not to" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">No, I prefer not to</div></div></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Do you use very informal language or swear occasionally? <span class="req">*</span></label>
+      <div class="radio-stack">
+        <div class="ri" data-group="swear" data-val="Yes, occasionally — it fits my style" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Yes, occasionally — it fits my style</div></div></div>
+        <div class="ri" data-group="swear" data-val="No, I keep it clean" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">No, I keep it clean</div></div></div>
+      </div>
+    </div>
+
+    <div class="field"><label class="fl">An example of your writing <span class="hint">(paste a caption or anything you've written)</span></label><textarea id="f_example"></textarea></div>
+    <div class="field-row">
+      <div class="field"><label class="fl">Words / phrases you love to use</label><input type="text" id="f_love"></div>
+      <div class="field"><label class="fl">Words / phrases to avoid</label><input type="text" id="f_avoid"></div>
+    </div>
+  </div>
+
+  <!-- 4. CONTENT FOCUS -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">4</div>
+      <div><div class="fs-title">Content Focus</div><div class="fs-desc">What you want to talk about most</div></div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Preferred topics <span class="hint">Select your favourites</span></label>
+      <div class="check-grid" id="topics-grid">
+        <div class="ci" data-group="topics" data-val="Motivation and Mindset" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Motivation &amp; Mindset</div>
+        <div class="ci" data-group="topics" data-val="Fitness and Training" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Fitness &amp; Training</div>
+        <div class="ci" data-group="topics" data-val="Nutrition and Healthy Eating" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Nutrition &amp; Healthy Eating</div>
+        <div class="ci" data-group="topics" data-val="Weight Loss and Transformation" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Weight Loss &amp; Transformation</div>
+        <div class="ci" data-group="topics" data-val="Life Coaching and Personal Development" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Life Coaching &amp; Personal Dev</div>
+        <div class="ci" data-group="topics" data-val="Mental Health and Wellness" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Mental Health &amp; Wellness</div>
+        <div class="ci" data-group="topics" data-val="Habit Building and Routine" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Habit Building &amp; Routine</div>
+        <div class="ci" data-group="topics" data-val="Coaching Business and Online Presence" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Coaching Business &amp; Online Presence</div>
+        <div class="ci" data-group="topics" data-val="Confidence and Self-Belief" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Confidence &amp; Self-Belief</div>
+        <div class="ci" data-group="topics" data-val="Community and Engagement" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Community &amp; Engagement</div>
+        <div class="ci" data-group="topics" data-val="Goal Setting and Success" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Goal Setting &amp; Success</div>
+        <div class="ci" data-group="topics" data-val="Self-Care and Balance" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Self-Care &amp; Balance</div>
+        <div class="ci" data-group="topics" data-val="Energy, Sleep and Recovery" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Energy, Sleep &amp; Recovery</div>
+        <div class="ci" data-group="topics" data-val="Mindset for Coaches" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Mindset for Coaches</div>
+      </div>
+    </div>
+
+    <div class="field"><label class="fl">Topics to avoid</label><textarea id="f_topicavoid" style="min-height:80px;"></textarea></div>
+    <div class="field"><label class="fl">Anything specific to include? <span class="hint">(launches, events, seasonal themes)</span></label><textarea id="f_specific" style="min-height:80px;"></textarea></div>
+  </div>
+
+  <!-- 5. FORMAT -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">5</div>
+      <div><div class="fs-title">Format Preferences</div><div class="fs-desc">How you like your content structured</div></div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Caption length preference <span class="req">*</span></label>
+      <div class="radio-stack">
+        <div class="ri" data-group="caplen" data-val="Short and punchy — 1 to 3 lines" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Short &amp; punchy</div><div class="ri-sub">1–3 lines, straight to the point</div></div></div>
+        <div class="ri" data-group="caplen" data-val="Medium — a few meaningful sentences" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Medium</div><div class="ri-sub">A few sentences, enough to say something real</div></div></div>
+        <div class="ri" data-group="caplen" data-val="Long-form — story-led and detailed" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Long-form</div><div class="ri-sub">Story-led captions that really connect</div></div></div>
+        <div class="ri" data-group="caplen" data-val="Mix of all lengths" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Mix it up</div><div class="ri-sub">Variety of short, medium and long across the batch</div></div></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Call to action style <span class="req">*</span></label>
+      <div class="radio-stack">
+        <div class="ri" data-group="cta" data-val="Soft — gentle engagement (drop a comment, save this)" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Soft</div><div class="ri-sub">Gentle — "drop a comment", "save this for later"</div></div></div>
+        <div class="ri" data-group="cta" data-val="Direct — clear action (DM me, link in bio, book now)" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Direct</div><div class="ri-sub">Clear action — "DM me", "link in bio", "book your spot"</div></div></div>
+        <div class="ri" data-group="cta" data-val="Mix of soft and direct" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Mix of both</div></div></div>
+      </div>
+    </div>
+
+    <div class="field"><label class="fl">Specific CTA to use? <span class="hint">(optional)</span></label><input type="text" id="f_ctaspecific"></div>
+  </div>
+
+  <!-- 6. BRAND VISUALS -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">6</div>
+      <div><div class="fs-title">Brand Visuals</div><div class="fs-desc">Tier 3 Premium only — skip this section if you are on Tier 1 or Tier 2</div></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label class="fl">Brand colours <span class="hint">(hex codes or describe)</span></label><input type="text" id="f_colours"></div>
+      <div class="field"><label class="fl">Brand fonts <span class="hint">(if known)</span></label><input type="text" id="f_fonts"></div>
+    </div>
+    <div class="field"><label class="fl">Describe your visual style</label><textarea id="f_visual" style="min-height:80px;"></textarea></div>
+    <div class="field">
+      <label class="fl">Do you have a logo or brand assets to send us?</label>
+      <div class="radio-stack">
+        <div class="ri" data-group="assets" data-val="Yes — I will email them separately to yearsleymedia@gmail.com" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Yes — I'll email them separately</div></div></div>
+        <div class="ri" data-group="assets" data-val="No — please create something based on my description above" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">No — please create something from my description</div></div></div>
+        <div class="ri" data-group="assets" data-val="Not applicable — I am not on Tier 3" onclick="pickRI(this)"><div class="ri-dot"><div class="ri-inner"></div></div><div><div class="ri-label">Not applicable — I'm not on Tier 3</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. FINAL NOTES -->
+  <div class="form-section">
+    <div class="fs-header">
+      <div class="fs-num">7</div>
+      <div><div class="fs-title">Final Notes</div><div class="fs-desc">Anything else we should know</div></div>
+    </div>
+    <div class="field"><label class="fl">Anything important about you, your brand, or your audience?</label><textarea id="f_extra"></textarea></div>
+    <div class="field"><label class="fl">Content you love as inspiration <span class="hint">(accounts, posts, styles you admire)</span></label><textarea id="f_inspo" style="min-height:80px;"></textarea></div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-area">
+    <div class="submit-title">Ready to send?</div>
+    <p class="submit-sub">Click the button below and your answers will open in an email to us — already filled in and ready to go. Just hit send. If you're on Tier 3 and have brand assets, attach them to the same email before sending.</p>
+    <div class="submit-buttons">
+      <button type="button" class="btn-submit" onclick="sendEmail()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Send to Presenza
+      </button>
+      <button type="button" class="btn-sec" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save as PDF
+      </button>
+    </div>
+    <p class="submit-note">Clicking "Send to Y Media" opens your email app with everything pre-filled. Simply hit send. Your content will be delivered within the agreed timeframe from when we receive this form.</p>
+    <div class="success-banner" id="success-msg">
+      ✓ &nbsp;Your email app should have opened with your answers ready to send. Just hit send in your email. If it didn't open automatically, email yearsleymedia@gmail.com and we'll sort it from there.
+    </div>
+  </div>
+
+</div>
+
+<div class="form-footer">
+  <div>
+    <div class="ff-brand">Presenza by Y Media</div>
+    <div class="ff-note">CONTENT · CONSISTENCY · PRESENCE</div>
+  </div>
+  <div class="ff-right">yearsleymedia@gmail.com</div>
+</div>
+
+<script>
+const S={formality:null,tone:[],topics:[],radios:{}};
+
+function toggleCI(el){
+  el.classList.toggle('selected');
+  const g=el.dataset.group, v=el.dataset.val;
+  if(!S[g]) S[g]=[];
+  if(el.classList.contains('selected')){S[g].push(v);}
+  else{S[g]=S[g].filter(x=>x!==v);}
+}
+
+function pickScale(name,val,btn){
+  btn.closest('.scale-wrap').querySelectorAll('.sb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  S[name]=val;
+}
+
+function pickRI(el){
+  const g=el.dataset.group;
+  document.querySelectorAll('[data-group="'+g+'"]').forEach(r=>r.classList.remove('selected'));
+  el.classList.add('selected');
+  S.radios[g]=el.dataset.val;
+}
+
+function v(id){return(document.getElementById(id)||{}).value||'';}
+
+function sendEmail(){
+  const name=v('f_name'), biz=v('f_biz'), pkg=v('f_pkg');
+  const subj='Presenza Onboarding — '+name+' ('+biz+') — '+pkg;
+  let b='PRESENZA CLIENT ONBOARDING\n==========================\n\n';
+  b+='NAME: '+name+'\nBUSINESS: '+biz+'\nEMAIL: '+v('f_email')+'\nINSTAGRAM: '+(v('f_insta')||'N/A')+'\nPACKAGE: '+pkg+'\nORDER REF: '+(v('f_ref')||'N/A')+'\n\n';
+  b+='--- AUDIENCE ---\nIDEAL CLIENT:\n'+v('f_client')+'\n\nPAIN POINT:\n'+(v('f_pain')||'Not provided')+'\n\nTRANSFORMATION:\n'+(v('f_transform')||'Not provided')+'\n\n';
+  b+='--- TONE & VOICE ---\n';
+  b+='TONE: '+((S.tone||[]).length?(S.tone||[]).join(', '):'Not selected')+'\n';
+  b+='FORMALITY (1-5): '+(S.formality||'Not selected')+'\n';
+  b+='EMOJI USE: '+(S.radios.emoji||'Not selected')+'\n';
+  b+='INFORMAL LANGUAGE: '+(S.radios.swear||'Not selected')+'\n';
+  b+='WRITING EXAMPLE:\n'+(v('f_example')||'Not provided')+'\n';
+  b+='WORDS LOVE: '+(v('f_love')||'N/A')+'\nWORDS AVOID: '+(v('f_avoid')||'N/A')+'\n\n';
+  b+='--- CONTENT FOCUS ---\n';
+  b+='TOPICS: '+((S.topics||[]).length?(S.topics||[]).join(', '):'Not selected')+'\n';
+  b+='TOPICS TO AVOID:\n'+(v('f_topicavoid')||'None')+'\nSPECIFIC CONTENT:\n'+(v('f_specific')||'None')+'\n\n';
+  b+='--- FORMAT ---\n';
+  b+='CAPTION LENGTH: '+(S.radios.caplen||'Not selected')+'\nCTA STYLE: '+(S.radios.cta||'Not selected')+'\nSPECIFIC CTA: '+(v('f_ctaspecific')||'N/A')+'\n\n';
+  b+='--- BRAND VISUALS (TIER 3) ---\n';
+  b+='COLOURS: '+(v('f_colours')||'N/A')+'\nFONTS: '+(v('f_fonts')||'N/A')+'\nVISUAL STYLE:\n'+(v('f_visual')||'N/A')+'\nBRAND ASSETS: '+(S.radios.assets||'N/A')+'\n\n';
+  b+='--- FINAL NOTES ---\n';
+  b+='EXTRA INFO:\n'+(v('f_extra')||'None')+'\n\nCONTENT INSPIRATION:\n'+(v('f_inspo')||'None');
+  window.location.href='mailto:yearsleymedia@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
+  setTimeout(()=>{
+    const msg=document.getElementById('success-msg');
+    msg.style.display='block';
+    msg.scrollIntoView({behavior:'smooth',block:'center'});
+  },800);
+}
+</script>
+</body>
+</html>
