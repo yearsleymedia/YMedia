@@ -76,6 +76,7 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
 .btn-sec{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:16px 24px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;}
 .btn-sec:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
 .submit-note{margin-top:20px;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.7;}
+.field-guide{font-size:11px;color:var(--muted);line-height:1.7;margin-top:8px;padding:10px 14px;background:var(--off-white);border-left:2px solid var(--gold);font-style:italic;font-weight:300;}
 .success-banner{display:none;margin-top:24px;padding:18px 22px;background:rgba(45,180,100,0.1);border:1px solid rgba(45,180,100,0.3);border-left:3px solid #2db464;color:#2db464;font-size:13px;line-height:1.7;}
 .form-footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,90,0.12);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .ff-brand{font-family:'Playfair Display',serif;font-size:15px;color:rgba(212,228,245,0.6);}
@@ -113,8 +114,8 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
   <div class="ph-inner">
     <div class="ph-label">Paying Clients Only — Confidential</div>
     <h1 class="ph-title">Tell us about<br><em>your brand.</em></h1>
-    <p class="ph-sub">This takes about 10 minutes. The more detail you give us, the better your content will be. When you're done, hit the button at the bottom and your answers will come straight to us.</p>
-    <div class="ph-note">Everything you share is confidential and used only to create your content.</div>
+    <p class="ph-sub">This takes about 10 minutes. The more honestly and specifically you fill this in, the better your content will be — so please don't rush it. Every answer shapes what we write for you. When you're done, hit the button at the bottom and your answers come straight to us.</p>
+    <div class="ph-note">The gold prompts beneath each question are there to help you think — not to limit what you write. Say as much or as little as you like. Everything you share is confidential and used only to create your content.</div>
   </div>
 </div>
 
@@ -130,7 +131,7 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
       <div class="field"><label class="fl">Your name <span class="req">*</span></label><input type="text" id="f_name"></div>
       <div class="field"><label class="fl">Business / brand name <span class="req">*</span></label><input type="text" id="f_biz"></div>
     </div>
-    <div class="field"><label class="fl">What do you do? <span class="req">*</span> <span class="hint">Be as specific as possible</span></label><textarea id="f_what"></textarea></div>
+    <div class="field"><label class="fl">What do you do? <span class="req">*</span> <span class="hint">Be as specific as possible</span></label><textarea id="f_what"></textarea><p class="field-guide">Don't just say your job title — describe who you help, how you help them, and what makes you different. The more specific you are, the more your content will feel personal and targeted rather than generic.</p></div>
     <div class="field-row">
       <div class="field"><label class="fl">Your email address <span class="req">*</span></label><input type="email" id="f_email"></div>
       <div class="field"><label class="fl">Instagram handle <span class="hint">(optional)</span></label><input type="text" id="f_insta"></div>
@@ -155,9 +156,9 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
       <div class="fs-num">2</div>
       <div><div class="fs-title">Your Audience</div><div class="fs-desc">Who are you talking to?</div></div>
     </div>
-    <div class="field"><label class="fl">Describe your ideal client <span class="req">*</span></label><textarea id="f_client"></textarea></div>
-    <div class="field"><label class="fl">Their biggest struggle or pain point</label><textarea id="f_pain"></textarea></div>
-    <div class="field"><label class="fl">What transformation do you help them achieve?</label><textarea id="f_transform"></textarea></div>
+    <div class="field"><label class="fl">Describe your ideal client <span class="req">*</span></label><textarea id="f_client"></textarea><p class="field-guide">Think about who you most enjoy working with and who gets the best results from what you do. Consider their age, situation, lifestyle, and what they're trying to achieve. The more clearly you can picture this person, the better your content will speak directly to them.</p></div>
+    <div class="field"><label class="fl">Their biggest struggle or pain point</label><textarea id="f_pain"></textarea><p class="field-guide">What keeps your ideal client stuck? What have they tried that hasn't worked? What do they say to themselves at the end of a hard day? Content that speaks directly to someone's real frustration is the content that stops the scroll.</p></div>
+    <div class="field"><label class="fl">What transformation do you help them achieve?</label><textarea id="f_transform"></textarea><p class="field-guide">What does life look like for your client after working with you? Think beyond the practical outcome — how do they feel? What can they do that they couldn't before? This is what makes people want to buy, and it's what makes your content compelling.</p></div>
   </div>
 
   <!-- 3. TONE OF VOICE -->
@@ -193,6 +194,7 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
         <button type="button" class="sb" onclick="pickScale('formality',5,this)">5</button>
       </div>
       <div class="scale-labels"><span class="sl-text">Very casual</span><span class="sl-text">Very formal</span></div>
+      <p class="field-guide">1 means you talk to your audience like a friend — relaxed, natural, no stiffness. 5 means polished and professional with clear distance. Most personal brands sit between 2 and 3. If you're unsure, think about how you'd speak to a new client face to face.</p>
     </div>
 
     <div class="field">
@@ -212,10 +214,10 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
       </div>
     </div>
 
-    <div class="field"><label class="fl">An example of your writing <span class="hint">(paste a caption or anything you've written)</span></label><textarea id="f_example"></textarea></div>
+    <div class="field"><label class="fl">An example of your writing <span class="hint">(paste a caption or anything you've written)</span></label><textarea id="f_example"></textarea><p class="field-guide">This is the single most useful thing you can give us. Paste anything you've actually written — a caption, a message to a client, a bio, even a text to a friend about your work. We're not judging the quality — we're looking at how you naturally express yourself so we can match it exactly.</p></div>
     <div class="field-row">
-      <div class="field"><label class="fl">Words / phrases you love to use</label><input type="text" id="f_love"></div>
-      <div class="field"><label class="fl">Words / phrases to avoid</label><input type="text" id="f_avoid"></div>
+      <div class="field"><label class="fl">Words / phrases you love to use</label><input type="text" id="f_love"><p class="field-guide">Expressions that feel natural to you — the things you always find yourself saying.</p></div>
+      <div class="field"><label class="fl">Words / phrases to avoid</label><input type="text" id="f_avoid"><p class="field-guide">Anything that makes you cringe when you read it — buzzwords, phrases that feel fake or don't sound like you.</p></div>
     </div>
   </div>
 
@@ -227,27 +229,28 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
     </div>
 
     <div class="field">
-      <label class="fl">Preferred topics <span class="hint">Select your favourites</span></label>
+      <label class="fl">Content direction <span class="hint">Optional — what do you most want to talk about?</span></label>
       <div class="check-grid" id="topics-grid">
-        <div class="ci" data-group="topics" data-val="Motivation and Mindset" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Motivation &amp; Mindset</div>
-        <div class="ci" data-group="topics" data-val="Fitness and Training" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Fitness &amp; Training</div>
-        <div class="ci" data-group="topics" data-val="Nutrition and Healthy Eating" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Nutrition &amp; Healthy Eating</div>
-        <div class="ci" data-group="topics" data-val="Weight Loss and Transformation" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Weight Loss &amp; Transformation</div>
-        <div class="ci" data-group="topics" data-val="Life Coaching and Personal Development" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Life Coaching &amp; Personal Dev</div>
-        <div class="ci" data-group="topics" data-val="Mental Health and Wellness" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Mental Health &amp; Wellness</div>
-        <div class="ci" data-group="topics" data-val="Habit Building and Routine" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Habit Building &amp; Routine</div>
-        <div class="ci" data-group="topics" data-val="Coaching Business and Online Presence" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Coaching Business &amp; Online Presence</div>
-        <div class="ci" data-group="topics" data-val="Confidence and Self-Belief" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Confidence &amp; Self-Belief</div>
-        <div class="ci" data-group="topics" data-val="Community and Engagement" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Community &amp; Engagement</div>
-        <div class="ci" data-group="topics" data-val="Goal Setting and Success" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Goal Setting &amp; Success</div>
-        <div class="ci" data-group="topics" data-val="Self-Care and Balance" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Self-Care &amp; Balance</div>
-        <div class="ci" data-group="topics" data-val="Energy, Sleep and Recovery" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Energy, Sleep &amp; Recovery</div>
-        <div class="ci" data-group="topics" data-val="Mindset for Coaches" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Mindset for Coaches</div>
+        <div class="ci" data-group="topics" data-val="Motivation &amp; Mindset" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Motivation &amp; Mindset</div>
+        <div class="ci" data-group="topics" data-val="Tips, Tricks &amp; How-To" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Tips, Tricks &amp; How-To</div>
+        <div class="ci" data-group="topics" data-val="My Story &amp; Journey" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>My Story &amp; Journey</div>
+        <div class="ci" data-group="topics" data-val="Behind the Scenes &amp; Day in the Life" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Behind the Scenes &amp; Day in the Life</div>
+        <div class="ci" data-group="topics" data-val="Products &amp; Services" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Products &amp; Services</div>
+        <div class="ci" data-group="topics" data-val="Customer Results &amp; Testimonials" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Customer Results &amp; Testimonials</div>
+        <div class="ci" data-group="topics" data-val="Health, Fitness &amp; Wellbeing" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Health, Fitness &amp; Wellbeing</div>
+        <div class="ci" data-group="topics" data-val="Lifestyle — Fashion, Beauty, Travel, Food" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Lifestyle — Fashion, Beauty, Travel, Food</div>
+        <div class="ci" data-group="topics" data-val="Business &amp; Entrepreneurship" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Business &amp; Entrepreneurship</div>
+        <div class="ci" data-group="topics" data-val="Values &amp; What I Stand For" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Values &amp; What I Stand For</div>
+        <div class="ci" data-group="topics" data-val="Community &amp; Engagement" onclick="toggleCI(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Community &amp; Engagement</div>
+        <div class="ci" data-group="topics" data-val="Other — please specify below" onclick="toggleCI(this);toggleOther(this)"><div class="ci-box"><span class="ci-tick">✓</span></div>Other — please specify below</div>
+      </div>
+      <div id="other-topic-wrap" style="display:none;margin-top:10px;">
+        <input type="text" id="f_othertopic" placeholder="Tell us your niche or topic area">
       </div>
     </div>
 
-    <div class="field"><label class="fl">Topics to avoid</label><textarea id="f_topicavoid" style="min-height:80px;"></textarea></div>
-    <div class="field"><label class="fl">Anything specific to include? <span class="hint">(launches, events, seasonal themes)</span></label><textarea id="f_specific" style="min-height:80px;"></textarea></div>
+    <div class="field"><label class="fl">Topics to avoid</label><textarea id="f_topicavoid" style="min-height:80px;"></textarea><p class="field-guide">Any subjects, angles, or approaches you'd rather we stayed away from. This could be specific topics, certain types of language, or anything that doesn't sit right with your brand or values.</p></div>
+    <div class="field"><label class="fl">Anything specific to include? <span class="hint">(launches, events, seasonal themes)</span></label><textarea id="f_specific" style="min-height:80px;"></textarea><p class="field-guide">Any upcoming launches, promotions, events, or seasonal moments you'd like the content to build towards. If there's nothing specific, leave this blank and we'll create evergreen content that works at any time.</p></div>
   </div>
 
   <!-- 5. FORMAT -->
@@ -290,7 +293,7 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
       <div class="field"><label class="fl">Brand colours <span class="hint">(hex codes or describe)</span></label><input type="text" id="f_colours"></div>
       <div class="field"><label class="fl">Brand fonts <span class="hint">(if known)</span></label><input type="text" id="f_fonts"></div>
     </div>
-    <div class="field"><label class="fl">Describe your visual style</label><textarea id="f_visual" style="min-height:80px;"></textarea></div>
+    <div class="field"><label class="fl">Describe your visual style</label><textarea id="f_visual" style="min-height:80px;"></textarea><p class="field-guide">Think about the overall look and feel you want. Clean and minimal? Bold and high contrast? Soft and warm? If you have a page or brand you admire visually, mention it here — it helps us understand the aesthetic you're going for.</p></div>
     <div class="field">
       <label class="fl">Do you have a logo or brand assets to send us?</label>
       <div class="radio-stack">
@@ -307,8 +310,8 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
       <div class="fs-num">7</div>
       <div><div class="fs-title">Final Notes</div><div class="fs-desc">Anything else we should know</div></div>
     </div>
-    <div class="field"><label class="fl">Anything important about you, your brand, or your audience?</label><textarea id="f_extra"></textarea></div>
-    <div class="field"><label class="fl">Content you love as inspiration <span class="hint">(accounts, posts, styles you admire)</span></label><textarea id="f_inspo" style="min-height:80px;"></textarea></div>
+    <div class="field"><label class="fl">Anything important about you, your brand, or your audience?</label><textarea id="f_extra"></textarea><p class="field-guide">This is your chance to tell us anything the questions above didn't cover. Your personal story, your values, something you feel strongly about, a reason why you do what you do. The things that make you you. This is often where the best content comes from — don't skip it.</p></div>
+    <div class="field"><label class="fl">Content you love as inspiration <span class="hint">(accounts, posts, styles you admire)</span></label><textarea id="f_inspo" style="min-height:80px;"></textarea><p class="field-guide">Any accounts, creators, or brands whose content you love — not necessarily in your niche, just content that resonates with you. Even one or two references helps us understand the style and energy you're drawn to.</p></div>
   </div>
 
   <!-- SUBMIT -->
@@ -325,7 +328,7 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
         Print / Save as PDF
       </button>
     </div>
-    <p class="submit-note">Clicking "Send to Y Media" opens your email app with everything pre-filled. Simply hit send. Your content will be delivered within the agreed timeframe from when we receive this form.</p>
+    <p class="submit-note">Clicking "Send to Presenza" opens your email app with everything pre-filled. Simply hit send. Your content will be delivered within the agreed timeframe from when we receive this form.</p>
     <div class="success-banner" id="success-msg">
       ✓ &nbsp;Your email app should have opened with your answers ready to send. Just hit send in your email. If it didn't open automatically, email yearsleymedia@gmail.com and we'll sort it from there.
     </div>
@@ -344,6 +347,11 @@ textarea{resize:vertical;min-height:100px;line-height:1.7;}
 <script>
 const S={formality:null,tone:[],topics:[],radios:{}};
 
+function toggleOther(el){
+  const wrap=document.getElementById('other-topic-wrap');
+  wrap.style.display=el.classList.contains('selected')?'block':'none';
+  if(!el.classList.contains('selected')) document.getElementById('f_othertopic').value='';
+}
 function toggleCI(el){
   el.classList.toggle('selected');
   const g=el.dataset.group, v=el.dataset.val;
@@ -382,6 +390,8 @@ function sendEmail(){
   b+='WORDS LOVE: '+(v('f_love')||'N/A')+'\nWORDS AVOID: '+(v('f_avoid')||'N/A')+'\n\n';
   b+='--- CONTENT FOCUS ---\n';
   b+='TOPICS: '+((S.topics||[]).length?(S.topics||[]).join(', '):'Not selected')+'\n';
+  const otherTopic=v('f_othertopic');
+  if(otherTopic) b+='OTHER TOPIC SPECIFIED: '+otherTopic+'\n';
   b+='TOPICS TO AVOID:\n'+(v('f_topicavoid')||'None')+'\nSPECIFIC CONTENT:\n'+(v('f_specific')||'None')+'\n\n';
   b+='--- FORMAT ---\n';
   b+='CAPTION LENGTH: '+(S.radios.caplen||'Not selected')+'\nCTA STYLE: '+(S.radios.cta||'Not selected')+'\nSPECIFIC CTA: '+(v('f_ctaspecific')||'N/A')+'\n\n';

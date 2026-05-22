@@ -117,11 +117,16 @@ nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:
       </div>
       <div class="cm">
         <div class="cm-label">Package Selected</div>
-        <input type="text" id="ag_pkg" placeholder="Select your package">
+        <select id="ag_pkg" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;appearance:none;">
+          <option value="" disabled selected style="background:#1a1a2e;">Select your package</option>
+          <option value="Tier 1 — 15 Captions (£30)" style="background:#1a1a2e;">Tier 1 — 15 Captions (£30)</option>
+          <option value="Tier 2 — 30 Posts (£40)" style="background:#1a1a2e;">Tier 2 — 30 Posts (£40)</option>
+          <option value="Tier 3 Premium — 30 Posts + Visuals (£80)" style="background:#1a1a2e;">Tier 3 Premium — 30 Posts + Visuals (£80)</option>
+        </select>
       </div>
       <div class="cm">
         <div class="cm-label">Date</div>
-        <input type="text" id="ag_date" placeholder="Today's date">
+        <input type="date" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;color-scheme:dark;">
       </div>
     </div>
   </div>
@@ -135,9 +140,9 @@ nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:
       <div class="c-body">
         <p>Presenza by Y Media agrees to create written social media content for the client based on the package selected. The scope of work is as follows:</p>
         <div class="hb">
-          <strong>Tier 1 — £30</strong>15 ready-to-post captions, each formatted with a Theme, Hook, and Caption. Delivered within 5 working days of the completed onboarding form being received.
-          <strong>Tier 2 — £40</strong>30 pieces of content including captions, reel scripts, and carousels. Delivered within 7 working days of the completed onboarding form being received.
-          <strong>Tier 3 Premium — £80</strong>30 pieces of content as above, plus custom branded visuals for every post. Delivered within 10 working days of the completed onboarding form being received.
+          <strong>Tier 1 — £30</strong>15 ready-to-post written captions. Each caption is structured with a Theme (the topic), a Hook (the opening line), and the full Caption text. The client supplies their own photos or videos — Presenza provides the words only. Delivered within 5 working days of the completed onboarding form being received.
+          <strong>Tier 2 — £40</strong>30 pieces of written content including captions, reel scripts, and carousel copy. Each piece is structured with a Theme, Hook, and full written text. The client supplies their own photos or videos — Presenza provides the words only. Delivered within 7 working days of the completed onboarding form being received.
+          <strong>Tier 3 Premium — £80</strong>30 pieces of written content as above, plus custom branded visual designs for every post. Delivered within 10 working days of the completed onboarding form being received.
         </div>
         <p>All content is delivered as a branded Presenza document sent by email. Delivery timelines begin once the onboarding form has been fully completed and received — not from the date of payment.</p>
       </div>
@@ -264,11 +269,18 @@ function toggleAgree(){
   document.getElementById('btn-send').disabled=!agreed;
 }
 function v(id){return(document.getElementById(id)||{}).value||'';}
+function formatDate(d){
+  if(!d) return '[Date not entered]';
+  const parts=d.split('-');
+  if(parts.length!==3) return d;
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return parseInt(parts[2])+' '+months[parseInt(parts[1])-1]+' '+parts[0];
+}
 function sendConfirmation(){
   if(!agreed) return;
   const client=v('ag_client')||'[Name not entered]';
   const pkg=v('ag_pkg')||'[Package not entered]';
-  const date=v('ag_date')||'[Date not entered]';
+  const date=formatDate(v('ag_date'));
   const subj='Presenza Service Agreement — '+client+' — '+pkg;
   let b='PRESENZA SERVICE AGREEMENT CONFIRMATION\n=======================================\n\n';
   b+='I, '+client+', confirm that I have read and agreed to the Presenza Service Agreement in full.\n\n';
