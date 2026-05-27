@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Onboarding — Presenza by Y Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a1a2e;
+  --navy-deep:#0e1520;
+  --gold:#d4af5a;
+  --gold-light:#e8c97a;
+  --gold-dim:#9a7a3a;
+  --cream:#faf8f3;
+  --off-white:#f4f0e8;
+  --text:#2a2a3a;
+  --muted:#6a6a7a;
+  --light-border:#e8e0d0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{background:rgba(26,26,46,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,90,0.15);padding:16px 60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav-logo-box{border:1px solid var(--gold);padding:6px 10px;display:flex;flex-direction:column;align-items:center;width:50px;}
+.nav-logo-y{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);line-height:1;}
+.nav-logo-rule{border:none;border-top:1px solid var(--gold);margin:2px 0;width:100%;}
+.nav-logo-media{font-size:7px;letter-spacing:3px;color:var(--gold);font-weight:500;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:28px;color:#fff;font-weight:400;letter-spacing:2px;}
+.nav-label{font-size:9px;letter-spacing:2px;color:rgba(212,175,90,0.6);text-transform:uppercase;border:1px solid rgba(212,175,90,0.25);padding:6px 14px;}
+
+/* HEADER */
+.page-header{background:var(--navy);padding:56px 60px 52px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(212,175,90,0.05) 0%,transparent 70%);}
+.ph-inner{position:relative;z-index:1;max-width:680px;}
+.ph-label{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.ph-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.ph-title{font-family:'Playfair Display',serif;font-size:40px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:14px;}
+.ph-title em{color:var(--gold);font-style:italic;}
+.ph-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;font-weight:300;max-width:520px;}
+.ph-time{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:11px;color:rgba(212,175,90,0.7);letter-spacing:1px;}
+.ph-time svg{opacity:0.7;}
+
+/* PROGRESS */
+.progress-bar-wrap{background:var(--navy-deep);border-bottom:1px solid rgba(212,175,90,0.1);padding:0 60px;}
+.progress-steps{display:flex;max-width:700px;margin:0 auto;}
+.ps{flex:1;padding:14px 0;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,0.2);text-transform:uppercase;font-weight:500;text-align:center;border-bottom:2px solid transparent;transition:all 0.3s;cursor:pointer;}
+.ps.active{color:var(--gold);border-bottom-color:var(--gold);}
+.ps.done{color:rgba(212,175,90,0.5);border-bottom-color:rgba(212,175,90,0.2);}
+
+/* FORM */
+.form-outer{max-width:700px;margin:0 auto;padding:52px 60px 80px;}
+
+.form-step{display:none;}
+.form-step.active{display:block;}
+
+.step-header{margin-bottom:36px;}
+.step-eyebrow{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.step-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.step-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:400;line-height:1.3;margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;}
+
+/* FIELDS */
+.field{margin-bottom:24px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+.fl{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.fl .req{color:var(--gold);}
+.hint{display:block;font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:300;margin-top:3px;line-height:1.6;}
+
+input[type=text],input[type=email],select,textarea{
+  width:100%;background:#fff;border:1px solid var(--light-border);
+  padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;
+  color:var(--text);outline:none;transition:border-color 0.2s;
+  appearance:none;border-radius:0;
+}
+input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{border-color:var(--gold);}
+textarea{resize:vertical;min-height:90px;line-height:1.7;}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af5a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;
+}
+
+/* TONE CARDS */
+.tone-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tone-card{border:1px solid var(--light-border);background:#fff;padding:18px 20px;cursor:pointer;transition:all 0.2s;user-select:none;}
+.tone-card:hover{border-color:var(--gold);background:#faf8f3;}
+.tone-card.selected{border-color:var(--gold);background:rgba(212,175,90,0.06);}
+.tone-card-title{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.tone-card-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+.tone-card-check{width:16px;height:16px;border:1.5px solid var(--light-border);display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;transition:all 0.2s;}
+.tone-card.selected .tone-card-check{background:var(--gold);border-color:var(--gold);}
+.tone-tick{font-size:9px;color:var(--navy);font-weight:700;display:none;}
+.tone-card.selected .tone-tick{display:block;}
+
+/* AVOID TAGS */
+.avoid-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.avoid-tag{padding:7px 14px;border:1px solid var(--light-border);background:#fff;font-size:11px;color:var(--muted);cursor:pointer;transition:all 0.15s;user-select:none;}
+.avoid-tag:hover{border-color:var(--gold);}
+.avoid-tag.selected{border-color:var(--navy);background:var(--navy);color:#fff;}
+
+/* NAVIGATION BUTTONS */
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:32px;border-top:1px solid var(--light-border);}
+.btn-back{background:transparent;color:var(--muted);border:1px solid var(--light-border);padding:13px 24px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.btn-back:hover{border-color:var(--navy);color:var(--navy);}
+.btn-next{background:var(--navy);color:var(--gold);border:1px solid var(--gold);padding:13px 32px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn-next:hover{background:var(--gold);color:var(--navy);}
+.step-count{font-size:10px;color:var(--muted);letter-spacing:1px;}
+
+/* TIER 3 PANEL */
+.tier3-panel{display:none;background:rgba(212,175,90,0.04);border:1px solid rgba(212,175,90,0.2);padding:24px;margin-top:8px;}
+.tier3-label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.tier3-label::before{content:'';display:block;width:16px;height:1px;background:var(--gold);}
+
+/* SUBMIT */
+.submit-area{background:var(--navy);padding:44px 48px;border:1px solid rgba(212,175,90,0.2);margin-top:8px;}
+.submit-title{font-family:'Playfair Display',serif;font-size:26px;color:#fff;margin-bottom:10px;}
+.submit-sub{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:28px;font-weight:300;}
+.btn-submit{background:var(--gold);color:var(--navy);border:none;padding:16px 32px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-submit:hover{background:var(--gold-light);}
+.submit-note{margin-top:18px;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.7;}
+.success-banner{display:none;margin-top:20px;padding:16px 20px;background:rgba(45,180,100,0.1);border-left:3px solid #2db464;color:#2db464;font-size:13px;line-height:1.7;}
+
+/* FOOTER */
+.form-footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,90,0.12);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ff-brand{font-family:'Playfair Display',serif;font-size:15px;color:rgba(212,228,245,0.6);}
+.ff-note{font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:1px;margin-top:2px;}
+.ff-right{font-size:11px;color:rgba(212,175,90,0.5);}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .nav-brand{font-size:22px;}
+  .page-header{padding:36px 20px 32px;}
+  .ph-title{font-size:30px;}
+  .progress-bar-wrap{padding:0 20px;}
+  .ps{font-size:8px;letter-spacing:1px;padding:12px 4px;}
+  .form-outer{padding:36px 20px 60px;}
+  .field-row{grid-template-columns:1fr;}
+  .tone-grid{grid-template-columns:1fr;}
+  .submit-area{padding:32px 24px;}
+  .form-footer{flex-direction:column;text-align:center;padding:24px 20px;}
+  .ff-right{text-align:center;}
+  .step-nav{flex-direction:column;gap:12px;align-items:stretch;text-align:center;}
+  .btn-back,.btn-next{width:100%;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="presenza.html" class="nav-logo">
+    <div class="nav-logo-box">
+      <span class="nav-logo-y">Y</span>
+      <hr class="nav-logo-rule">
+      <span class="nav-logo-media">MEDIA</span>
+    </div>
+    <span class="nav-brand">Presenza</span>
+  </a>
+  <div class="nav-label">Client Onboarding</div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-label">Welcome</div>
+    <h1 class="ph-title">Let's get to know<br><em>your brand.</em></h1>
+    <p class="ph-sub">A few short questions so we can write content that sounds exactly like you. There are no wrong answers — the more naturally you write, the better your content will be.</p>
+    <div class="ph-time">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Takes around 3–5 minutes
+    </div>
+  </div>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-steps">
+    <div class="ps active" id="ps1">The Basics</div>
+    <div class="ps" id="ps2">Your Audience</div>
+    <div class="ps" id="ps3">Your Voice</div>
+    <div class="ps" id="ps4">Your Content</div>
+  </div>
+</div>
+
+<div class="form-outer">
+
+  <!-- STEP 1: THE BASICS -->
+  <div class="form-step active" id="step1">
+    <div class="step-header">
+      <div class="step-eyebrow">Step 1 of 4</div>
+      <div class="step-title">The basics</div>
+      <p class="step-desc">Just the essentials to get you set up.</p>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="fl">Your full name <span class="req">*</span></label>
+        <input type="text" id="f_name" placeholder="e.g. Sarah Johnson">
+      </div>
+      <div class="field">
+        <label class="fl">Business or brand name <span class="req">*</span></label>
+        <input type="text" id="f_biz" placeholder="e.g. Sarah Johnson Coaching">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="fl">Email address <span class="req">*</span></label>
+        <input type="email" id="f_email" placeholder="your@email.com">
+      </div>
+      <div class="field">
+        <label class="fl">Instagram handle</label>
+        <input type="text" id="f_insta" placeholder="@yourhandle">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="fl">Package selected <span class="req">*</span></label>
+      <select id="f_pkg">
+        <option value="" disabled selected>Choose your package</option>
+        <option value="Tier 1 — 15 Posts (£30)">Tier 1 — 15 Posts (£30)</option>
+        <option value="Tier 2 — 30 Posts (£40)">Tier 2 — 30 Posts (£40)</option>
+        <option value="Tier 3 Premium — 30 Posts + Visuals (£80)">Tier 3 Premium — 30 Posts + Visuals (£80)</option>
+      </select>
+    </div>
+
+    <div class="step-nav">
+      <span class="step-count">1 of 4</span>
+      <button class="btn-next" onclick="goTo(2)">Next &rarr;</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: YOUR AUDIENCE -->
+  <div class="form-step" id="step2">
+    <div class="step-header">
+      <div class="step-eyebrow">Step 2 of 4</div>
+      <div class="step-title">Your audience</div>
+      <p class="step-desc">This is the most important part. Great content speaks directly to one person — help us understand exactly who that is.</p>
+    </div>
+
+    <div class="field">
+      <label class="fl">What do you do, and who do you help? <span class="req">*</span></label>
+      <span class="hint">Write this as you'd say it to someone you've just met. Keep it natural.</span>
+      <textarea id="f_whatyoudo" placeholder="e.g. I'm an online personal trainer helping busy mums get fit at home without spending hours in the gym."></textarea>
+    </div>
+
+    <div class="field">
+      <label class="fl">What's the biggest problem your audience has before they find you? <span class="req">*</span></label>
+      <span class="hint">Think about what's really going on for them — not just the surface problem.</span>
+      <textarea id="f_problem" placeholder="e.g. They've tried diets before and always fall off after a few weeks. They feel like they don't have the time or the willpower, and they've stopped believing it's actually possible for them."></textarea>
+    </div>
+
+    <div class="field">
+      <label class="fl">What does life look like for them after working with you?</label>
+      <span class="hint">What's the transformation — how do they feel, what's changed?</span>
+      <textarea id="f_transformation" placeholder="e.g. They feel confident again. They have a routine that actually fits their life. They've stopped yo-yo dieting and finally feel in control."></textarea>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goTo(1)">&larr; Back</button>
+      <span class="step-count">2 of 4</span>
+      <button class="btn-next" onclick="goTo(3)">Next &rarr;</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: YOUR VOICE -->
+  <div class="form-step" id="step3">
+    <div class="step-header">
+      <div class="step-eyebrow">Step 3 of 4</div>
+      <div class="step-title">Your voice</div>
+      <p class="step-desc">Your content should sound like you wrote it. Pick the tone that feels most natural — you can always add notes below.</p>
+    </div>
+
+    <div class="field">
+      <label class="fl">Which best describes how you communicate? <span class="req">*</span></label>
+      <span class="hint">Pick the one that feels most like you.</span>
+      <div class="tone-grid" style="margin-top:12px;">
+        <div class="tone-card" data-tone="Warm and encouraging" onclick="selectTone(this)">
+          <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+          <div class="tone-card-title">Warm &amp; Encouraging</div>
+          <div class="tone-card-desc">Supportive, kind, relatable. You meet people where they are and make them feel seen.</div>
+        </div>
+        <div class="tone-card" data-tone="Direct and no-nonsense" onclick="selectTone(this)">
+          <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+          <div class="tone-card-title">Direct &amp; No-Nonsense</div>
+          <div class="tone-card-desc">Straight-talking, confident, honest. You cut through the noise and say it how it is.</div>
+        </div>
+        <div class="tone-card" data-tone="Inspiring and motivational" onclick="selectTone(this)">
+          <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+          <div class="tone-card-title">Inspiring &amp; Motivational</div>
+          <div class="tone-card-desc">Energetic, uplifting, driven. You want people to feel fired up and ready to act.</div>
+        </div>
+        <div class="tone-card" data-tone="Calm and educational" onclick="selectTone(this)">
+          <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+          <div class="tone-card-title">Calm &amp; Educational</div>
+          <div class="tone-card-desc">Thoughtful, informed, clear. You explain things simply and help people genuinely understand.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field" style="margin-top:28px;">
+      <label class="fl">Anything we should never say or do in your content?</label>
+      <span class="hint">Topics to avoid, words that aren't you, anything that would feel wrong. Leave blank if nothing comes to mind.</span>
+      <textarea id="f_avoid" style="min-height:70px;" placeholder="e.g. I never use the word 'journey'. I don't like aggressive sales language. Avoid anything that sounds like toxic positivity."></textarea>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goTo(2)">&larr; Back</button>
+      <span class="step-count">3 of 4</span>
+      <button class="btn-next" onclick="goTo(4)">Next &rarr;</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: YOUR CONTENT -->
+  <div class="form-step" id="step4">
+    <div class="step-header">
+      <div class="step-eyebrow">Step 4 of 4</div>
+      <div class="step-title">Your content</div>
+      <p class="step-desc">The final details that make your content feel specific to you — not generic.</p>
+    </div>
+
+    <div class="field">
+      <label class="fl">How do you want people to feel after reading your posts? <span class="req">*</span></label>
+      <span class="hint">Not what you want them to do — how you want them to feel.</span>
+      <textarea id="f_feeling" placeholder="e.g. I want them to feel like they can actually do this. Like someone finally gets it. Motivated but not overwhelmed."></textarea>
+    </div>
+
+    <div class="field">
+      <label class="fl">Is there anything specific you'd like covered?</label>
+      <span class="hint">Upcoming launches, programmes, promotions, personal stories, anything you want woven in. Leave blank if not.</span>
+      <textarea id="f_specific" style="min-height:70px;" placeholder="e.g. I'm launching a 6-week programme in July called Reset. I'd like a few posts to build awareness around it without being too salesy."></textarea>
+    </div>
+
+    <!-- TIER 3 PANEL — shown conditionally -->
+    <div class="tier3-panel" id="tier3-panel">
+      <div class="tier3-label">Tier 3 — Branded Visuals</div>
+      <div class="field">
+        <label class="fl">Your brand colours</label>
+        <span class="hint">List your main colours — hex codes if you have them, or just describe them.</span>
+        <input type="text" id="f_colours" placeholder="e.g. Deep navy (#1a1a2e), gold (#d4af5a), cream white">
+      </div>
+      <div class="field">
+        <label class="fl">Your brand fonts</label>
+        <span class="hint">If you know them — otherwise leave blank and we'll choose fonts that suit your tone.</span>
+        <input type="text" id="f_fonts" placeholder="e.g. Playfair Display for headings, Montserrat for body">
+      </div>
+      <div class="field">
+        <label class="fl">Visual style or references</label>
+        <span class="hint">Describe the look and feel you're going for, or mention any accounts or brands whose visual style you like.</span>
+        <textarea id="f_visual" style="min-height:70px;" placeholder="e.g. Clean and minimal. Dark backgrounds with gold text. Professional but not corporate. Similar feel to @exampleaccount."></textarea>
+      </div>
+      <div class="field">
+        <label class="fl">Will you be sending brand assets?</label>
+        <span class="hint">Logo, photos, or existing graphics you'd like incorporated.</span>
+        <select id="f_assets">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Yes — I'll attach them to my submission email">Yes — I'll attach them to my submission email</option>
+          <option value="No — please create visuals from scratch using my brand details above">No — please create visuals from scratch using my brand details above</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="submit-area" id="submit-area">
+      <div class="submit-title">That's everything.</div>
+      <p class="submit-sub">Click below and your answers will open in an email, ready to send. If you're on Tier 3, attach any brand assets before hitting send.</p>
+      <button type="button" class="btn-submit" onclick="sendEmail()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Send to Presenza
+      </button>
+      <p class="submit-note">Clicking "Send to Presenza" opens your email app with everything pre-filled — just hit send. Your content will be in progress within 1 working day of receiving this form.</p>
+      <div class="success-banner" id="success-msg">
+        ✓ &nbsp;Your email app should have opened with your answers ready to send. Simply hit send. If it didn't open, email yearsleymedia@gmail.com directly and we'll take it from there.
+      </div>
+    </div>
+
+    <div class="step-nav" style="border-top:none;padding-top:0;margin-top:24px;">
+      <button class="btn-back" onclick="goTo(3)">&larr; Back</button>
+      <span class="step-count">4 of 4</span>
+      <span></span>
+    </div>
+  </div>
+
+</div>
+
+<div class="form-footer">
+  <div>
+    <div class="ff-brand">Presenza by Y Media</div>
+    <div class="ff-note">CONTENT · CONSISTENCY · PRESENCE</div>
+  </div>
+  <div class="ff-right">yearsleymedia@gmail.com</div>
+</div>
+
+<script>
+let selectedTone = '';
+
+function goTo(step) {
+  // Validate current step before proceeding
+  if (step > getCurrentStep()) {
+    if (!validateStep(getCurrentStep())) return;
+  }
+
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + step).classList.add('active');
+
+  // Update progress
+  for (let i = 1; i <= 4; i++) {
+    const ps = document.getElementById('ps' + i);
+    ps.classList.remove('active', 'done');
+    if (i === step) ps.classList.add('active');
+    if (i < step) ps.classList.add('done');
+  }
+
+  // Show/hide Tier 3 panel
+  if (step === 4) checkTier3();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function getCurrentStep() {
+  for (let i = 1; i <= 4; i++) {
+    if (document.getElementById('step' + i).classList.contains('active')) return i;
+  }
+  return 1;
+}
+
+function validateStep(step) {
+  if (step === 1) {
+    const name = document.getElementById('f_name').value.trim();
+    const biz = document.getElementById('f_biz').value.trim();
+    const email = document.getElementById('f_email').value.trim();
+    const pkg = document.getElementById('f_pkg').value;
+    if (!name || !biz || !email || !pkg) {
+      alert('Please fill in all required fields before continuing.');
+      return false;
+    }
+  }
+  if (step === 2) {
+    const what = document.getElementById('f_whatyoudo').value.trim();
+    const prob = document.getElementById('f_problem').value.trim();
+    if (!what || !prob) {
+      alert('Please answer the required questions before continuing.');
+      return false;
+    }
+  }
+  if (step === 3) {
+    if (!selectedTone) {
+      alert('Please select a tone before continuing.');
+      return false;
+    }
+  }
+  if (step === 4) {
+    const feeling = document.getElementById('f_feeling').value.trim();
+    if (!feeling) {
+      alert('Please tell us how you want your audience to feel.');
+      return false;
+    }
+  }
+  return true;
+}
+
+function selectTone(el) {
+  document.querySelectorAll('.tone-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTone = el.dataset.tone;
+}
+
+function checkTier3() {
+  const pkg = document.getElementById('f_pkg').value;
+  const panel = document.getElementById('tier3-panel');
+  if (pkg && pkg.includes('Tier 3')) {
+    panel.style.display = 'block';
+  } else {
+    panel.style.display = 'none';
+  }
+}
+
+function v(id) { return (document.getElementById(id) || {}).value || ''; }
+
+function sendEmail() {
+  if (!validateStep(4)) return;
+
+  const name = v('f_name');
+  const biz = v('f_biz');
+  const pkg = v('f_pkg');
+  const subj = 'Presenza Onboarding — ' + name + ' (' + biz + ') — ' + pkg;
+
+  let b = 'PRESENZA CLIENT ONBOARDING\n==========================\n\n';
+  b += 'NAME: ' + name + '\n';
+  b += 'BUSINESS: ' + biz + '\n';
+  b += 'EMAIL: ' + v('f_email') + '\n';
+  b += 'INSTAGRAM: ' + (v('f_insta') || 'Not provided') + '\n';
+  b += 'PACKAGE: ' + pkg + '\n\n';
+
+  b += '--- AUDIENCE ---\n';
+  b += 'WHAT THEY DO & WHO THEY HELP:\n' + v('f_whatyoudo') + '\n\n';
+  b += 'BIGGEST PROBLEM THEIR AUDIENCE HAS:\n' + v('f_problem') + '\n\n';
+  b += 'TRANSFORMATION:\n' + (v('f_transformation') || 'Not provided') + '\n\n';
+
+  b += '--- VOICE ---\n';
+  b += 'TONE: ' + (selectedTone || 'Not selected') + '\n';
+  b += 'THINGS TO AVOID:\n' + (v('f_avoid') || 'None') + '\n\n';
+
+  b += '--- CONTENT ---\n';
+  b += 'HOW THEY WANT AUDIENCE TO FEEL:\n' + v('f_feeling') + '\n\n';
+  b += 'SPECIFIC CONTENT REQUESTS:\n' + (v('f_specific') || 'None') + '\n\n';
+
+  if (pkg && pkg.includes('Tier 3')) {
+    b += '--- TIER 3 VISUALS ---\n';
+    b += 'COLOURS: ' + (v('f_colours') || 'Not provided') + '\n';
+    b += 'FONTS: ' + (v('f_fonts') || 'Not provided') + '\n';
+    b += 'VISUAL STYLE:\n' + (v('f_visual') || 'Not provided') + '\n';
+    b += 'BRAND ASSETS: ' + (v('f_assets') || 'Not specified') + '\n';
+  }
+
+  window.location.href = 'mailto:yearsleymedia@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(b);
+
+  setTimeout(() => {
+    const msg = document.getElementById('success-msg');
+    msg.style.display = 'block';
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 800);
+}
+</script>
+</body>
+</html>
