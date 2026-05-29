@@ -218,12 +218,21 @@ select{
 
     <div class="field">
       <label class="fl">Package selected <span class="req">*</span></label>
-      <select id="f_pkg">
+      <select id="f_pkg" onchange="checkTier2();checkTier3();">
         <option value="" disabled selected>Choose your package</option>
         <option value="Tier 1 — 15 Posts (£30)">Tier 1 — 15 Posts (£30)</option>
         <option value="Tier 2 — 30 Posts (£40)">Tier 2 — 30 Posts (£40)</option>
         <option value="Tier 3 Premium — 30 Posts + Visuals (£80)">Tier 3 Premium — 30 Posts + Visuals (£80)</option>
       </select>
+    </div>
+
+    <!-- TIER 2 CONTENT MIX — shown conditionally -->
+    <div id="tier2-mix-panel" style="display:none;">
+      <div class="field">
+        <label class="fl">How would you like your 30 pieces split?</label>
+        <span class="hint">Your 30 pieces can be any combination of captions, reel scripts, and carousel copy. Tell us how many of each you'd like — or leave it to us and we'll spread them evenly. Carousel copy is slide-by-slide text you apply to your own images.</span>
+        <textarea id="f_mix" style="min-height:70px;" placeholder="e.g. 15 captions, 10 reel scripts, 5 carousel sets — or just say 'even split' and we'll sort it."></textarea>
+      </div>
     </div>
 
     <div class="step-nav">
@@ -335,16 +344,11 @@ select{
 
     <!-- TIER 3 PANEL — shown conditionally -->
     <div class="tier3-panel" id="tier3-panel">
-      <div class="tier3-label">Tier 3 — Branded Visuals</div>
+      <div class="tier3-label">Tier 3 — Branded Typographic Visuals</div>
       <div class="field">
         <label class="fl">Your brand colours</label>
         <span class="hint">List your main colours — hex codes if you have them, or just describe them.</span>
         <input type="text" id="f_colours" placeholder="e.g. Deep navy (#1a1a2e), gold (#d4af5a), cream white">
-      </div>
-      <div class="field">
-        <label class="fl">Your brand fonts</label>
-        <span class="hint">If you know them — otherwise leave blank and we'll choose fonts that suit your tone.</span>
-        <input type="text" id="f_fonts" placeholder="e.g. Playfair Display for headings, Montserrat for body">
       </div>
       <div class="field">
         <label class="fl">Visual style or references</label>
@@ -352,19 +356,19 @@ select{
         <textarea id="f_visual" style="min-height:70px;" placeholder="e.g. Clean and minimal. Dark backgrounds with gold text. Professional but not corporate. Similar feel to @exampleaccount."></textarea>
       </div>
       <div class="field">
-        <label class="fl">Will you be sending brand assets?</label>
-        <span class="hint">Logo, photos, or any graphics you'd like incorporated — attach them to your submission email.</span>
+        <label class="fl">Do you have a logo to include?</label>
+        <span class="hint">If you have a logo, attach it to your submission email and we'll incorporate it into your designs. No other photos or images are needed.</span>
         <select id="f_assets">
           <option value="" disabled selected>Select an option</option>
-          <option value="Yes — I'll attach them to my submission email">Yes — I'll attach them to my submission email</option>
-          <option value="No — please create visuals from scratch using my brand details above">No — please create visuals from scratch using my brand details above</option>
+          <option value="Yes — I'll attach my logo to the submission email">Yes — I'll attach my logo to the submission email</option>
+          <option value="No logo — please create visuals using my brand colours and style only">No logo — please create visuals using my brand colours and style only</option>
         </select>
       </div>
     </div>
 
     <div class="submit-area" id="submit-area">
       <div class="submit-title">That's everything.</div>
-      <p class="submit-sub">Click below and your answers will open in an email, ready to send. If you're on Tier 3, attach any brand assets before hitting send.</p>
+      <p class="submit-sub">Click below and your answers will open in an email, ready to send. If you're on Tier 3 and have a logo to include, attach it before hitting send.</p>
       <button type="button" class="btn-submit" onclick="sendEmail()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
         Send to Presenza
@@ -412,8 +416,8 @@ function goTo(step) {
     if (i < step) ps.classList.add('done');
   }
 
-  // Show/hide Tier 3 panel
-  if (step === 4) checkTier3();
+  // Show/hide Tier 2 mix panel and Tier 3 panel
+  if (step === 1 || step === 4) { checkTier2(); checkTier3(); }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -466,6 +470,16 @@ function selectTone(el) {
   selectedTone = el.dataset.tone;
 }
 
+function checkTier2() {
+  const pkg = document.getElementById('f_pkg').value;
+  const panel = document.getElementById('tier2-mix-panel');
+  if (pkg && (pkg.includes('Tier 2') || pkg.includes('Tier 3'))) {
+    panel.style.display = 'block';
+  } else {
+    panel.style.display = 'none';
+  }
+}
+
 function checkTier3() {
   const pkg = document.getElementById('f_pkg').value;
   const panel = document.getElementById('tier3-panel');
@@ -506,12 +520,16 @@ function sendEmail() {
   b += 'HOW THEY WANT AUDIENCE TO FEEL:\n' + v('f_feeling') + '\n\n';
   b += 'SPECIFIC CONTENT REQUESTS:\n' + (v('f_specific') || 'None') + '\n\n';
 
+  if (pkg && (pkg.includes('Tier 2') || pkg.includes('Tier 3'))) {
+    b += '--- CONTENT MIX ---\n';
+    b += 'REQUESTED SPLIT:\n' + (v('f_mix') || 'No preference — please split evenly') + '\n\n';
+  }
+
   if (pkg && pkg.includes('Tier 3')) {
     b += '--- TIER 3 VISUALS ---\n';
     b += 'COLOURS: ' + (v('f_colours') || 'Not provided') + '\n';
-    b += 'FONTS: ' + (v('f_fonts') || 'Not provided') + '\n';
     b += 'VISUAL STYLE:\n' + (v('f_visual') || 'Not provided') + '\n';
-    b += 'BRAND ASSETS: ' + (v('f_assets') || 'Not specified') + '\n';
+    b += 'LOGO: ' + (v('f_assets') || 'Not specified') + '\n';
   }
 
   window.location.href = 'mailto:yearsleymedia@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(b);
