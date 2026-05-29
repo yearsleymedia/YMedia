@@ -10,6 +10,7 @@
   :root {
     --navy: #1a1a2e;
     --navy-mid: #162840;
+    --navy-deep: #0e1520;
     --gold: #d4af5a;
     --gold-light: #e8c97a;
     --gold-dim: #9a7a3a;
@@ -25,118 +26,10 @@
   body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text); }
 
   /* NAV */
-
-  /* PAGE HEADER */
-  .page-header {
-    background: var(--navy);
-    padding: 60px 60px 80px;
-    text-align: center;
-  }
-
-  .page-header-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; display: block; }
-  .page-header-title { font-family: 'Playfair Display', serif; font-size: 48px; color: #fff; font-weight: 400; margin-bottom: 16px; }
-  .page-header-title em { color: var(--gold); font-style: italic; }
-  .page-header-sub { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; line-height: 1.8; font-weight: 300; }
-
-  /* SECTION */
-  .section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 400; margin-bottom: 48px; }
-
-  /* POST EXAMPLES */
-  .post-block { border: 1px solid var(--light-border); background: #fff; margin-bottom: 24px; overflow: hidden; }
-  .post-block-header { background: var(--navy); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); }
-  .post-block-header-title { font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 600; }
-  .post-block-header-type { font-size: 9px; letter-spacing: 1px; color: rgba(212,175,90,0.5); }
-  .post-meta { display: grid; grid-template-columns: 80px 1fr; }
-  .post-meta-key { background: #faf8f3; font-size: 8px; letter-spacing: 1px; color: #aaa; padding: 8px 12px; font-weight: 600; text-transform: uppercase; border-right: 1px solid var(--light-border); border-bottom: 1px solid var(--light-border); display: flex; align-items: center; }
-  .post-meta-val { padding: 8px 14px; font-size: 11px; color: #444; border-bottom: 1px solid var(--light-border); line-height: 1.5; }
-  .post-content-label { font-size: 8px; letter-spacing: 1px; color: #aaa; padding: 10px 20px 4px; font-weight: 600; text-transform: uppercase; }
-  .post-content-body { padding: 4px 20px 20px; font-size: 12px; color: #444; line-height: 1.8; }
-  .post-content-body strong { font-size: 9px; letter-spacing: 1px; color: #aaa; display: block; margin-bottom: 4px; margin-top: 12px; }
-
-  /* BEFORE / AFTER */
-  .compare-section { background: var(--navy); padding: 80px 60px; }
-  .compare-inner { max-width: 1100px; margin: 0 auto; }
-  .compare-title { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; margin-bottom: 12px; text-align: center; }
-  .compare-title em { color: var(--gold); font-style: italic; }
-  .compare-sub { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 56px; line-height: 1.7; }
-  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-
-  /* IG MOCKUP */
-  .ig-phone {
-    background: #fff;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-    max-width: 300px;
-    width: 100%;
-    margin: 0 auto;
-    border: 6px solid #1a1a1a;
-  }
-
-  .ig-phone-top { background: #1a1a1a; padding: 14px 24px 8px; display: flex; justify-content: center; }
-  .ig-phone-notch { width: 100px; height: 20px; background: #000; border-radius: 0 0 16px 16px; }
-
-  .ig-post { background: #fff; }
-  .ig-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid #f0f0f0; }
-  .ig-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .ig-avatar-inner { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; }
-  .ig-avatar-y { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--gold); font-weight: 700; }
-  .ig-username { font-size: 12px; font-weight: 600; color: #000; }
-  .ig-handle { font-size: 10px; color: #888; }
-  .ig-more { margin-left: auto; font-size: 16px; color: #000; }
-  .ig-image { width: 100%; aspect-ratio: 1; background: var(--navy); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .ig-image-before { background: #f5f5f5; }
-  .ig-image-text { font-family: 'Playfair Display', serif; font-size: 22px; color: rgba(255,255,255,0.15); text-align: center; padding: 20px; }
-  .ig-before-text { color: #ccc; font-size: 14px; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-  .ig-actions { padding: 10px 14px 6px; display: flex; gap: 14px; }
-  .ig-action-icon { font-size: 20px; }
-  .ig-caption { padding: 4px 14px 12px; font-size: 11px; line-height: 1.6; color: #000; }
-  .ig-caption strong { font-weight: 700; }
-  .ig-likes { padding: 0 14px 6px; font-size: 11px; font-weight: 600; color: #000; }
-  .ig-time { padding: 0 14px 12px; font-size: 9px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
-
-  .compare-label { text-align: center; margin-bottom: 20px; }
-  .compare-badge { display: inline-block; padding: 6px 20px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
-  .compare-badge-before { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
-  .compare-badge-after { background: var(--gold); color: var(--navy); }
-
-  /* FOOTER */
-  footer { background: #0e1520; padding: 40px 60px; border-top: 1px solid rgba(212,175,90,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-  .footer-right { text-align: right; }
-  .footer-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: rgba(212,228,245,0.8); }
-  .footer-tagline { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; margin-top: 4px; }
-  .footer-contact { font-size: 12px; color: rgba(212,175,90,0.7); letter-spacing: 1px; }
-  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 4px; }
-
-  @media (max-width: 900px) {
-    nav { padding: 14px 20px; }
-    .page-header { padding: 40px 20px 60px; }
-    .page-header-title { font-size: 32px; }
-    .section { padding: 60px 20px; }
-    .compare-section { padding: 60px 20px; }
-    div[style*="padding: 80px 60px"] { padding: 60px 20px !important; }
-    .compare-grid { grid-template-columns: 1fr; gap: 32px; }
-    .profile-compare-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-    .compare-section { padding: 40px 20px; }
-    .ig-phone { max-width: 280px; width: 90%; }
-    .ig-caption { font-size: 10px; }
-    .ig-likes { font-size: 10px; }
-    footer { flex-direction: column; text-align: center; padding: 32px 20px; }
-    .footer-right { text-align: center; }
-  }
-
-
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: sticky; top: 0; z-index: 100;
     padding: 18px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; justify-content: space-between; align-items: center;
     background: rgba(26,26,46,0.97);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(212,175,90,0.15);
@@ -149,15 +42,255 @@
   .nav-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; letter-spacing: 2px; }
   .nav-home { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid rgba(212,175,90,0.4); padding: 8px 20px; transition: all 0.2s; font-weight: 500; white-space: nowrap; }
   .nav-home:hover { background: var(--gold); color: var(--navy); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    padding: 70px 60px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,90,0.06) 0%, transparent 70%);
+  }
+  .page-header-inner { position: relative; z-index: 1; }
+  .page-header-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .page-header-label::before, .page-header-label::after { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .page-header-title { font-family: 'Playfair Display', serif; font-size: 52px; color: #fff; font-weight: 400; margin-bottom: 20px; line-height: 1.15; }
+  .page-header-title em { color: var(--gold); font-style: italic; }
+  .page-header-sub { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 580px; margin: 0 auto; line-height: 1.9; font-weight: 300; }
+  .page-header-note { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 20px; font-style: italic; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+
+  /* SECTION */
+  .section { padding: 80px 60px; max-width: 1000px; margin: 0 auto; }
+  .section-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 400; margin-bottom: 8px; }
+  .section-title em { color: var(--gold-dim); font-style: italic; }
+  .section-intro { font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 48px; max-width: 560px; }
+
+  /* ── POST BLOCK — matches delivery format ── */
+  .post-block {
+    border: 1px solid var(--light-border);
+    background: #fff;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .post-block-header {
+    background: var(--navy);
+    padding: 11px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .post-block-header-left { display: flex; align-items: center; gap: 16px; }
+  .post-block-num { font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 700; }
+  .post-block-type-badge {
+    font-size: 8px; letter-spacing: 1.5px; font-weight: 700;
+    padding: 3px 10px;
+    text-transform: uppercase;
+  }
+  .badge-caption { background: rgba(212,175,90,0.15); color: var(--gold); }
+  .badge-reel { background: rgba(212,175,90,0.15); color: var(--gold); }
+  .badge-visual { background: var(--gold); color: var(--navy); }
+  .post-block-category { font-size: 9px; letter-spacing: 1px; color: rgba(212,175,90,0.45); }
+
+  .post-meta { display: grid; grid-template-columns: 80px 1fr; }
+  .post-meta-key {
+    background: #faf8f3;
+    font-size: 8px; letter-spacing: 1px; color: #aaa;
+    padding: 9px 12px;
+    font-weight: 600; text-transform: uppercase;
+    border-right: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+    display: flex; align-items: center;
+  }
+  .post-meta-val {
+    padding: 9px 16px;
+    font-size: 12px; color: #444;
+    border-bottom: 1px solid var(--light-border);
+    line-height: 1.5;
+  }
+
+  .post-content-section { padding: 0; }
+  .post-content-label {
+    font-size: 8px; letter-spacing: 1px; color: #aaa;
+    padding: 12px 20px 4px;
+    font-weight: 600; text-transform: uppercase;
+    border-bottom: 1px solid #f4f0e8;
+  }
+  .post-content-body {
+    padding: 14px 20px 6px;
+    font-size: 12px; color: #444;
+    line-height: 1.85;
+  }
+  .post-content-body strong {
+    font-size: 8px; letter-spacing: 1px; color: #aaa;
+    display: block; margin-bottom: 4px; margin-top: 14px;
+    font-weight: 700; text-transform: uppercase;
+  }
+  .post-content-body strong:first-child { margin-top: 0; }
+
+  /* Copy / Save buttons — exactly as delivery doc */
+  .post-actions {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px 16px;
+    border-top: 1px solid var(--light-border);
+    background: #faf8f3;
+  }
+  .btn-copy, .btn-save {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 600; cursor: pointer; border: none;
+    padding: 8px 16px; transition: all 0.15s;
+  }
+  .btn-copy {
+    background: var(--navy); color: var(--gold);
+    border: 1px solid transparent;
+  }
+  .btn-copy:hover { background: #222244; }
+  .btn-copy.copied { background: #1a3a1a; color: #4caf50; }
+  .btn-save {
+    background: transparent; color: var(--muted);
+    border: 1px solid var(--light-border);
+  }
+  .btn-save:hover { border-color: var(--gold); color: var(--gold-dim); }
+  .btn-copy svg, .btn-save svg { flex-shrink: 0; }
+
+  /* ── VISUAL CARD (T3) ── */
+  .visual-card-wrap {
+    padding: 20px;
+    background: var(--off-white);
+    border-top: 1px solid var(--light-border);
+  }
+  .visual-card-label {
+    font-size: 8px; letter-spacing: 2px; color: var(--gold);
+    text-transform: uppercase; font-weight: 700;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .visual-card-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--gold); }
+  .visual-card-svg {
+    display: block;
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+  .visual-note {
+    font-size: 10px; color: var(--muted); font-style: italic;
+    text-align: center; margin-top: 10px; letter-spacing: 0.3px;
+  }
+
+  /* TIER LABEL STRIP */
+  .tier-strip {
+    display: flex; align-items: center; gap: 0;
+    margin-bottom: 28px;
+  }
+  .tier-chip {
+    font-size: 9px; letter-spacing: 2px; font-weight: 700;
+    text-transform: uppercase; padding: 6px 16px;
+    border: 1px solid var(--light-border);
+    color: var(--muted); background: #fff;
+    margin-right: -1px;
+  }
+  .tier-chip.active { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+
+  /* BOTTOM CTA */
+  .cta-band {
+    background: var(--navy); padding: 64px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,90,0.07) 0%, transparent 70%);
+  }
+  .cta-band-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .cta-band-eye { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .cta-band-eye::before, .cta-band-eye::after { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .cta-band h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #fff; font-weight: 400; margin-bottom: 12px; }
+  .cta-band h2 em { color: var(--gold); font-style: italic; }
+  .cta-band p { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 36px; line-height: 1.8; font-weight: 300; }
+  .cta-band-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-gold { background: var(--gold); color: var(--navy); padding: 14px 32px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: background 0.2s; font-family: 'Montserrat', sans-serif; }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.3); padding: 14px 32px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* DISCLAIMER */
+  .disclaimer { background: var(--cream); padding: 40px 60px; }
+  .disclaimer-inner { max-width: 1000px; margin: 0 auto; border-left: 3px solid var(--gold); padding: 20px 28px; background: #fff; }
+  .disclaimer-eye { font-size: 9px; letter-spacing: 3px; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+  .disclaimer p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+  /* BEFORE / AFTER */
+  .compare-section { background: var(--navy); padding: 80px 60px; }
+  .compare-inner { max-width: 1100px; margin: 0 auto; }
+  .compare-title { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; font-weight: 400; margin-bottom: 12px; text-align: center; }
+  .compare-title em { color: var(--gold); font-style: italic; }
+  .compare-sub { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 56px; line-height: 1.7; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .ig-phone { background: #fff; border-radius: 32px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); max-width: 300px; width: 100%; margin: 0 auto; border: 6px solid #1a1a1a; }
+  .ig-phone-top { background: #1a1a1a; padding: 14px 24px 8px; display: flex; justify-content: center; }
+  .ig-phone-notch { width: 100px; height: 20px; background: #000; border-radius: 0 0 16px 16px; }
+  .ig-post { background: #fff; }
+  .ig-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid #f0f0f0; }
+  .ig-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ig-avatar-inner { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+  .ig-avatar-y { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--gold); font-weight: 700; }
+  .ig-username { font-size: 12px; font-weight: 600; color: #000; }
+  .ig-handle { font-size: 10px; color: #888; }
+  .ig-more { margin-left: auto; font-size: 16px; color: #000; }
+  .ig-actions { padding: 10px 14px 6px; display: flex; gap: 14px; }
+  .ig-action-icon { font-size: 20px; }
+  .ig-caption { padding: 4px 14px 12px; font-size: 11px; line-height: 1.6; color: #000; }
+  .ig-caption strong { font-weight: 700; }
+  .ig-likes { padding: 0 14px 6px; font-size: 11px; font-weight: 600; color: #000; }
+  .ig-time { padding: 0 14px 12px; font-size: 9px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+  .compare-label { text-align: center; margin-bottom: 20px; }
+  .compare-badge { display: inline-block; padding: 6px 20px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+  .compare-badge-before { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+  .compare-badge-after { background: var(--gold); color: var(--navy); }
+  .profile-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  @media (max-width: 900px) {
+    .compare-section { padding: 60px 20px; }
+    .compare-grid { grid-template-columns: 1fr; gap: 32px; }
+    .profile-compare-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  }
+
+  /* FOOTER */
+  footer { background: var(--navy-deep, #0e1520); padding: 40px 60px; border-top: 1px solid rgba(212,175,90,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-right { text-align: right; }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: rgba(212,228,245,0.8); }
+  .footer-tagline { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; margin-top: 4px; }
+  .footer-contact { font-size: 12px; color: rgba(212,175,90,0.7); letter-spacing: 1px; }
+  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 4px; }
+
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
     .nav-logo-box { width: 46px; padding: 6px 10px; }
     .nav-logo-y { font-size: 30px; }
-    .nav-logo-media { font-size: 7px; letter-spacing: 2px; }
-    .nav-brand { font-size: 26px; letter-spacing: 1px; }
-    .nav-home { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
+    .nav-logo-media { font-size: 7px; }
+    .nav-brand { font-size: 26px; }
+    .nav-home { font-size: 9px; padding: 6px 12px; }
+    .page-header { padding: 50px 20px 60px; }
+    .page-header-title { font-size: 34px; }
+    .section { padding: 60px 20px; }
+    .cta-band { padding: 50px 20px; }
+    .cta-band h2 { font-size: 28px; }
+    .disclaimer { padding: 32px 20px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .post-meta { grid-template-columns: 70px 1fr; }
   }
-
 </style>
 </head>
 <body>
@@ -172,89 +305,311 @@
     </div>
     <span class="nav-brand">Presenza</span>
   </a>
-  <a href="index.html" class="nav-home">Home</a>
+  <a href="presenza.html" class="nav-home">Back to Presenza</a>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <span class="page-header-label">Sample Content</span>
-  <h1 class="page-header-title">What your content<br><em>looks like.</em></h1>
-  <p class="page-header-sub">These are sample posts to give you an idea of the content you will receive. Every package is written fresh — tailored to your tone, your audience, and your brand.</p>
-  <p style="font-size:13px;color:rgba(255,255,255,0.35);margin-top:20px;font-style:italic;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.8;">We can't guarantee likes or follower growth — no one honestly can. What we can guarantee is professionally written content, delivered on time, every time.</p>
+  <div class="page-header-inner">
+    <div class="page-header-label">Sample Content</div>
+    <h1 class="page-header-title">What your content<br><em>looks like.</em></h1>
+    <p class="page-header-sub">Three real examples — shown exactly as they arrive in your delivery document, with the same copy and save buttons you'll use to post them.</p>
+    <p class="page-header-note">Every package is written fresh — tailored to your tone, your audience, and your brand. These are samples only.</p>
+  </div>
 </div>
 
 <!-- EXAMPLE POSTS -->
 <div class="section">
   <div class="section-label">Example Posts</div>
-  <h2 class="section-title">Three formats.<br>One service.</h2>
+  <h2 class="section-title">Three packages.<br><em>One service.</em></h2>
+  <p class="section-intro">Tier 1 delivers captions. Tier 2 adds reel scripts and carousel copy — you choose the mix. Tier 3 includes a custom branded typographic visual for every post — excluding reel scripts.</p>
 
-  <!-- POST 01 -->
+  <!-- POST 01 — CAPTION -->
   <div class="post-block">
     <div class="post-block-header">
-      <span class="post-block-header-title">POST 01 &nbsp;·&nbsp; CAPTION</span>
-      <span class="post-block-header-type">MOTIVATION &amp; MINDSET</span>
+      <div class="post-block-left" style="display:flex;align-items:center;gap:14px;">
+        <span class="post-block-num">POST 01</span>
+        <span class="post-block-type-badge badge-caption">Caption</span>
+        <span class="post-block-category">Content &amp; Coaching Business</span>
+      </div>
+      <span class="post-block-category">Tier 1 · 2 · 3</span>
     </div>
     <div class="post-meta">
-      <div class="post-meta-key">Theme</div><div class="post-meta-val">Starting before you're ready</div>
-      <div class="post-meta-key">Hook</div><div class="post-meta-val">Some days the motivation just isn't there — and honestly? That's completely okay.</div>
+      <div class="post-meta-key">Theme</div>
+      <div class="post-meta-val">Why writing your own content is costing you more than you think</div>
+      <div class="post-meta-key">Hook</div>
+      <div class="post-meta-val">Your content shouldn't feel like a chore.</div>
     </div>
-    <div class="post-content-label">Caption</div>
-    <div class="post-content-body">Some days the motivation just isn't there — and honestly? That's completely okay. You don't need to feel ready. You just need to start. One small step today is still a step forward.<br><br>What's one thing you're going to do for yourself today? Drop it in the comments 👇</div>
+    <div class="post-content-section">
+      <div class="post-content-label">Caption</div>
+      <div class="post-content-body">
+        Your content shouldn't feel like a chore.<br><br>
+        If you're sitting there every day staring at a blank screen, trying to figure out what to post — that's not a creativity problem. That's a systems problem.<br><br>
+        Presenza solves it.<br><br>
+        30 professionally written, ready-to-post pieces. Tailored to your tone, your audience, and your brand. Delivered in days — not weeks.<br><br>
+        You just copy, paste, and post.<br><br>
+        What would you do with the hours you'd get back? 👇
+      </div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-copy" onclick="copyPost(this, 'post1')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Caption
+      </button>
+      <button class="btn-save" onclick="savePost('post1')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save
+      </button>
+    </div>
   </div>
 
-  <!-- POST 02 -->
+  <!-- POST 02 — REEL SCRIPT -->
   <div class="post-block">
     <div class="post-block-header">
-      <span class="post-block-header-title">POST 02 &nbsp;·&nbsp; REEL SCRIPT</span>
-      <span class="post-block-header-type">FITNESS &amp; TRAINING</span>
+      <div class="post-block-left" style="display:flex;align-items:center;gap:14px;">
+        <span class="post-block-num">POST 02</span>
+        <span class="post-block-type-badge badge-reel">Reel Script</span>
+        <span class="post-block-category">Coaching Business &amp; Online Presence</span>
+      </div>
+      <span class="post-block-category">Tier 2 · 3</span>
     </div>
     <div class="post-meta">
-      <div class="post-meta-key">Theme</div><div class="post-meta-val">Consistency beats intensity every time</div>
-      <div class="post-meta-key">Hook</div><div class="post-meta-val">Three sessions a week will always beat six done sporadically — here's why.</div>
+      <div class="post-meta-key">Theme</div>
+      <div class="post-meta-val">Why coaches struggle to post consistently — and how to fix it</div>
+      <div class="post-meta-key">Hook</div>
+      <div class="post-meta-val">If posting consistently feels impossible right now — this is why.</div>
     </div>
-    <div class="post-content-label">Reel Script</div>
-    <div class="post-content-body">
-      <strong>OPEN (0–3s)</strong>
-      "If you've ever burned out trying to do all the things — this is for you."<br>
-      <strong>MIDDLE (3–20s)</strong>
-      "Three sessions a week, done consistently, will always beat six done sporadically. The best plan isn't the most impressive one — it's the one you actually stick to. On the hard weeks as well as the easy ones."<br>
-      <strong>CLOSE (20–30s)</strong>
-      "Build the sustainable version first. That's where the results actually live." 📅<br>
-      <strong>Caption</strong>
-      Consistency > intensity. Every single time. Save this if you needed the reminder.
+    <div class="post-content-section">
+      <div class="post-content-label">Reel Script</div>
+      <div class="post-content-body">
+        <strong>Open (0–3s)</strong>
+        "If posting consistently feels impossible right now — this is why."
+        <strong>Middle (3–20s)</strong>
+        "Most coaches aren't bad at what they do. They're just trying to do everything at once — train clients, run a business, stay visible online, and come up with fresh content every single day. Something has to give. And it's usually the posting. Presenza takes that off your plate entirely. Written content, delivered to your inbox, ready to go."
+        <strong>Close (20–30s)</strong>
+        "Your expertise deserves to be heard. Let us handle the words." 🖊️
+        <strong>Caption</strong>
+        You built your business on your knowledge — not your ability to write captions. Let Presenza handle it. Link in bio.
+      </div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-copy" onclick="copyPost(this, 'post2')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Script
+      </button>
+      <button class="btn-save" onclick="savePost('post2')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save
+      </button>
     </div>
   </div>
 
-  <!-- POST 03 -->
+  <!-- POST 03 — T3 VISUAL QUOTE CARD -->
   <div class="post-block">
     <div class="post-block-header">
-      <span class="post-block-header-title">POST 03 &nbsp;·&nbsp; CAROUSEL</span>
-      <span class="post-block-header-type">NUTRITION &amp; WELLNESS</span>
+      <div class="post-block-left" style="display:flex;align-items:center;gap:14px;">
+        <span class="post-block-num">POST 03</span>
+        <span class="post-block-type-badge badge-visual">Visual Quote Card</span>
+        <span class="post-block-category">Coaching Business &amp; Online Presence</span>
+      </div>
+      <span class="post-block-category">Tier 3 Only</span>
     </div>
     <div class="post-meta">
-      <div class="post-meta-key">Theme</div><div class="post-meta-val">Sustainable eating, not dieting</div>
-      <div class="post-meta-key">Hook</div><div class="post-meta-val">The best diet is the one you can maintain for life — not just until Friday.</div>
+      <div class="post-meta-key">Theme</div>
+      <div class="post-meta-val">The power of showing up online with the right words</div>
+      <div class="post-meta-key">Hook</div>
+      <div class="post-meta-val">You've got 30 seconds to make someone stop scrolling.</div>
     </div>
-    <div class="post-content-label">Carousel Slides</div>
-    <div class="post-content-body">
-      <strong>Slide 1 — Cover</strong>
-      The best diet is the one you can maintain for life — not just until Friday. 🥗<br>
-      <strong>Slide 2</strong>
-      Restriction leads to rebound. Misery leads to quitting. An approach you hate will always fail.<br>
-      <strong>Slide 3</strong>
-      Instead of "what should I cut out?" ask: "what could I add in?"<br>
-      <strong>Slide 4</strong>
-      Start here → More protein. More veg. More water. More colour on your plate.<br>
-      <strong>Slide 5</strong>
-      Add before you subtract. That's a foundation you can build on for life.<br>
-      <strong>Slide 6 — CTA</strong>
-      Ready to build a nutrition approach that actually lasts? DM me to get started.<br>
-      <strong>Caption</strong>
-      Swipe to shift your mindset around food for good. 👉 Save this one.
+    <div class="post-content-section">
+      <div class="post-content-label">Caption</div>
+      <div class="post-content-body">
+        You've got 30 seconds to make someone stop scrolling.<br><br>
+        Not with a perfect photo. Not with a trending audio.<br><br>
+        With words.<br><br>
+        The right hook. The right opening line. The right message — at the right moment.<br><br>
+        That's what Presenza writes for you. Every single post.<br><br>
+        Caption, hook, theme — structured, on-brand, and ready to copy straight into Instagram.<br><br>
+        No blank screens. No wasted evenings. No posting something just to post something.<br><br>
+        Just content that actually sounds like you. 💛<br><br>
+        DM us or head to the link in bio to see your package options.
+      </div>
+    </div>
+    <!-- BRANDED VISUAL -->
+    <div class="visual-card-wrap">
+      <div class="visual-card-label">Branded Visual — Tier 3</div>
+      <svg class="visual-card-svg" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;">
+        <defs>
+          <linearGradient id="bggrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1a1a2e"/>
+            <stop offset="100%" stop-color="#0e1520"/>
+          </linearGradient>
+          <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="12" cy="12" r="1" fill="rgba(212,175,90,0.08)"/>
+          </pattern>
+        </defs>
+        <!-- Background -->
+        <rect width="480" height="480" fill="url(#bggrad)"/>
+        <rect width="480" height="480" fill="url(#dots)"/>
+        <!-- Gold corner accents -->
+        <path d="M20 60 L20 20 L60 20" fill="none" stroke="#d4af5a" stroke-width="1.5" opacity="0.5"/>
+        <path d="M460 60 L460 20 L420 20" fill="none" stroke="#d4af5a" stroke-width="1.5" opacity="0.5"/>
+        <path d="M20 420 L20 460 L60 460" fill="none" stroke="#d4af5a" stroke-width="1.5" opacity="0.5"/>
+        <path d="M460 420 L460 460 L420 460" fill="none" stroke="#d4af5a" stroke-width="1.5" opacity="0.5"/>
+        <!-- Top brand label -->
+        <text x="240" y="52" font-family="Montserrat, sans-serif" font-size="7" fill="#d4af5a" opacity="0.45" text-anchor="middle" letter-spacing="4" font-weight="600">PRESENZA · Y MEDIA</text>
+        <!-- Large typographic number / accent -->
+        <text x="52" y="220" font-family="Playfair Display, serif" font-size="160" fill="rgba(212,175,90,0.05)" font-weight="400">30</text>
+        <!-- Main headline -->
+        <text x="240" y="160" font-family="Montserrat, sans-serif" font-size="11" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="4" font-weight="500">YOU HAVE</text>
+        <text x="240" y="210" font-family="Playfair Display, serif" font-size="38" fill="#ffffff" text-anchor="middle" font-weight="400" font-style="italic">30 seconds.</text>
+        <!-- Divider -->
+        <line x1="140" y1="232" x2="340" y2="232" stroke="#d4af5a" stroke-width="1" opacity="0.3"/>
+        <!-- Sub text -->
+        <text x="240" y="266" font-family="Montserrat, sans-serif" font-size="12" fill="rgba(255,255,255,0.65)" text-anchor="middle" font-weight="300" letter-spacing="0.5">Make them count.</text>
+        <text x="240" y="286" font-family="Montserrat, sans-serif" font-size="12" fill="rgba(255,255,255,0.65)" text-anchor="middle" font-weight="300" letter-spacing="0.5">We write the words that stop the scroll.</text>
+        <!-- Gold pill -->
+        <rect x="140" y="316" width="200" height="36" rx="0" fill="rgba(212,175,90,0.1)" stroke="#d4af5a" stroke-width="1" opacity="0.6"/>
+        <text x="240" y="339" font-family="Montserrat, sans-serif" font-size="9" fill="#d4af5a" text-anchor="middle" letter-spacing="2.5" font-weight="700">CONTENT THAT SOUNDS LIKE YOU</text>
+        <!-- Bottom strip -->
+        <rect x="0" y="430" width="480" height="50" fill="rgba(212,175,90,0.05)"/>
+        <line x1="0" y1="430" x2="480" y2="430" stroke="#d4af5a" stroke-width="1" opacity="0.15"/>
+        <text x="240" y="461" font-family="Montserrat, sans-serif" font-size="8" fill="#d4af5a" opacity="0.35" text-anchor="middle" letter-spacing="3" font-weight="600">YOUR BRAND · YOUR COLOURS · YOUR LOGO</text>
+      </svg>
+      <p class="visual-note">Your brand colours, fonts and logo replace the Presenza placeholders above.</p>
+    </div>
+    <div class="post-actions">
+      <button class="btn-copy" onclick="copyPost(this, 'post3')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Caption
+      </button>
+      <button class="btn-save" onclick="savePost('post3')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save
+      </button>
     </div>
   </div>
+
 </div>
 
+<!-- POST 04 — CAROUSEL -->
+<div class="section" style="padding-top:0;">
+
+  <div class="post-block">
+    <div class="post-block-header">
+      <div class="post-block-left" style="display:flex;align-items:center;gap:14px;">
+        <span class="post-block-num">POST 04</span>
+        <span class="post-block-type-badge badge-caption">Carousel</span>
+        <span class="post-block-category">Coaching Business &amp; Online Presence</span>
+      </div>
+      <span class="post-block-category">Tier 2 · 3</span>
+    </div>
+    <div class="post-meta">
+      <div class="post-meta-key">Theme</div>
+      <div class="post-meta-val">What it's actually costing you to write your own content</div>
+      <div class="post-meta-key">Hook</div>
+      <div class="post-meta-val">Still writing your own captions? Here's what that's costing you.</div>
+    </div>
+    <div class="post-content-section">
+      <div class="post-content-label">Carousel Slides</div>
+      <div class="post-content-body">
+        <strong>Slide 1 — Cover</strong>
+        Still writing your own captions? Here's what that's costing you. 👇
+        <strong>Slide 2</strong>
+        Your time is worth more than a caption. Every hour spent staring at a blank screen is an hour you're not coaching, selling, or resting.
+        <strong>Slide 3</strong>
+        Consistency is everything online. Algorithms reward accounts that show up regularly. Irregular posting buries you — no matter how good your content is.
+        <strong>Slide 4</strong>
+        You don't need more ideas. You need a system. Presenza delivers 15 or 30 ready-to-post pieces every month — tailored to your tone and audience.
+        <strong>Slide 5</strong>
+        What you get with Presenza: → Professionally written captions → Reel scripts → Carousel copy → Custom branded visuals (Tier 3) → All delivered in days, not weeks
+        <strong>Slide 6 — CTA</strong>
+        Starting from just £30. Head to the link in bio to choose your package.
+        <strong>Caption</strong>
+        Swipe to see exactly why Presenza might be the best investment you make for your online presence this month. 👉 Packages from £30 — link in bio.
+      </div>
+    </div>
+
+    <!-- CAROUSEL SLIDE PREVIEW -->
+    <div class="visual-card-wrap">
+      <div class="visual-card-label">Carousel Slide Preview — 6 slides</div>
+      <div style="position:relative;max-width:480px;margin:0 auto;overflow:hidden;">
+        <div id="ex-carousel" style="display:flex;width:600%;transition:transform 0.4s ease;">
+
+          <!-- Slide 1 — Cover -->
+          <div style="width:calc(100%/6);flex-shrink:0;aspect-ratio:1;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;position:relative;">
+            <div style="position:absolute;top:16px;right:16px;font-size:8px;letter-spacing:2px;color:rgba(212,175,90,0.4);font-weight:600;">PRESENZA · Y MEDIA</div>
+            <div style="width:32px;height:1px;background:var(--gold);margin-bottom:24px;opacity:0.6;"></div>
+            <div style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;line-height:1.5;margin-bottom:16px;">Still writing your own captions?</div>
+            <div style="font-size:12px;color:var(--gold);letter-spacing:1px;">Here's what that's costing you.</div>
+            <div style="margin-top:28px;font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;">Swipe →</div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div style="width:calc(100%/6);flex-shrink:0;aspect-ratio:1;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:20px;">Your Time</div>
+            <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);line-height:1.6;margin-bottom:16px;">Your time is worth more<br>than a caption.</div>
+            <div style="width:24px;height:1px;background:var(--gold);margin:0 auto 16px;"></div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.7;">Every hour at a blank screen is an hour you're not coaching, selling, or resting.</div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div style="width:calc(100%/6);flex-shrink:0;aspect-ratio:1;background:var(--off-white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:20px;">Consistency</div>
+            <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);line-height:1.6;margin-bottom:16px;">Algorithms reward<br>accounts that show up.</div>
+            <div style="width:24px;height:1px;background:var(--gold);margin:0 auto 16px;"></div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.7;">Irregular posting buries you — no matter how good your content is.</div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div style="width:calc(100%/6);flex-shrink:0;aspect-ratio:1;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:20px;">The Fix</div>
+            <div style="font-family:'Playfair Display',serif;font-size:18px;color:#fff;line-height:1.6;margin-bottom:16px;">You don't need more ideas.<br><span style="color:var(--gold);">You need a system.</span></div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;">15 or 30 ready-to-post pieces per month — tailored to your tone.</div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div style="width:calc(100%/6);flex-shrink:0;aspect-ratio:1;background:#fff;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:36px;">
+            <div style="font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:20px;">What You Get</div>
+            <div style="display:flex;flex-direction:column;gap:12px;width:100%;">
+              <div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);font-weight:700;">→</span><span style="font-size:12px;color:var(--navy);line-height:1.4;">Captions &amp; reel scripts</span></div>
+              <div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);font-weight:700;">→</span><span style="font-size:12px;color:var(--navy);line-height:1.4;">Carousel copy</span></div>
+              <div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);font-weight:700;">→</span><span style="font-size:12px;color:var(--navy);line-height:1.4;">Custom branded visuals (T3)</span></div>
+              <div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);font-weight:700;">→</span><span style="font-size:12px;color:var(--navy);line-height:1.4;">Delivered in days, not weeks</span></div>
+            </div>
+            <div style="margin-top:20px;font-size:9px;letter-spacing:2px;color:var(--muted);">PRESENZA · Y MEDIA</div>
+          </div>
+
+          <!-- Slide 6 — CTA -->
+          <div style="width:calc(100%/6);flex-shrink:0;aspect-ratio:1;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:20px;">Get Started</div>
+            <div style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);line-height:1.2;margin-bottom:8px;">From £30</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:24px;line-height:1.6;">Professional content.<br>Delivered to your inbox.</div>
+            <div style="border:1px solid var(--gold);color:var(--gold);padding:10px 24px;font-size:9px;letter-spacing:2px;font-weight:700;text-transform:uppercase;">Link in bio →</div>
+            <div style="margin-top:20px;font-size:8px;letter-spacing:2px;color:rgba(212,175,90,0.35);text-transform:uppercase;">Presenza · Y Media</div>
+          </div>
+
+        </div>
+        <!-- Controls -->
+        <button onclick="exPrev()" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">&#8592;</button>
+        <button onclick="exNext()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">&#8594;</button>
+        <div style="position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.45);color:#fff;font-size:9px;padding:3px 9px;border-radius:10px;" id="ex-counter">1 / 6</div>
+      </div>
+      <p class="visual-note">Carousel copy is delivered as slide-by-slide text — these designed slides show how your copy looks in practice.</p>
+    </div>
+
+    <div class="post-actions">
+      <button class="btn-copy" onclick="copyPost(this, 'post4')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Carousel Copy
+      </button>
+      <button class="btn-save" onclick="savePost('post4')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save
+      </button>
+    </div>
+  </div>
+
+</div>
 
 <!-- PROFILE GRID COMPARISON -->
 <div style="background: var(--off-white); padding: 80px 60px;">
@@ -273,7 +628,6 @@
           <span style="display:inline-block;padding:6px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;background:rgba(255,255,255,0.6);color:var(--muted);border:1px solid var(--light-border);">Without Presenza</span>
         </div>
         <div style="background:#fff;border:1px solid var(--light-border);overflow:hidden;max-width:320px;margin:0 auto;">
-          <!-- Profile header -->
           <div style="padding:16px;border-bottom:1px solid #f0f0f0;">
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
               <div style="width:48px;height:48px;border-radius:50%;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
@@ -286,28 +640,17 @@
             </div>
             <div style="font-size:11px;color:#666;line-height:1.5;">Just trying to post when I can... 🤷</div>
           </div>
-          <!-- Grid -->
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;">
-            <!-- Row 1 - some posts, some gaps -->
             <div style="aspect-ratio:1;background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">3 weeks ago</div>
-            <div style="aspect-ratio:1;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:18px;margin-bottom:2px;">📸</div><div style="font-size:8px;color:#bbb;">2 months ago</div></div>
-            </div>
+            <div style="aspect-ratio:1;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><div style="text-align:center;"><div style="font-size:18px;margin-bottom:2px;">📸</div><div style="font-size:8px;color:#bbb;">2 months ago</div></div></div>
             <div style="aspect-ratio:1;background:#eeeeee;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">5 weeks ago</div>
-            <!-- Row 2 -->
-            <div style="aspect-ratio:1;background:#f8f8f8;display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;font-size:20px;">🕐</div>
-            </div>
+            <div style="aspect-ratio:1;background:#f8f8f8;display:flex;align-items:center;justify-content:center;"><div style="text-align:center;font-size:20px;">🕐</div></div>
             <div style="aspect-ratio:1;background:#e5e5e5;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">7 weeks ago</div>
-            <div style="aspect-ratio:1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:18px;margin-bottom:2px;">📸</div><div style="font-size:8px;color:#bbb;">3 months ago</div></div>
-            </div>
-            <!-- Row 3 - long gap -->
+            <div style="aspect-ratio:1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;"><div style="text-align:center;"><div style="font-size:18px;margin-bottom:2px;">📸</div><div style="font-size:8px;color:#bbb;">3 months ago</div></div></div>
             <div style="aspect-ratio:1;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:20px;">🕐</div>
             <div style="aspect-ratio:1;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:20px;">🕐</div>
             <div style="aspect-ratio:1;background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;padding:4px;">5 months ago</div>
           </div>
-          <!-- Stats -->
           <div style="padding:12px 16px;background:#fafafa;border-top:1px solid #f0f0f0;display:flex;justify-content:space-around;text-align:center;">
             <div><div style="font-size:13px;font-weight:600;color:#000;">12</div><div style="font-size:9px;color:#aaa;">avg likes</div></div>
             <div><div style="font-size:13px;font-weight:600;color:#000;">0</div><div style="font-size:9px;color:#aaa;">avg comments</div></div>
@@ -322,7 +665,6 @@
           <span style="display:inline-block;padding:6px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;background:var(--gold);color:var(--navy);">With Presenza</span>
         </div>
         <div style="background:#fff;border:1px solid var(--gold);overflow:hidden;max-width:320px;margin:0 auto;box-shadow:0 8px 32px rgba(212,175,90,0.15);">
-          <!-- Profile header -->
           <div style="padding:16px;border-bottom:1px solid #f0f0f0;">
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
               <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(45deg,#d4af5a,#f0d080);display:flex;align-items:center;justify-content:center;">
@@ -335,7 +677,6 @@
             </div>
             <div style="font-size:11px;color:#333;line-height:1.5;font-weight:500;">Professional content. Consistent presence. <span style="color:var(--gold-dim);">Presenza by Y Media ✨</span></div>
           </div>
-          <!-- Grid - full, consistent, active -->
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;">
             <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">Today</div></div>
             <div style="aspect-ratio:1;background:#f0ece4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-size:8px;color:var(--muted);line-height:1.4;">Yesterday</div></div>
@@ -347,7 +688,6 @@
             <div style="aspect-ratio:1;background:#f0ece4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-size:8px;color:var(--muted);line-height:1.4;">1 week ago</div></div>
             <div style="aspect-ratio:1;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:9px;color:var(--gold);line-height:1.4;">1 week ago</div></div>
           </div>
-          <!-- Stats -->
           <div style="padding:12px 16px;background:#faf8f3;border-top:1px solid #f0ece4;display:flex;justify-content:space-around;text-align:center;">
             <div><div style="font-size:13px;font-weight:600;color:#000;">847</div><div style="font-size:9px;color:#aaa;">avg likes</div></div>
             <div><div style="font-size:13px;font-weight:600;color:#000;">94</div><div style="font-size:9px;color:#aaa;">avg comments</div></div>
@@ -357,7 +697,6 @@
       </div>
 
     </div>
-
     <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:40px;font-style:italic;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8;">Results and engagement figures are illustrative. Your results will depend on your audience, niche, and how consistently you post.</p>
   </div>
 </div>
@@ -379,49 +718,22 @@
           <div class="ig-phone-top"><div class="ig-phone-notch"></div></div>
           <div class="ig-post">
             <div class="ig-header">
-              <div class="ig-avatar">
-                <div class="ig-avatar-inner"><span class="ig-avatar-y">Y</span></div>
-              </div>
-              <div>
-                <div class="ig-username">YMedia</div>
-                <div class="ig-handle">Y Media</div>
-              </div>
+              <div class="ig-avatar"><div class="ig-avatar-inner"><span class="ig-avatar-y">Y</span></div></div>
+              <div><div class="ig-username">YMedia</div><div class="ig-handle">Y Media</div></div>
               <div class="ig-more">···</div>
             </div>
-
-            <!-- BEFORE CAROUSEL -->
             <div style="position:relative;width:100%;aspect-ratio:1;overflow:hidden;">
               <div id="before-carousel" style="display:flex;width:500%;height:100%;transition:transform 0.4s ease;">
-                <div style="width:20%;height:100%;flex-shrink:0;background:#f2f2f2;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
-                  <div style="font-size:15px;color:#555;font-family:Arial;line-height:1.6;">How to be more consistent 💪😊</div>
-                </div>
-                <div style="width:20%;height:100%;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;border:1px solid #eee;">
-                  <div style="font-family:Arial;">
-                    <div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 1</div>
-                    <div style="font-size:13px;color:#777;line-height:1.6;">Just show up every day even when you don't feel like it!</div>
-                  </div>
-                </div>
-                <div style="width:20%;height:100%;flex-shrink:0;background:#f9f9f9;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
-                  <div style="font-family:Arial;">
-                    <div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 2</div>
-                    <div style="font-size:13px;color:#777;line-height:1.6;">Make a schedule and stick to it. Simple!!</div>
-                  </div>
-                </div>
-                <div style="width:20%;height:100%;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;border:1px solid #eee;">
-                  <div style="font-family:Arial;">
-                    <div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 3</div>
-                    <div style="font-size:13px;color:#777;line-height:1.6;">Don't give up when it gets hard lol</div>
-                  </div>
-                </div>
-                <div style="width:20%;height:100%;flex-shrink:0;background:#f2f2f2;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
-                  <div style="font-family:Arial;font-size:13px;color:#888;line-height:1.8;">Hope this was helpful!! 😊<br>Like and follow for more tips<br><span style="font-size:11px;color:#bbb;">👍👍👍</span></div>
-                </div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#f2f2f2;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;"><div style="font-size:15px;color:#555;font-family:Arial;line-height:1.6;">How to be more consistent 💪😊</div></div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;border:1px solid #eee;"><div style="font-family:Arial;"><div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 1</div><div style="font-size:13px;color:#777;line-height:1.6;">Just show up every day even when you don't feel like it!</div></div></div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#f9f9f9;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;"><div style="font-family:Arial;"><div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 2</div><div style="font-size:13px;color:#777;line-height:1.6;">Make a schedule and stick to it. Simple!!</div></div></div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;border:1px solid #eee;"><div style="font-family:Arial;"><div style="font-size:11px;color:#bbb;margin-bottom:8px;">TIP 3</div><div style="font-size:13px;color:#777;line-height:1.6;">Don't give up when it gets hard lol</div></div></div>
+                <div style="width:20%;height:100%;flex-shrink:0;background:#f2f2f2;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;"><div style="font-family:Arial;font-size:13px;color:#888;line-height:1.8;">Hope this was helpful!! 😊<br>Like and follow for more tips<br><span style="font-size:11px;color:#bbb;">👍👍👍</span></div></div>
               </div>
               <button onclick="beforePrev()" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8592;</button>
               <button onclick="beforeNext()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8594;</button>
               <div style="position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.4);color:#fff;font-size:9px;padding:3px 8px;border-radius:10px;" id="before-counter">1 / 5</div>
             </div>
-
             <div class="ig-actions">
               <span class="ig-action-icon">🤍</span>
               <span class="ig-action-icon">💬</span>
@@ -443,39 +755,27 @@
           <div class="ig-phone-top"><div class="ig-phone-notch"></div></div>
           <div class="ig-post">
             <div class="ig-header">
-              <div class="ig-avatar">
-                <div class="ig-avatar-inner"><span class="ig-avatar-y">Y</span></div>
-              </div>
-              <div>
-                <div class="ig-username">YMedia</div>
-                <div class="ig-handle">Y Media</div>
-              </div>
+              <div class="ig-avatar"><div class="ig-avatar-inner"><span class="ig-avatar-y">Y</span></div></div>
+              <div><div class="ig-username">YMedia</div><div class="ig-handle">Y Media</div></div>
               <div class="ig-more">···</div>
             </div>
-
-            <!-- AFTER CAROUSEL -->
             <div style="position:relative;width:100%;aspect-ratio:1;overflow:hidden;">
               <div id="after-carousel" style="display:flex;width:600%;height:100%;transition:transform 0.4s ease;">
-                <!-- Slide 1 - Hook Cover -->
-                <!-- Slide 1 - Hook Cover -->
                 <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
                   <div style="width:30px;height:1px;background:var(--gold);margin-bottom:18px;"></div>
                   <div style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;line-height:1.6;margin-bottom:10px;">Consistency isn't about motivation. It's about something far more powerful...</div>
                   <div style="font-size:10px;letter-spacing:2px;color:rgba(212,175,90,0.6);text-transform:uppercase;margin-top:12px;">Swipe to find out →</div>
                 </div>
-                <!-- Slide 2 -->
                 <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
                   <div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:600;">The Truth</div>
                   <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);line-height:1.5;">Motivation is a visitor.<br><br><span style="color:var(--gold);">Discipline is a resident.</span></div>
                   <div style="width:30px;height:1px;background:var(--gold);margin:16px auto;"></div>
                   <div style="font-size:12px;color:var(--muted);line-height:1.7;">Build the habit. Not the hype.</div>
                 </div>
-                <!-- Slide 3 -->
                 <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--off-white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
                   <div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:600;">Stop Waiting For</div>
                   <div style="font-size:13px;color:var(--navy);line-height:2;">The perfect moment.<br>The right mood.<br>The motivation to strike.<br><br><span style="font-weight:600;color:var(--gold);">It's not coming.</span></div>
                 </div>
-                <!-- Slide 4 -->
                 <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:28px;">
                   <div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:600;">Start With This</div>
                   <div style="display:flex;flex-direction:column;gap:14px;width:100%;">
@@ -484,12 +784,10 @@
                     <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);">→</span><span style="font-size:12px;color:#fff;line-height:1.5;">Repeat until it's just who you are</span></div>
                   </div>
                 </div>
-                <!-- Slide 5 -->
                 <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
                   <div style="width:30px;height:1px;background:var(--gold);margin:0 auto 20px;"></div>
                   <div style="font-size:13px;color:var(--navy);line-height:1.8;">The secret to consistency<br>is simply<br><span style="font-weight:600;color:var(--gold);">not stopping.</span></div>
                 </div>
-                <!-- Slide 6 - CTA -->
                 <div style="width:calc(100%/6);height:100%;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;">
                   <div style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:20px;line-height:1.6;">Save this for the next time you want to quit.</div>
                   <div style="border:1px solid var(--gold);color:var(--gold);padding:8px 20px;font-size:9px;letter-spacing:2px;font-weight:600;text-transform:uppercase;margin-bottom:16px;">Drop a comment below</div>
@@ -500,7 +798,6 @@
               <button onclick="afterNext()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;">&#8594;</button>
               <div style="position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.4);color:#fff;font-size:9px;padding:3px 8px;border-radius:10px;" id="after-counter">1 / 6</div>
             </div>
-
             <div class="ig-actions">
               <span class="ig-action-icon">❤️</span>
               <span class="ig-action-icon">💬</span>
@@ -512,48 +809,36 @@
             <div class="ig-caption">
               <strong>YMedia</strong>
               <span id="caption-short"> Consistency isn't about motivation. It's about something far more powerful... <span style="color:#999;cursor:pointer;text-decoration:underline;" onclick="document.getElementById('caption-short').style.display='none';document.getElementById('caption-full').style.display='inline';">more</span></span>
-              <span id="caption-full" style="display:none;"> Consistency isn't about motivation. It's about something far more powerful.<br><br>
-              Motivation is a visitor. Discipline is a resident.<br><br>
-              Stop waiting for the perfect moment, the right mood, or the motivation to strike.<br><br>
-              It's not coming.<br><br>
-              Show up on the hard days.<br>
-              Do less than you think you need to.<br>
-              Repeat until it's just who you are.<br><br>
-              The secret to consistency is simply not stopping. 🔁<br><br>
-              Save this for the next time you want to quit.<br><br>
-              Drop a comment below if this hit home 👇</span>
+              <span id="caption-full" style="display:none;"> Consistency isn't about motivation. It's about something far more powerful.<br><br>Motivation is a visitor. Discipline is a resident.<br><br>Stop waiting for the perfect moment, the right mood, or the motivation to strike.<br><br>It's not coming.<br><br>Show up on the hard days.<br>Do less than you think you need to.<br>Repeat until it's just who you are.<br><br>The secret to consistency is simply not stopping. 🔁<br><br>Save this for the next time you want to quit.<br><br>Drop a comment below if this hit home 👇</span>
             </div>
             <div style="padding:2px 14px 6px;font-size:11px;color:#0095f6;">View all 94 comments</div>
             <div class="ig-time">2 hours ago</div>
           </div>
         </div>
       </div>
-      </div>
 
     </div>
   </div>
 </div>
 
-
-
 <!-- BOTTOM CTA -->
-<div style="background:var(--navy);padding:60px 60px;text-align:center;">
-  <div style="max-width:600px;margin:0 auto;">
-    <div style="font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Ready to get started?</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:#fff;font-weight:400;margin-bottom:12px;">Like what you see?</h2>
-    <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:36px;line-height:1.8;font-weight:300;">Head back and choose your package — or get in touch and we'll take it from there.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="presenza.html#pricing" style="background:var(--gold);color:var(--navy);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background 0.2s;">View Packages</a>
-      <a href="/cdn-cgi/l/email-protection#19607c786b6a757c60747c7d7078597e74787075377a7674266a6c7b737c7a6d24496b7c6a7c7763783c2b295c77686c706b60" style="background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;">Get In Touch</a>
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-eye">Ready to get started</div>
+    <h2>Like what you see?</h2>
+    <p>Head back and choose your package — or get in touch and we'll take it from there.</p>
+    <div class="cta-band-btns">
+      <a href="presenza.html#pricing" class="btn-gold">View Packages</a>
+      <a href="mailto:yearsleymedia@gmail.com" class="btn-outline">Get In Touch</a>
     </div>
   </div>
 </div>
 
 <!-- DISCLAIMER -->
-<div style="background:var(--cream);padding:40px 60px;">
-  <div style="max-width:1100px;margin:0 auto;border-left:3px solid var(--gold);padding:20px 28px;background:#fff;">
-    <div style="font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:8px;">Please Note</div>
-    <p style="font-size:13px;color:var(--muted);line-height:1.8;">Presenza provides written content across all tiers — captions, reel scripts, and carousel copy. Tier 3 Premium additionally includes custom branded visuals for every post. The images shown in the examples above are for illustrative purposes only. Tiers 1 and 2 are writing-only packages.</p>
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-eye">Please Note</div>
+    <p>Tiers 1 and 2 are writing-only packages — delivering captions, reel scripts, and carousel copy. Tier 3 Premium includes a custom branded typographic visual for every post — excluding reel scripts, which are delivered as written scripts only. No client photos are required across any tier — a logo may be supplied for Tier 3 only.</p>
   </div>
 </div>
 
@@ -564,47 +849,77 @@
     <div class="footer-tagline">CONTENT · CONSISTENCY · PRESENCE</div>
   </div>
   <div class="footer-right">
-    <div class="footer-contact"><span id="em"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("em").textContent="yearsleymedia"+"@"+"gmail.com"</script></div>
-    <a href="https://www.instagram.com/yearsleymedia" targY Media. All rights reserved.</div>
+    <div class="footer-contact">yearsleymedia@gmail.com</div>
+    <div class="footer-copy">&copy; 2025 Y Media. All rights reserved.</div>
   </div>
 </footer>
 
-
-
 <script>
-  let beforeCurrent = 0;
-  let afterCurrent = 0;
+// ── BEFORE / AFTER CAROUSEL ──
+let beforeCurrent = 0;
+let afterCurrent = 0;
 
-  function beforeNext() {
-    beforeCurrent = beforeCurrent < 4 ? beforeCurrent + 1 : 0;
-    document.getElementById('before-carousel').style.transform = 'translateX(-' + (100/5 * beforeCurrent) + '%)';
-    document.getElementById('before-counter').textContent = (beforeCurrent+1) + ' / 5';
-  }
-  function beforePrev() {
-    beforeCurrent = beforeCurrent > 0 ? beforeCurrent - 1 : 4;
-    document.getElementById('before-carousel').style.transform = 'translateX(-' + (100/5 * beforeCurrent) + '%)';
-    document.getElementById('before-counter').textContent = (beforeCurrent+1) + ' / 5';
-  }
+function beforeNext() {
+  beforeCurrent = beforeCurrent < 4 ? beforeCurrent + 1 : 0;
+  document.getElementById('before-carousel').style.transform = 'translateX(-' + (100/5 * beforeCurrent) + '%)';
+  document.getElementById('before-counter').textContent = (beforeCurrent+1) + ' / 5';
+}
+function beforePrev() {
+  beforeCurrent = beforeCurrent > 0 ? beforeCurrent - 1 : 4;
+  document.getElementById('before-carousel').style.transform = 'translateX(-' + (100/5 * beforeCurrent) + '%)';
+  document.getElementById('before-counter').textContent = (beforeCurrent+1) + ' / 5';
+}
+function afterNext() {
+  afterCurrent = afterCurrent < 5 ? afterCurrent + 1 : 0;
+  document.getElementById('after-carousel').style.transform = 'translateX(-' + (100/6 * afterCurrent) + '%)';
+  document.getElementById('after-counter').textContent = (afterCurrent+1) + ' / 6';
+}
+function afterPrev() {
+  afterCurrent = afterCurrent > 0 ? afterCurrent - 1 : 5;
+  document.getElementById('after-carousel').style.transform = 'translateX(-' + (100/6 * afterCurrent) + '%)';
+  document.getElementById('after-counter').textContent = (afterCurrent+1) + ' / 6';
+}
+setInterval(afterNext, 6000);
 
-  function afterNext() {
-    afterCurrent = afterCurrent < 5 ? afterCurrent + 1 : 0;
-    document.getElementById('after-carousel').style.transform = 'translateX(-' + (100/6 * afterCurrent) + '%)';
-    document.getElementById('after-counter').textContent = (afterCurrent+1) + ' / 6';
-  }
-  function afterPrev() {
-    afterCurrent = afterCurrent > 0 ? afterCurrent - 1 : 5;
-    document.getElementById('after-carousel').style.transform = 'translateX(-' + (100/6 * afterCurrent) + '%)';
-    document.getElementById('after-counter').textContent = (afterCurrent+1) + ' / 6';
-  }
+// ── POST 04 CAROUSEL ──
+let exCurrent = 0;
+function exNext() {
+  exCurrent = exCurrent < 5 ? exCurrent + 1 : 0;
+  document.getElementById('ex-carousel').style.transform = 'translateX(-' + (100/6 * exCurrent) + '%)';
+  document.getElementById('ex-counter').textContent = (exCurrent+1) + ' / 6';
+}
+function exPrev() {
+  exCurrent = exCurrent > 0 ? exCurrent - 1 : 5;
+  document.getElementById('ex-carousel').style.transform = 'translateX(-' + (100/6 * exCurrent) + '%)';
+  document.getElementById('ex-counter').textContent = (exCurrent+1) + ' / 6';
+}
 
-  setInterval(afterNext, 6000);
+// ── COPY / SAVE ──
+const postContent = {
+  post1: `Your content shouldn't feel like a chore.\n\nIf you're sitting there every day staring at a blank screen, trying to figure out what to post — that's not a creativity problem. That's a systems problem.\n\nPresenza solves it.\n\n30 professionally written, ready-to-post pieces. Tailored to your tone, your audience, and your brand. Delivered in days — not weeks.\n\nYou just copy, paste, and post.\n\nWhat would you do with the hours you'd get back? 👇`,
+  post2: `OPEN (0–3s)\n"If posting consistently feels impossible right now — this is why."\n\nMIDDLE (3–20s)\n"Most coaches aren't bad at what they do. They're just trying to do everything at once — train clients, run a business, stay visible online, and come up with fresh content every single day. Something has to give. And it's usually the posting.\n\nPresenza takes that off your plate entirely. Written content, delivered to your inbox, ready to go."\n\nCLOSE (20–30s)\n"Your expertise deserves to be heard. Let us handle the words." 🖊️\n\nCAPTION\nYou built your business on your knowledge — not your ability to write captions. Let Presenza handle it. Link in bio.`,
+  post3: `You've got 30 seconds to make someone stop scrolling.\n\nNot with a perfect photo. Not with a trending audio.\n\nWith words.\n\nThe right hook. The right opening line. The right message — at the right moment.\n\nThat's what Presenza writes for you. Every single post.\n\nCaption, hook, theme — structured, on-brand, and ready to copy straight into Instagram.\n\nNo blank screens. No wasted evenings. No posting something just to post something.\n\nJust content that actually sounds like you. 💛\n\nDM us or head to the link in bio to see your package options.`,
+  post4: `SLIDE 1 — COVER\nStill writing your own captions? Here's what that's costing you. 👇\n\nSLIDE 2\nYour time is worth more than a caption.\nEvery hour spent staring at a blank screen is an hour you're not coaching, selling, or resting.\n\nSLIDE 3\nConsistency is everything online.\nAlgorithms reward accounts that show up regularly. Irregular posting buries you — no matter how good your content is.\n\nSLIDE 4\nYou don't need more ideas. You need a system.\nPresenza delivers 15 or 30 ready-to-post pieces every month — tailored to your tone and audience.\n\nSLIDE 5\nWhat you get with Presenza:\n→ Professionally written captions\n→ Reel scripts\n→ Carousel copy\n→ Custom branded visuals (Tier 3)\n→ All delivered in days, not weeks\n\nSLIDE 6 — CTA\nStarting from just £30/month.\nHead to the link in bio to choose your package.\n\nCAPTION\nSwipe to see exactly why Presenza might be the best investment you make for your online presence this month. 👉 Packages from £30 — link in bio.`
+};
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+function copyPost(btn, id) {
+  navigator.clipboard.writeText(postContent[id]).then(() => {
+    const orig = btn.innerHTML;
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied';
+    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2000);
+  });
+}
+
+function savePost(id) {
+  const text = postContent[id];
+  const blob = new Blob([text], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'presenza-' + id + '.txt';
+  a.click();
+}
 </script>
+
 </body>
 </html>
