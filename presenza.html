@@ -689,18 +689,21 @@
 
   .steps-row {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0;
     margin-top: 60px;
     position: relative;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .steps-row::before {
     content: '';
     position: absolute;
     top: 28px;
-    left: 5%;
-    right: 5%;
+    left: 12%;
+    right: 12%;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
@@ -710,7 +713,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 0 12px;
+    padding: 0 20px;
     position: relative;
   }
 
@@ -731,18 +734,18 @@
   }
 
   .step-title {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--navy);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     letter-spacing: 0.3px;
     line-height: 1.4;
   }
 
   .step-desc {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   /* ── NOT INCLUDED ── */
@@ -963,7 +966,7 @@
     /* SECTIONS */
     .offer-grid { grid-template-columns: 1fr; gap: 40px; }
     .offer-right { position: static; }
-    .steps-row { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .steps-row { grid-template-columns: 1fr 1fr; gap: 32px; max-width: 100%; }
     .steps-row::before { display: none; }
     .step-item { padding: 0 4px; }
     .step-num { width: 44px; height: 44px; font-size: 16px; }
@@ -1451,7 +1454,7 @@
 <section class="process" id="process">
   <div class="section-inner">
     <div class="section-label">How It Works</div>
-    <h2 class="section-title">Up and running<br><em>in six simple steps.</em></h2>
+    <h2 class="section-title">Up and running<br><em>in four simple steps.</em></h2>
     <p class="section-intro">Getting started is straightforward. Here's exactly what happens after you decide to go ahead.</p>
 
     <div class="steps-row">
@@ -1462,26 +1465,16 @@
       </div>
       <div class="step-item fade-up">
         <div class="step-num">2</div>
-        <div class="step-title">Service Agreement</div>
-        <div class="step-desc">We send you a service agreement to review and sign</div>
+        <div class="step-title">Complete Your Portal</div>
+        <div class="step-desc">Service agreement, payment, and onboarding form — all in one place, takes around 5 minutes</div>
       </div>
       <div class="step-item fade-up">
         <div class="step-num">3</div>
-        <div class="step-title">Secure Your Spot</div>
-        <div class="step-desc">Once payment is received, you'll get your onboarding form</div>
-      </div>
-      <div class="step-item fade-up">
-        <div class="step-num">4</div>
-        <div class="step-title">Onboarding Form</div>
-        <div class="step-desc">10 minutes to tell us about your brand and voice</div>
-      </div>
-      <div class="step-item fade-up">
-        <div class="step-num">5</div>
         <div class="step-title">We Write</div>
         <div class="step-desc">Content delivered within the agreed timeframe</div>
       </div>
       <div class="step-item fade-up">
-        <div class="step-num">6</div>
+        <div class="step-num">4</div>
         <div class="step-title">Copy &amp; Post</div>
         <div class="step-desc">Download, copy, and post — your content is ready to go</div>
       </div>
