@@ -644,6 +644,26 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 // ── STATE ──
 let agreed = false;
 let selectedTone = '';
+
+// Pre-select package from URL parameter
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const tier = params.get('tier');
+  if(!tier) return;
+  const map = {
+    '1': 'Tier 1 — 15 Captions (£30)',
+    '2': 'Tier 2 — 30 Posts (£40)',
+    '3': 'Tier 3 Premium — 30 Posts + Visuals (£80)'
+  };
+  const val = map[tier];
+  if(!val) return;
+  const sel = document.getElementById('ag_pkg');
+  if(sel) sel.value = val;
+  // Also update payment amount display
+  const amounts = {'1':'£30','2':'£40','3':'£80'};
+  const amountEl = document.getElementById('payment-amount');
+  if(amountEl) amountEl.textContent = amounts[tier];
+})();
 // ── UTILS ──
 function v(id){ return (document.getElementById(id)||{}).value||''; }
 function show(id){ document.getElementById(id).style.display='block'; }
