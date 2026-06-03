@@ -83,6 +83,7 @@ nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:
 .ag-meta-box{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,90,0.15);padding:14px 18px;}
 .ag-meta-label{font-size:8px;letter-spacing:2px;color:rgba(212,175,90,0.5);text-transform:uppercase;margin-bottom:8px;}
 .ag-meta-box input,.ag-meta-box select{background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;appearance:none;}
+.ag-meta-box input[type=date]{color-scheme:dark;min-height:22px;}
 .ag-meta-box input::placeholder{color:rgba(255,255,255,0.25);font-style:italic;}
 .ag-meta-box select option{background:#1a1a2e;}
 
@@ -192,21 +193,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .pf-right{font-size:11px;color:rgba(212,175,90,0.45);}
 
 /* MOBILE */
-input[type=date]{
-  color-scheme:dark;
-  -webkit-appearance:none;
-  appearance:none;
-  min-height:20px;
-}
-input[type=date]::-webkit-date-and-time-value{
-  text-align:left;
-  color:rgba(255,255,255,0.8);
-}
 @media(max-width:768px){
-  input[type=date]{
-    font-size:16px;
-    min-height:24px;
-  }
   nav{padding:14px 20px;}
   .hero{padding:36px 20px 32px;}
   .hero-title{font-size:30px;}
@@ -302,7 +289,7 @@ input[type=date]::-webkit-date-and-time-value{
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="date" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;-webkit-appearance:none;appearance:none;">
+          <input type="date" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;">
         </div>
       </div>
     </div>
@@ -669,9 +656,10 @@ function toggleAgree(){
   document.getElementById('btn-confirm-ag').disabled = !agreed;
 }
 
-function formatDate(d){
+function formatDate(){
+  const d = v('ag_date');
   if(!d) return '[Date not entered]';
-  const parts=d.split('-');
+  const parts = d.split('-');
   if(parts.length!==3) return d;
   const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
   return parseInt(parts[2])+' '+months[parseInt(parts[1])-1]+' '+parts[0];
@@ -679,7 +667,7 @@ function formatDate(d){
 function confirmAgreement(){
   const client = v('ag_client');
   const pkg = v('ag_pkg');
-  const date = formatDate(v('ag_date'));
+  const date = formatDate();
   if(!client){ alert('Please enter your full name.'); return; }
   if(!pkg){ alert('Please select your package.'); return; }
 
