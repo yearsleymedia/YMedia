@@ -387,7 +387,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           </button>
         </div>
 
-        <div class="success-banner" id="ag-success">✓ &nbsp;Your email app should have opened with your confirmation ready to send. Just hit send. Once we receive it alongside your payment, your onboarding form will be with you within 1 working day.</div>
+        <div class="success-banner" id="ag-success">
+          ✓ &nbsp;Your email app should have opened — just hit send. Once sent, click below to continue.
+          <div style="margin-top:16px;">
+            <button class="btn-primary" onclick="setStage(2)" style="font-size:10px;">
+              Continue to Payment &rarr;
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -445,7 +452,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           I've Sent Payment
         </button>
       </div>
-      <div class="success-banner" id="pay-success" style="margin-top:16px;">✓ &nbsp;Payment notification sent. Taking you to your onboarding form now...</div>
+      <div class="success-banner" id="pay-success" style="margin-top:16px;">
+        ✓ &nbsp;Payment notification sent. Once your transfer is done, click below to continue to your onboarding form.
+        <div style="margin-top:16px;">
+          <button class="btn-primary" onclick="setStage(3)" style="font-size:10px;">
+            Continue to Onboarding &rarr;
+          </button>
+        </div>
+      </div>
     </div>
 
   </div><!-- /stage2 -->
@@ -608,8 +622,8 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
           Send to Presenza
         </button>
-        <p class="submit-note">Clicking "Send to Presenza" opens your email app with everything pre-filled — just hit send. Your content will be in progress within 1 working day.</p>
-        <div class="success-banner" id="ob-success">✓ &nbsp;Your email app should have opened with your answers ready to send. Simply hit send. If it didn't open, email yearsleymedia@gmail.com directly.</div>
+        <p class="submit-note">Clicking "Send to Presenza" opens your email app with everything pre-filled — just hit send.</p>
+        <div class="success-banner" id="ob-success">✓ &nbsp;Your email app should have opened — just hit send. That's everything done. We'll be in touch once your content is ready.</div>
       </div>
 
     </div><!-- /onboarding-form -->
@@ -696,10 +710,7 @@ function confirmAgreement(){
   const refEl = document.getElementById('payment-ref');
   if(refEl && client) refEl.textContent = client;
 
-  setTimeout(()=>{
-    show('ag-success');
-    setTimeout(()=>setStage(2), 1800);
-  }, 600);
+  setTimeout(()=>show('ag-success'), 400);
 }
 
 // ── STAGE 2: PAYMENT ──
@@ -736,7 +747,6 @@ function notifyPayment(){
   checkTier3();
 
   show('pay-success');
-  setTimeout(()=>setStage(3), 1600);
 }
 
 // ── ONBOARDING FORM ──
