@@ -768,16 +768,12 @@ function confirmAgreement(){
 
   // Send silent notification via EmailJS
   emailjs.send('service_lpa1aaf', 'template_78sag9f', {
-    to_email: 'yearsleymedia@gmail.com',
-    subject: 'Presenza Service Agreement — ' + client + ' — ' + pkg + ' — ' + date,
-    name: client,
-    email: 'yearsleymedia@gmail.com',
+    subject: 'Presenza Service Agreement — ' + client + ' — ' + pkg,
     message: agreementMsg
   }).then(function(){
-    console.log('EmailJS: sent successfully');
-  }, function(error){
-    console.error('EmailJS error:', JSON.stringify(error));
-    alert('Email notification failed: ' + JSON.stringify(error));
+    console.log('EmailJS success');
+  }, function(err){
+    console.error('EmailJS failed', err);
   });
 
   // Show success and advance to payment
