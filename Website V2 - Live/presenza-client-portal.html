@@ -456,7 +456,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <div id="ref-display" style="display:none;margin-top:16px;background:rgba(212,175,90,0.08);border:1px solid rgba(212,175,90,0.3);border-left:3px solid var(--gold);padding:20px 24px;">
         <div style="font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Your Payment Reference</div>
         <div id="ref-number" style="font-family:'Playfair Display',serif;font-size:28px;color:#fff;letter-spacing:4px;margin-bottom:8px;"></div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;">Please use this as your bank transfer reference. It will also be included in your onboarding form automatically.</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;">Use this as your bank transfer reference. Keep a note of it — it will also appear on your onboarding form.</div>
       </div>
       <div class="success-banner" id="pay-success" style="margin-top:16px;">
         ✓ &nbsp;Reference number generated. Make your bank transfer using the reference above, then continue to your onboarding form.
@@ -653,7 +653,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <script>
 // ── EMAILJS INIT ──
 // Replace YOUR_PUBLIC_KEY with your EmailJS public key
-emailjs.init('YOUR_PUBLIC_KEY');
+emailjs.init('2x1bCMtrWHGk3li-v');
 
 // ── STATE ──
 let agreed = false;
@@ -696,6 +696,17 @@ function setStage(n){
   document.getElementById('stage'+n).classList.add('active');
   setTab(n);
   window.scrollTo({top:0,behavior:'smooth'});
+
+  // Generate reference number when stage 2 loads
+  if(n===2 && !paymentRef){
+    paymentRef = generateRef();
+    const refNumEl = document.getElementById('ref-number');
+    const refDispEl = document.getElementById('ref-display');
+    const refEl = document.getElementById('payment-ref');
+    if(refNumEl) refNumEl.textContent = paymentRef;
+    if(refDispEl) refDispEl.style.display = 'block';
+    if(refEl) refEl.textContent = paymentRef;
+  }
 }
 
 // ── STAGE 1: AGREEMENT ──
@@ -728,15 +739,41 @@ function confirmAgreement(){
   const refEl = document.getElementById('payment-ref');
   if(refEl && client) refEl.textContent = client;
 
+  // Build full agreement record for email
+  let agreementMsg = '';
+  agreementMsg += 'PRESENZA SERVICE AGREEMENT — SIGNED COPY\n';
+  agreementMsg += '==========================================\n\n';
+  agreementMsg += 'CLIENT NAME: ' + client + '\n';
+  agreementMsg += 'PACKAGE: ' + pkg + '\n';
+  agreementMsg += 'DATE SIGNED: ' + date + '\n\n';
+  agreementMsg += 'CONFIRMATION:\n';
+  agreementMsg += client + ' has read and agreed to the Presenza service agreement in full via the client portal.\n\n';
+  agreementMsg += '--- AGREEMENT TERMS ON RECORD ---\n\n';
+  agreementMsg += 'CLAUSE 1 — THE SERVICE\n';
+  agreementMsg += 'Presenza by Y Media agrees to create written social media content based on the package selected. Tier 1 (£30): 15 captions, 5 working days. Tier 2 (£40): 30 pieces of content, 7 working days. Tier 3 Premium (£80): 30 pieces of content plus custom branded visuals, 10 working days. Delivery begins once the onboarding form is received.\n\n';
+  agreementMsg += 'CLAUSE 2 — PAYMENT\n';
+  agreementMsg += 'Payment is required in full before any work begins. The onboarding form will only be unlocked once payment has been confirmed.\n\n';
+  agreementMsg += 'CLAUSE 3 — REFUND POLICY\n';
+  agreementMsg += 'Refunds are not available once content has been written and delivered. One round of amendments is included as standard covering adjustments to tone, wording, or topic.\n\n';
+  agreementMsg += 'CLAUSE 4 — WHAT IS AND IS NOT INCLUDED\n';
+  agreementMsg += 'Presenza provides written content across all tiers. Custom branded visuals are included in Tier 3 only. Presenza does not post content, manage accounts, or guarantee follower growth, engagement rates, or leads.\n\n';
+  agreementMsg += 'CLAUSE 5 — OWNERSHIP\n';
+  agreementMsg += 'Once delivered and paid for, all content belongs to the client. Y Media retains the right to reference the work for portfolio purposes unless the client requests otherwise in writing.\n\n';
+  agreementMsg += 'CLAUSE 6 — CONFIDENTIALITY\n';
+  agreementMsg += 'Any information shared during onboarding is used solely to create content. Y Media will not share, sell, or disclose client information to any third party.\n\n';
+  agreementMsg += 'CLAUSE 7 — AGREEMENT\n';
+  agreementMsg += 'By confirming, both parties agree to the terms set out in this document. A written email reply stating "I agree to the Presenza service agreement" also serves as binding confirmation. Governed by the laws of England and Wales.\n\n';
+  agreementMsg += '--- END OF AGREEMENT ---\n\n';
+  agreementMsg += 'This record was generated automatically by the Presenza client portal on ' + date + '.';
+
   // Send silent notification via EmailJS
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+  emailjs.send('service_lpa1aaf', 'template_78sag9f', {
     to_email: 'yearsleymedia@gmail.com',
-    subject: 'Presenza Service Agreement — ' + client,
-    client_name: client,
-    package: pkg,
-    date: date,
-    message: client + ' has confirmed the service agreement for ' + pkg + ' on ' + date + '.'
-  }).catch(()=>{}); // fail silently if not configured
+    subject: 'Presenza Service Agreement — ' + client + ' — ' + pkg + ' — ' + date,
+    name: client,
+    email: 'yearsleymedia@gmail.com',
+    message: agreementMsg
+  }).catch(()=>{});
 
   // Show success and advance to payment
   show('ag-success');
@@ -755,15 +792,6 @@ function generateRef(){
 function notifyPayment(){
   const client = v('ag_client') || '[Client name]';
   const pkg = v('ag_pkg') || '[Package not selected]';
-
-  // Generate reference number
-  paymentRef = generateRef();
-  document.getElementById('ref-number').textContent = paymentRef;
-  document.getElementById('ref-display').style.display = 'block';
-
-  // Update bank reference field to show generated ref
-  const refEl = document.getElementById('payment-ref');
-  if(refEl) refEl.textContent = paymentRef;
 
   // Pre-fill onboarding form
   const nameEl = document.getElementById('f_name');
