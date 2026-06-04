@@ -213,6 +213,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </style>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -388,7 +389,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
 
         <div class="success-banner" id="ag-success">
-          ✓ &nbsp;Your email app should have opened — just hit send. Once sent, click below to continue.
+          ✓ &nbsp;Agreement confirmed — we've been notified. Proceeding to payment...
           <div style="margin-top:16px;">
             <button class="btn-primary" onclick="setStage(2)" style="font-size:10px;">
               Continue to Payment &rarr;
@@ -446,14 +447,19 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
       <div class="payment-sent-area">
         <div class="payment-sent-title">Done your transfer?</div>
-        <p class="payment-sent-note">Click below to let us know you've sent payment. Your onboarding form will unlock immediately so you can get started straight away.</p>
+        <p class="payment-sent-note">Click below once you've sent your payment. You'll receive a reference number to use in your bank transfer and onboarding form — keep a note of it.</p>
         <button class="btn-primary" onclick="notifyPayment()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           I've Sent Payment
         </button>
       </div>
+      <div id="ref-display" style="display:none;margin-top:16px;background:rgba(212,175,90,0.08);border:1px solid rgba(212,175,90,0.3);border-left:3px solid var(--gold);padding:20px 24px;">
+        <div style="font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Your Payment Reference</div>
+        <div id="ref-number" style="font-family:'Playfair Display',serif;font-size:28px;color:#fff;letter-spacing:4px;margin-bottom:8px;"></div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;">Please use this as your bank transfer reference. It will also be included in your onboarding form automatically.</div>
+      </div>
       <div class="success-banner" id="pay-success" style="margin-top:16px;">
-        ✓ &nbsp;Payment notification sent. Once your transfer is done, click below to continue to your onboarding form.
+        ✓ &nbsp;Reference number generated. Make your bank transfer using the reference above, then continue to your onboarding form.
         <div style="margin-top:16px;">
           <button class="btn-primary" onclick="setStage(3)" style="font-size:10px;">
             Continue to Onboarding &rarr;
@@ -505,6 +511,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div id="pkg-display" style="background:var(--off-white);border:1px solid var(--light-border);padding:13px 16px;font-size:13px;color:var(--text);display:none;">
           <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--navy);display:block;margin-bottom:4px;">Package</span>
           <span id="pkg-display-val" style="font-weight:500;"></span>
+        </div>
+        <div id="ref-display-ob" style="display:none;background:var(--off-white);border:1px solid var(--light-border);border-left:3px solid var(--gold);padding:13px 16px;margin-top:8px;">
+          <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--navy);display:block;margin-bottom:4px;">Payment Reference</span>
+          <span id="ref-display-ob-val" style="font-weight:500;font-size:13px;letter-spacing:2px;color:var(--text);"></span>
         </div>
       </div>
 
@@ -641,6 +651,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </div>
 
 <script>
+// ── EMAILJS INIT ──
+// Replace YOUR_PUBLIC_KEY with your EmailJS public key
+emailjs.init('YOUR_PUBLIC_KEY');
+
 // ── STATE ──
 let agreed = false;
 let selectedTone = '';
@@ -707,53 +721,51 @@ function confirmAgreement(){
   if(!client){ alert('Please enter your full name.'); return; }
   if(!pkg){ alert('Please select your package.'); return; }
 
-  const subj = 'Presenza Service Agreement — ' + client;
-  let b = 'Hi,' + '\n\n';
-  b += 'I\'ve read through the Presenza service agreement in full and I\'m happy to confirm my agreement to all terms.\n\n';
-  b += 'My details are as follows:\n';
-  b += 'Name: ' + client + '\n';
-  b += 'Package: ' + pkg + '\n';
-  b += 'Date: ' + date + '\n\n';
-  b += 'Thanks,\n' + client;
-
-  const _a = document.createElement('a');
-  _a.href = 'mailto:yearsleymedia@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
-  _a.target = '_blank';
-  document.body.appendChild(_a);
-  _a.click();
-  document.body.removeChild(_a);
-
-  // Update payment details with their info
+  // Update payment details
   const amounts = {'Tier 1 — 15 Captions (£30)':'£30','Tier 2 — 30 Posts (£40)':'£40','Tier 3 Premium — 30 Posts + Visuals (£80)':'£80'};
   const amountEl = document.getElementById('payment-amount');
   if(amountEl && amounts[pkg]) amountEl.textContent = amounts[pkg];
   const refEl = document.getElementById('payment-ref');
   if(refEl && client) refEl.textContent = client;
 
-  setTimeout(()=>show('ag-success'), 400);
+  // Send silent notification via EmailJS
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+    to_email: 'yearsleymedia@gmail.com',
+    subject: 'Presenza Service Agreement — ' + client,
+    client_name: client,
+    package: pkg,
+    date: date,
+    message: client + ' has confirmed the service agreement for ' + pkg + ' on ' + date + '.'
+  }).catch(()=>{}); // fail silently if not configured
+
+  // Show success and advance to payment
+  show('ag-success');
 }
 
 // ── STAGE 2: PAYMENT ──
+let paymentRef = '';
+
+function generateRef(){
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let ref = 'PRES-';
+  for(let i=0;i<4;i++) ref += chars[Math.floor(Math.random()*chars.length)];
+  return ref;
+}
+
 function notifyPayment(){
   const client = v('ag_client') || '[Client name]';
   const pkg = v('ag_pkg') || '[Package not selected]';
 
-  // Build email BEFORE anything else
-  const subj = 'Presenza — Payment Sent: ' + client;
-  let b = 'Hi,\n\n';
-  b += 'I have just sent my payment for ' + pkg + '.\n\n';
-  b += 'Please confirm receipt when you get a chance.\n\n';
-  b += 'Thanks,\n' + client;
+  // Generate reference number
+  paymentRef = generateRef();
+  document.getElementById('ref-number').textContent = paymentRef;
+  document.getElementById('ref-display').style.display = 'block';
 
-  // Open email via a temporary link (doesn't navigate away)
-  const a = document.createElement('a');
-  a.href = 'mailto:yearsleymedia@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
-  a.target = '_blank';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+  // Update bank reference field to show generated ref
+  const refEl = document.getElementById('payment-ref');
+  if(refEl) refEl.textContent = paymentRef;
 
-  // Pre-fill onboarding form from stage 1
+  // Pre-fill onboarding form
   const nameEl = document.getElementById('f_name');
   if(nameEl && client !== '[Client name]') nameEl.value = client;
   const pkgEl = document.getElementById('f_pkg');
@@ -766,6 +778,12 @@ function notifyPayment(){
   }
   checkTier3();
 
+  // Show reference in onboarding form
+  const refObDisp = document.getElementById('ref-display-ob');
+  const refObVal = document.getElementById('ref-display-ob-val');
+  if(refObDisp && paymentRef){ refObDisp.style.display='block'; refObVal.textContent=paymentRef; }
+
+  // Add EmailJS init at top of script
   show('pay-success');
 }
 
@@ -798,9 +816,10 @@ function submitOnboarding(){
   if(!video){ alert('Please let us know whether you post video content.'); return; }
   if(!feeling){ alert('Please tell us how you want your audience to feel.'); return; }
 
-  const subj = 'Presenza Onboarding Form — ' + name + ' (' + biz + ')';
+  const subj = 'Presenza Onboarding Form — ' + name + ' (' + biz + ')' + (paymentRef ? ' — Ref: ' + paymentRef : '');
   let b = 'Hi,' + '\n\n';
   b += 'Please find my completed onboarding form below.\n\n';
+  if(paymentRef) b += 'Payment Reference: ' + paymentRef + '\n\n';
   b += 'Name: ' + name + '\n';
   b += 'Business: ' + biz + '\n';
   b += 'Email: ' + email + '\n';
