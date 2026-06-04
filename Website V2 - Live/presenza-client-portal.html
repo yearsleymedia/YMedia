@@ -773,7 +773,12 @@ function confirmAgreement(){
     name: client,
     email: 'yearsleymedia@gmail.com',
     message: agreementMsg
-  }).catch(()=>{});
+  }).then(function(){
+    console.log('EmailJS: sent successfully');
+  }, function(error){
+    console.error('EmailJS error:', JSON.stringify(error));
+    alert('Email notification failed: ' + JSON.stringify(error));
+  });
 
   // Show success and advance to payment
   show('ag-success');
