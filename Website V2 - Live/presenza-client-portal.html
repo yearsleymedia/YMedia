@@ -213,7 +213,6 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -653,8 +652,6 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <script>
 // ── EMAILJS INIT ──
 // Replace YOUR_PUBLIC_KEY with your EmailJS public key
-emailjs.init('2x1bCMtrWHGk3li-v');
-
 // ── STATE ──
 let agreed = false;
 let selectedTone = '';
@@ -766,14 +763,18 @@ function confirmAgreement(){
   agreementMsg += '--- END OF AGREEMENT ---\n\n';
   agreementMsg += 'This record was generated automatically by the Presenza client portal on ' + date + '.';
 
-  // Send silent notification via EmailJS
-  emailjs.send('service_lpa1aaf', 'template_78sag9f', {
-    subject: 'Presenza Service Agreement — ' + client + ' — ' + pkg,
-    message: agreementMsg
-  }).then(function(){
-    console.log('EmailJS success');
-  }, function(err){
-    console.error('EmailJS failed', err);
+  // Send silently via Formspree
+  fetch('https://formspree.io/f/xwvjkdjk', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      subject: 'Presenza Service Agreement — ' + client + ' — ' + pkg,
+      message: agreementMsg
+    })
+  }).then(r => r.json()).then(data => {
+    console.log('Formspree success', data);
+  }).catch(err => {
+    console.error('Formspree error', err);
   });
 
   // Show success and advance to payment
