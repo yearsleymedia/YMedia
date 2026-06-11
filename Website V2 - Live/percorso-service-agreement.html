@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Agreement — Percorso by Y Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a1a2e;--navy-deep:#0e1520;--gold:#d4af5a;--gold-light:#e8c97a;--gold-dim:#9a7a3a;--cream:#faf8f3;--off-white:#f4f0e8;--text:#2a2a3a;--muted:#6a6a7a;--light-border:#e8e0d0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:16px 60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav-logo-box{border:1px solid var(--gold);padding:6px 10px;display:flex;flex-direction:column;align-items:center;width:50px;}
+.nav-logo-y{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold);line-height:1;}
+.nav-logo-rule{border:none;border-top:1px solid var(--gold);margin:2px 0;width:100%;}
+.nav-logo-media{font-size:7px;letter-spacing:3px;color:var(--gold);font-weight:500;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:26px;color:#fff;font-weight:400;letter-spacing:2px;}
+.nav-label{font-size:9px;letter-spacing:2px;color:rgba(212,175,90,0.6);text-transform:uppercase;border:1px solid rgba(212,175,90,0.25);padding:6px 14px;}
+.doc-outer{max-width:780px;margin:40px auto 80px;padding:0 24px;}
+.cover{background:var(--navy);padding:52px;margin-bottom:2px;position:relative;overflow:hidden;}
+.cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);}
+.cover-eye{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.cover-eye::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.cover-title{font-family:'Playfair Display',serif;font-size:38px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:32px;}
+.cover-title em{color:var(--gold);font-style:italic;}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cm{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,90,0.15);padding:14px 18px;}
+.cm-label{font-size:8px;letter-spacing:2px;color:rgba(212,175,90,0.5);text-transform:uppercase;margin-bottom:8px;}
+.cm input{background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;}
+.cm input::placeholder{color:rgba(255,255,255,0.25);font-style:italic;}
+.ag-body{background:#fff;border:1px solid var(--light-border);padding:52px;}
+.clause{margin-bottom:36px;}
+.c-num{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;}
+.c-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:14px;font-weight:400;}
+.c-body{font-size:13px;color:var(--text);line-height:1.9;font-weight:300;}
+.c-body p{margin-bottom:10px;}
+.c-body p:last-child{margin-bottom:0;}
+.c-div{height:1px;background:var(--light-border);margin:36px 0;}
+.hb{background:var(--off-white);border-left:3px solid var(--gold);padding:18px 22px;margin:16px 0;font-size:13px;color:var(--text);line-height:1.8;}
+.hb strong{display:block;margin-bottom:6px;margin-top:14px;font-weight:600;color:var(--navy);}
+.hb strong:first-child{margin-top:0;}
+.sig-section{background:var(--navy);padding:40px 52px;margin-top:2px;}
+.sig-title{font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:8px;font-weight:400;}
+.sig-sub{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:32px;line-height:1.7;font-weight:300;}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;}
+.sig-box-label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.sig-line{border:none;border-bottom:1px solid rgba(255,255,255,0.2);height:40px;width:100%;background:transparent;margin-bottom:6px;display:block;}
+.sig-line-sub{font-size:10px;color:rgba(255,255,255,0.25);}
+
+/* CONFIRM AREA */
+.confirm-area{background:rgba(212,175,90,0.06);border:1px solid rgba(212,175,90,0.2);padding:28px 32px;margin-top:24px;}
+.confirm-title{font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:8px;}
+.confirm-note{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;line-height:1.7;}
+.confirm-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px;cursor:pointer;user-select:none;}
+.confirm-check-box{width:18px;height:18px;border:1.5px solid rgba(212,175,90,0.5);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;cursor:pointer;}
+.confirm-check-box.checked{background:var(--gold);border-color:var(--gold);}
+.confirm-check-tick{font-size:11px;color:var(--navy);font-weight:700;display:none;}
+.confirm-check-box.checked .confirm-check-tick{display:block;}
+.confirm-check-text{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.7;}
+.confirm-buttons{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-confirm{background:var(--gold);color:var(--navy);border:none;padding:16px 32px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-confirm:hover{background:var(--gold-light);}
+.btn-confirm:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-print{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:16px 24px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-print:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.success-banner{display:none;margin-top:20px;padding:16px 20px;background:rgba(45,180,100,0.1);border:1px solid rgba(45,180,100,0.3);border-left:3px solid #2db464;color:#2db464;font-size:13px;line-height:1.7;}
+.doc-footer{text-align:center;padding:32px 0 0;font-size:10px;color:var(--muted);letter-spacing:1px;}
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .doc-outer{margin:20px auto 60px;padding:0 16px;}
+  .cover{padding:32px 24px;}
+  .cover-title{font-size:28px;}
+  .cover-meta{grid-template-columns:1fr;}
+  .ag-body{padding:32px 24px;}
+  .sig-section{padding:32px 24px;}
+  .sig-grid{grid-template-columns:1fr;}
+  .confirm-area{padding:20px;}
+}
+@media print{
+  nav,.confirm-area{display:none;}
+  .doc-outer{margin:0;padding:0;max-width:100%;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="presenza.html" class="nav-logo">
+    <div class="nav-logo-box">
+      <span class="nav-logo-y">Y</span>
+      <hr class="nav-logo-rule">
+      <span class="nav-logo-media">MEDIA</span>
+    </div>
+    <span class="nav-brand">Percorso</span>
+  </a>
+  <div class="nav-label">Service Agreement</div>
+</nav>
+
+<div class="doc-outer">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-eye">Percorso by Y Media</div>
+    <h1 class="cover-title">Service<br><em>Agreement</em></h1>
+    <div class="cover-meta">
+      <div class="cm">
+        <div class="cm-label">Service Provider</div>
+        <input type="text" value="Percorso by Y Media" readonly>
+      </div>
+      <div class="cm">
+        <div class="cm-label">Client Name</div>
+        <input type="text" id="ag_client" placeholder="Your full name">
+      </div>
+      <div class="cm">
+        <div class="cm-label">Package Selected</div>
+        <select id="ag_pkg" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;appearance:none;">
+          <option value="" disabled selected style="background:#1a1a2e;">Select your package</option>
+          <option value="The Percorso Plan — £60" style="background:#1a1a2e;" selected>The Percorso Plan — £60</option>
+        </select>
+      </div>
+      <div class="cm">
+        <div class="cm-label">Date</div>
+        <input type="date" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;color-scheme:dark;">
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="ag-body">
+
+    <div class="clause">
+      <div class="c-num">Clause 01</div>
+      <div class="c-title">The Service</div>
+      <div class="c-body">
+        <p>Percorso by Y Media agrees to create written social media content for the client based on the package selected. The scope of work is as follows:</p>
+        <div class="hb">
+          <strong>The Percorso Plan — £60</strong>One fully custom training plan — running, gym, or hybrid — delivered as a private interactive tracker. The tracker includes the full session-by-session plan, personal pace zones calculated from the client's submitted times (where applicable), automatic recalculation of paces as new times are logged, session tick-off and progress logging, and scheduling built around the client's stated availability and shift pattern. Clients who already have a plan of their own may instead have that plan digitised into the tracker as written. Delivered as a private link within 3 working days of payment being received and the onboarding form being completed.
+        </div>
+        <p>All content is delivered as a branded Percorso document sent by email. Delivery timelines begin once the onboarding form has been fully completed and received — not from the date of payment.</p>
+      </div>
+    </div>
+
+    <div class="c-div"></div>
+
+    <div class="clause">
+      <div class="c-num">Clause 02</div>
+      <div class="c-title">Payment</div>
+      <div class="c-body">
+        <p>Payment is required in full before any work begins. The onboarding form will only be sent once payment has been confirmed. By agreeing to these terms, the client confirms they have read and understood everything set out in this document.</p>
+      </div>
+    </div>
+
+    <div class="c-div"></div>
+
+    <div class="clause">
+      <div class="c-num">Clause 03</div>
+      <div class="c-title">Refund Policy</div>
+      <div class="c-body">
+        <p>Due to the bespoke nature of this service, <strong style="font-weight:600;">refunds are not available once the plan has been built and delivered.</strong></p>
+        <p>If a client believes the plan does not reflect what was agreed, they should contact Percorso by Y Media within 3 days of delivery. We will review the onboarding responses and, where reasonable, make amendments at no extra charge.</p>
+        <div class="hb">One round of amendments is included as standard. This covers adjustments to scheduling, session structure, or training paces — not a complete rebuild of the plan.</div>
+      </div>
+    </div>
+
+    <div class="c-div"></div>
+
+    <div class="clause">
+      <div class="c-num">Clause 04</div>
+      <div class="c-title">What Is and Isn't Included</div>
+      <div class="c-body">
+        <p>Percorso provides training structure and planning only. Percorso does not provide medical advice, physiotherapy, injury treatment, live coaching, form checks, or personal training sessions, and does not guarantee any specific results including race times, weight loss, or strength gains. The client confirms the information provided in their onboarding form — including any injuries or health limitations — is accurate, and that they are fit to undertake physical training. Clients with a health condition should consult a medical professional before starting any training plan.</p>
+      </div>
+    </div>
+
+    <div class="c-div"></div>
+
+    <div class="clause">
+      <div class="c-num">Clause 05</div>
+      <div class="c-title">Ownership</div>
+      <div class="c-body">
+        <p>Once delivered and paid for, the plan belongs to the client. Y Media retains the right to reference the work for portfolio or promotional purposes unless the client requests otherwise in writing.</p>
+      </div>
+    </div>
+
+    <div class="c-div"></div>
+
+    <div class="clause">
+      <div class="c-num">Clause 06</div>
+      <div class="c-title">Confidentiality</div>
+      <div class="c-body">
+        <p>Any information shared by the client during onboarding is used solely to create their plan. Y Media will not share, sell, or disclose client information to any third party.</p>
+      </div>
+    </div>
+
+    <div class="c-div"></div>
+
+    <div class="clause">
+      <div class="c-num">Clause 07</div>
+      <div class="c-title">Agreement</div>
+      <div class="c-body">
+        <p>By confirming below, both parties agree to the terms set out in this document. A written email reply stating "I agree to the Percorso service agreement" also serves as a binding confirmation. This agreement is governed by the laws of England and Wales.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIGNATURE + CONFIRM -->
+  <div class="sig-section">
+    <div class="sig-title">Confirmation</div>
+    <p class="sig-sub">Fill in your name, package, and today's date in the boxes above, tick the box below, then click "Send Confirmation" — this opens an email to Percorso by Y Media confirming you've read and agreed to these terms. Once received alongside your payment, your onboarding form will follow within 1 working day.</p>
+
+    <div class="confirm-area">
+      <div class="confirm-title">Digital Confirmation</div>
+      <p class="confirm-note">Tick the box below and click send — this is your digital agreement. It's exactly the same as signing a printed copy.</p>
+
+      <div class="confirm-check" onclick="toggleAgree()">
+        <div class="confirm-check-box" id="agree-box"><span class="confirm-check-tick">✓</span></div>
+        <div class="confirm-check-text">I have read and understood the Percorso service agreement in full. I agree to all terms and conditions set out above, including the payment and refund policy.</div>
+      </div>
+
+      <div class="confirm-buttons">
+        <button class="btn-confirm" id="btn-send" onclick="sendConfirmation()" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Send Confirmation to Percorso
+        </button>
+      </div>
+
+      <div class="success-banner" id="success-msg">
+        ✓ &nbsp;Your email app should have opened with your confirmation ready to send. Just hit send. Once we receive it alongside your payment, your onboarding form will be with you within 1 working day.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">PRESENZA BY Y MEDIA &nbsp;·&nbsp; YEARSLEYMEDIA@GMAIL.COM &nbsp;·&nbsp; CONTENT · CONSISTENCY · PRESENCE</div>
+
+</div>
+
+<script>
+let agreed=false;
+function toggleAgree(){
+  agreed=!agreed;
+  document.getElementById('agree-box').classList.toggle('checked',agreed);
+  document.getElementById('btn-send').disabled=!agreed;
+}
+function v(id){return(document.getElementById(id)||{}).value||'';}
+function formatDate(d){
+  if(!d) return '[Date not entered]';
+  const parts=d.split('-');
+  if(parts.length!==3) return d;
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return parseInt(parts[2])+' '+months[parseInt(parts[1])-1]+' '+parts[0];
+}
+function sendConfirmation(){
+  if(!agreed) return;
+  const client=v('ag_client')||'[Name not entered]';
+  const pkg=v('ag_pkg')||'[Package not entered]';
+  const date=formatDate(v('ag_date'));
+  const subj='Percorso Service Agreement — '+client+' — '+pkg;
+  let b='PRESENZA SERVICE AGREEMENT CONFIRMATION\n=======================================\n\n';
+  b+='I, '+client+', confirm that I have read and agreed to the Percorso Service Agreement in full.\n\n';
+  b+='CLIENT NAME: '+client+'\n';
+  b+='PACKAGE: '+pkg+'\n';
+  b+='DATE: '+date+'\n\n';
+  b+='I understand and accept all terms including:\n';
+  b+='— Payment is required in full before work begins\n';
+  b+='— Refunds are not available once content has been delivered\n';
+  b+='— One round of amendments is included if required\n';
+  b+='— Percorso does not guarantee follower growth or engagement\n\n';
+  b+='I am ready to proceed with payment. Please confirm receipt and send payment details.\n\n';
+  b+='— '+client;
+  window.location.href='mailto:yearsleymedia@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
+  setTimeout(()=>{
+    const msg=document.getElementById('success-msg');
+    msg.style.display='block';
+    msg.scrollIntoView({behavior:'smooth',block:'center'});
+  },800);
+}
+</script>
+
+</body>
+</html>
