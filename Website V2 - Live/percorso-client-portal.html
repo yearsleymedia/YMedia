@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Portal — Percorso by Y Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a1a2e;
+  --navy-deep:#0e1520;
+  --gold:#d4af5a;
+  --gold-light:#e8c97a;
+  --gold-dim:#9a7a3a;
+  --cream:#faf8f3;
+  --off-white:#f4f0e8;
+  --text:#2a2a3a;
+  --muted:#6a6a7a;
+  --light-border:#e8e0d0;
+  --green:#2db464;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);}
+
+/* NAV */
+nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:16px 60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav-logo-box{border:1px solid var(--gold);padding:6px 10px;display:flex;flex-direction:column;align-items:center;width:50px;}
+.nav-logo-y{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold);line-height:1;}
+.nav-logo-rule{border:none;border-top:1px solid var(--gold);margin:2px 0;width:100%;}
+.nav-logo-media{font-size:7px;letter-spacing:3px;color:var(--gold);font-weight:500;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:26px;color:#fff;font-weight:400;letter-spacing:2px;}
+.nav-label{font-size:9px;letter-spacing:2px;color:rgba(212,175,90,0.6);text-transform:uppercase;border:1px solid rgba(212,175,90,0.25);padding:6px 14px;}
+
+/* HERO */
+.hero{background:var(--navy);padding:56px 60px 52px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(212,175,90,0.06) 0%,transparent 70%);}
+.hero-inner{position:relative;z-index:1;max-width:680px;}
+.hero-label{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.hero-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Playfair Display',serif;font-size:42px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:14px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.9;font-weight:300;max-width:520px;}
+
+/* STAGE TRACKER */
+.stage-tracker{background:var(--navy-deep);border-bottom:1px solid rgba(212,175,90,0.1);padding:0 60px;}
+.stages{display:flex;max-width:760px;margin:0 auto;}
+.stage-tab{flex:1;padding:16px 0;text-align:center;border-bottom:2px solid transparent;transition:all 0.3s;cursor:default;}
+.stage-tab .st-num{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.2);text-transform:uppercase;font-weight:600;display:block;margin-bottom:4px;}
+.stage-tab .st-name{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.2);text-transform:uppercase;font-weight:500;}
+.stage-tab.active .st-num{color:var(--gold);}
+.stage-tab.active .st-name{color:rgba(255,255,255,0.8);}
+.stage-tab.active{border-bottom-color:var(--gold);}
+.stage-tab.done .st-num{color:rgba(212,175,90,0.4);}
+.stage-tab.done .st-name{color:rgba(255,255,255,0.35);}
+.stage-tab.done{border-bottom-color:rgba(212,175,90,0.2);}
+.stage-tab.done .st-name::after{content:' ✓';}
+
+/* CONTENT WRAPPER */
+.portal-outer{max-width:760px;margin:0 auto;padding:52px 60px 100px;}
+
+/* STAGE PANELS */
+.stage-panel{display:none;}
+.stage-panel.active{display:block;}
+
+/* SECTION HEADER */
+.sec-header{margin-bottom:36px;}
+.sec-eyebrow{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.sec-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.sec-title{font-family:'Playfair Display',serif;font-size:30px;color:var(--navy);font-weight:400;margin-bottom:8px;}
+.sec-desc{font-size:13px;color:var(--muted);line-height:1.9;font-weight:300;}
+
+/* SERVICE AGREEMENT CONTENT */
+.ag-cover{background:var(--navy);padding:40px 48px;margin-bottom:2px;position:relative;overflow:hidden;}
+.ag-cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);}
+.ag-cover-eye{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.ag-cover-eye::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.ag-cover-title{font-family:'Playfair Display',serif;font-size:32px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:28px;}
+.ag-cover-title em{color:var(--gold);font-style:italic;}
+.ag-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ag-meta-box{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,90,0.15);padding:14px 18px;}
+.ag-meta-label{font-size:8px;letter-spacing:2px;color:rgba(212,175,90,0.5);text-transform:uppercase;margin-bottom:8px;}
+.ag-meta-box input,.ag-meta-box select{background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;cursor:pointer;appearance:none;}
+.ag-meta-box input::placeholder{color:rgba(255,255,255,0.25);font-style:italic;}
+.ag-meta-box select option{background:#1a1a2e;}
+
+.ag-body{background:#fff;border:1px solid var(--light-border);padding:48px;}
+.clause{margin-bottom:32px;}
+.c-num{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:6px;}
+.c-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:12px;font-weight:400;}
+.c-body{font-size:13px;color:var(--text);line-height:1.9;font-weight:300;}
+.c-body p{margin-bottom:10px;}
+.c-body p:last-child{margin-bottom:0;}
+.c-div{height:1px;background:var(--light-border);margin:32px 0;}
+.hb{background:var(--off-white);border-left:3px solid var(--gold);padding:16px 20px;margin:14px 0;font-size:13px;color:var(--text);line-height:1.8;}
+.hb strong{display:block;margin-bottom:4px;margin-top:12px;font-weight:600;color:var(--navy);}
+.hb strong:first-child{margin-top:0;}
+
+/* CONFIRM AREA */
+.confirm-area{background:var(--navy);padding:36px 48px;margin-top:2px;}
+.confirm-title{font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:8px;font-weight:400;}
+.confirm-note{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:24px;line-height:1.7;}
+.confirm-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px;cursor:pointer;user-select:none;}
+.confirm-check-box{width:18px;height:18px;border:1.5px solid rgba(212,175,90,0.5);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;cursor:pointer;}
+.confirm-check-box.checked{background:var(--gold);border-color:var(--gold);}
+.confirm-tick{font-size:11px;color:var(--navy);font-weight:700;display:none;}
+.confirm-check-box.checked .confirm-tick{display:block;}
+.confirm-check-text{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.7;}
+
+/* BUTTONS */
+.btn-primary{background:var(--gold);color:var(--navy);border:none;padding:16px 32px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-primary:hover{background:var(--gold-light);}
+.btn-primary:disabled{opacity:0.35;cursor:not-allowed;}
+.btn-secondary{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:16px 24px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+
+/* SUCCESS BANNER */
+.success-banner{display:none;margin-top:20px;padding:16px 20px;background:rgba(45,180,100,0.1);border:1px solid rgba(45,180,100,0.3);border-left:3px solid var(--green);color:var(--green);font-size:13px;line-height:1.7;}
+
+/* ── STAGE 2: PAYMENT ── */
+.payment-panel{background:var(--navy);padding:48px;}
+.payment-intro{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.9;font-weight:300;margin-bottom:36px;max-width:540px;}
+.bank-card{background:rgba(212,175,90,0.06);border:1px solid rgba(212,175,90,0.2);padding:32px 36px;margin-bottom:32px;}
+.bank-card-label{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.bank-card-label::before{content:'';display:block;width:16px;height:1px;background:var(--gold);}
+.bank-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(212,175,90,0.1);}
+.bank-row:last-child{border-bottom:none;}
+.bank-key{font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;font-weight:500;}
+.bank-val{font-size:14px;color:#fff;font-weight:400;letter-spacing:0.5px;}
+.bank-val.gold{color:var(--gold);font-family:'Playfair Display',serif;font-size:16px;}
+.bank-note{font-size:11px;color:rgba(255,255,255,0.3);margin-top:16px;line-height:1.7;font-style:italic;}
+.payment-sent-area{background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,90,0.15);padding:28px 32px;}
+.payment-sent-title{font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:6px;}
+.payment-sent-note{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:20px;line-height:1.7;}
+
+/* ── STAGE 3: ONBOARDING ── */
+.lock-overlay{background:var(--navy);padding:52px 48px;text-align:center;}
+.lock-icon{width:52px;height:52px;border:1.5px solid rgba(212,175,90,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.lock-icon svg{opacity:0.5;}
+.lock-title{font-family:'Playfair Display',serif;font-size:24px;color:#fff;font-weight:400;margin-bottom:10px;}
+.lock-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.8;max-width:420px;margin:0 auto 32px;}
+.code-input-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:400px;margin:0 auto;}
+.code-input{background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,90,0.3);padding:14px 20px;font-family:'Montserrat',sans-serif;font-size:14px;color:#fff;outline:none;letter-spacing:3px;text-transform:uppercase;width:200px;text-align:center;transition:border-color 0.2s;}
+.code-input:focus{border-color:var(--gold);}
+.code-input::placeholder{letter-spacing:1px;text-transform:none;font-size:12px;color:rgba(255,255,255,0.2);}
+.code-error{font-size:12px;color:#e05a5a;margin-top:12px;display:none;}
+
+.onboarding-form{display:block;}
+
+/* FORM FIELDS */
+.form-section{margin-bottom:40px;}
+.fs-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:400;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--light-border);}
+.field{margin-bottom:22px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px;}
+.fl{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.fl .req{color:var(--gold);}
+.hint{display:block;font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:300;margin-top:3px;line-height:1.6;}
+input[type=text],input[type=email],select,textarea{width:100%;background:#fff;border:1px solid var(--light-border);padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;appearance:none;border-radius:0;}
+input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{border-color:var(--gold);}
+textarea{resize:vertical;min-height:88px;line-height:1.7;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af5a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+/* TONE CARDS */
+.tone-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tone-card{border:1px solid var(--light-border);background:#fff;padding:18px 20px;cursor:pointer;transition:all 0.2s;user-select:none;}
+.tone-card:hover{border-color:var(--gold);}
+.tone-card.selected{border-color:var(--gold);background:rgba(212,175,90,0.05);}
+.tone-card-check{width:16px;height:16px;border:1.5px solid var(--light-border);display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;transition:all 0.2s;}
+.tone-card.selected .tone-card-check{background:var(--gold);border-color:var(--gold);}
+.tone-tick{font-size:9px;color:var(--navy);font-weight:700;display:none;}
+.tone-card.selected .tone-tick{display:block;}
+.tone-card-title{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.tone-card-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+
+/* TIER 3 PANEL */
+.tier3-panel{display:none;background:rgba(212,175,90,0.04);border:1px solid rgba(212,175,90,0.2);padding:24px;margin-top:8px;}
+.tier3-label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.tier3-label::before{content:'';display:block;width:16px;height:1px;background:var(--gold);}
+
+/* SUBMIT AREA */
+.submit-area{background:var(--navy);padding:40px 48px;margin-top:8px;}
+.submit-title{font-family:'Playfair Display',serif;font-size:24px;color:#fff;margin-bottom:10px;}
+.submit-sub{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:28px;font-weight:300;}
+.submit-note{margin-top:16px;font-size:11px;color:rgba(255,255,255,0.2);line-height:1.7;}
+
+/* FOOTER */
+.portal-footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,90,0.12);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.pf-brand{font-family:'Playfair Display',serif;font-size:15px;color:rgba(212,228,245,0.5);}
+.pf-note{font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:1px;margin-top:2px;}
+.pf-right{font-size:11px;color:rgba(212,175,90,0.45);}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .hero{padding:36px 20px 32px;}
+  .hero-title{font-size:30px;}
+  .stage-tracker{padding:0 20px;}
+  .stages .stage-tab .st-name{font-size:9px;}
+  .portal-outer{padding:36px 20px 60px;}
+  .ag-cover{padding:28px 24px;}
+  .ag-meta{grid-template-columns:1fr;}
+  .ag-body{padding:28px 24px;}
+  .confirm-area{padding:28px 24px;}
+  .payment-panel{padding:32px 24px;}
+  .lock-overlay{padding:40px 24px;}
+  .submit-area{padding:32px 24px;}
+  .field-row{grid-template-columns:1fr;}
+  .tone-grid{grid-template-columns:1fr;}
+  .portal-footer{flex-direction:column;text-align:center;padding:24px 20px;}
+}
+</style>
+
+
+</head>
+<body>
+
+<nav>
+  <a href="percorso.html" class="nav-logo">
+    <div class="nav-logo-box">
+      <span class="nav-logo-y">Y</span>
+      <hr class="nav-logo-rule">
+      <span class="nav-logo-media">MEDIA</span>
+    </div>
+    <span class="nav-brand">Percorso</span>
+  </a>
+  <div class="nav-label">Client Portal</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Percorso by Y Media</div>
+    <h1 class="hero-title">Your onboarding<br><em>portal.</em></h1>
+    <p class="hero-sub">Three simple steps — service agreement, your onboarding form, and payment. Complete them all right here and your plan is on its way.</p>
+  </div>
+</div>
+
+<div class="stage-tracker">
+  <div class="stages">
+    <div class="stage-tab active" id="tab1">
+      <span class="st-num">Step 01</span>
+      <span class="st-name">Service Agreement</span>
+    </div>
+    <div class="stage-tab" id="tab2">
+      <span class="st-num">Step 02</span>
+      <span class="st-name">Onboarding Form</span>
+    </div>
+    <div class="stage-tab" id="tab3">
+      <span class="st-num">Step 03</span>
+      <span class="st-name">Payment</span>
+    </div>
+  </div>
+</div>
+
+<div class="portal-outer">
+
+  <!-- ══════════════════════════════════════
+       STAGE 1 — SERVICE AGREEMENT
+  ══════════════════════════════════════ -->
+  <div class="stage-panel active" id="stage1">
+
+    <div class="sec-header">
+      <div class="sec-eyebrow">Step 1 of 3</div>
+      <div class="sec-title">Service Agreement</div>
+      <p class="sec-desc">Please read through the terms below, fill in your name, then confirm your agreement. This takes about 2 minutes.</p>
+    </div>
+
+    <!-- Cover -->
+    <div class="ag-cover">
+      <div class="ag-cover-eye">Percorso by Y Media</div>
+      <h2 class="ag-cover-title">Service<br><em>Agreement</em></h2>
+      <div class="ag-meta">
+        <div class="ag-meta-box">
+          <div class="ag-meta-label">Service Provider</div>
+          <input type="text" value="Percorso by Y Media" readonly>
+        </div>
+        <div class="ag-meta-box">
+          <div class="ag-meta-label">Client Name</div>
+          <input type="text" id="ag_client" placeholder="Your full name">
+        </div>
+        <div class="ag-meta-box">
+          <div class="ag-meta-label">Package Selected</div>
+          <input type="text" id="ag_pkg" value="The Percorso Plan — £60" readonly>
+        </div>
+        <div class="ag-meta-box">
+          <div class="ag-meta-label">Date</div>
+          <input type="text" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="ag-body">
+      <div class="clause">
+        <div class="c-num">Clause 01</div>
+        <div class="c-title">The Service</div>
+        <div class="c-body">
+          <p>Percorso by Y Media agrees to create a fully custom training plan and interactive tracker for the client, built from the details provided in the onboarding form. The scope of work is as follows:</p>
+          <div class="hb">
+            <strong>The Percorso Plan — £60</strong>One fully custom training plan — running, gym, or hybrid — delivered as a private interactive tracker. The tracker includes the full session-by-session plan, personal pace zones calculated from the client's submitted times (where applicable), automatic recalculation of paces as new times are logged, session tick-off and progress logging, and scheduling built around the client's stated availability and shift pattern. Clients who already have a plan of their own may instead have that plan digitised into the tracker as written. Delivered as a private link within 3 working days of payment being received and the onboarding form being completed.
+          </div>
+          <p>The plan is delivered as a private link hosted by Y Media, which the client can add to their phone's home screen. Delivery timelines begin once both the completed onboarding form and payment have been received.</p>
+        </div>
+      </div>
+      <div class="c-div"></div>
+      <div class="clause">
+        <div class="c-num">Clause 02</div>
+        <div class="c-title">Payment</div>
+        <div class="c-body">
+          <p>Payment is required in full before any work begins. Payment is made by bank transfer at the final step of this portal, using the unique reference number provided. Work begins once payment has been received and matched to the client's reference. By agreeing to these terms, the client confirms they have read and understood everything set out in this document.</p>
+        </div>
+      </div>
+      <div class="c-div"></div>
+      <div class="clause">
+        <div class="c-num">Clause 03</div>
+        <div class="c-title">Refund Policy</div>
+        <div class="c-body">
+          <p>Due to the bespoke nature of this service, <strong style="font-weight:600;">refunds are not available once the plan has been built and delivered.</strong></p>
+          <p>If a client believes the plan does not reflect what was agreed, they should contact Percorso by Y Media within 3 days of delivery. We will review the onboarding responses and, where reasonable, make amendments at no extra charge.</p>
+          <div class="hb">One round of amendments is included as standard. This covers adjustments to scheduling, session structure, or training paces — not a complete rebuild of the plan.</div>
+        </div>
+      </div>
+      <div class="c-div"></div>
+      <div class="clause">
+        <div class="c-num">Clause 04</div>
+        <div class="c-title">What Is and Isn't Included — Health Notice</div>
+        <div class="c-body">
+          <p>Percorso provides training structure and planning only. Percorso does not provide medical advice, physiotherapy, injury treatment, live coaching, form checks, or personal training sessions, and does not guarantee any specific results including race times, weight loss, or strength gains. The client confirms that the information provided in their onboarding form — including any injuries or health limitations — is accurate, and that they are fit to undertake physical training. Clients with a health condition should consult a medical professional before starting any training plan.</p>
+        </div>
+      </div>
+      <div class="c-div"></div>
+      <div class="clause">
+        <div class="c-num">Clause 05</div>
+        <div class="c-title">Ownership</div>
+        <div class="c-body">
+          <p>Once delivered and paid for, the plan belongs to the client. Y Media retains the right to reference the work for portfolio or promotional purposes unless the client requests otherwise in writing.</p>
+        </div>
+      </div>
+      <div class="c-div"></div>
+      <div class="clause">
+        <div class="c-num">Clause 06</div>
+        <div class="c-title">Confidentiality</div>
+        <div class="c-body">
+          <p>Any information shared by the client during onboarding is used solely to create their plan. Y Media will not share, sell, or disclose client information to any third party.</p>
+        </div>
+      </div>
+      <div class="c-div"></div>
+      <div class="clause">
+        <div class="c-num">Clause 07</div>
+        <div class="c-title">Agreement</div>
+        <div class="c-body">
+          <p>By confirming below, both parties agree to the terms set out in this document. A written email reply stating "I agree to the Percorso service agreement" also serves as a binding confirmation. This agreement is governed by the laws of England and Wales.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature + Confirm -->
+    <div class="confirm-area">
+      <div class="confirm-title">Confirmation</div>
+      <p class="confirm-note">Fill in your name and today's date in the boxes above, tick the box below, then click "Confirm Agreement" — we're notified automatically in the background, and you'll move straight on to your onboarding form.</p>
+
+      <div style="background:rgba(212,175,90,0.06);border:1px solid rgba(212,175,90,0.2);padding:28px 32px;margin-top:0;">
+        <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:8px;">Digital Confirmation</div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;line-height:1.7;">Tick the box below and click confirm — this is your digital agreement. It's exactly the same as signing a printed copy.</p>
+
+        <div class="confirm-check" onclick="toggleAgree()">
+          <div class="confirm-check-box" id="agree-box"><span class="confirm-tick">✓</span></div>
+          <div class="confirm-check-text">I have read and understood the Percorso service agreement in full. I agree to all terms and conditions set out above, including the payment and refund policy, and confirm the information I provide will be accurate.</div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn-primary" id="btn-confirm-ag" onclick="confirmAgreement()" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Confirm Agreement
+          </button>
+          <button class="btn-secondary" onclick="window.print()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print / Save PDF
+          </button>
+        </div>
+
+        <div class="success-banner" id="ag-success">
+          ✓ &nbsp;Agreement confirmed — we've been notified. Proceeding to your onboarding form...
+          <div style="margin-top:16px;">
+            <button class="btn-primary" onclick="setStage(2)" style="font-size:10px;">
+              Continue to Onboarding &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /stage1 -->
+
+
+  <!-- ══════════════════════════════════════
+       STAGE 2 — ONBOARDING FORM
+  ══════════════════════════════════════ -->
+  <div class="stage-panel" id="stage2">
+
+    <div class="sec-header">
+      <div class="sec-eyebrow">Step 2 of 3</div>
+      <div class="sec-title">Onboarding Form</div>
+      <p class="sec-desc">Everything we need to build a plan that's completely yours. There are no wrong answers — the more honest the answers, the better the plan.</p>
+    </div>
+
+    <div class="onboarding-form" id="onboarding-form">
+
+      <div class="form-section">
+        <div class="fs-title">The basics</div>
+        <div class="field-row">
+          <div class="field">
+            <label class="fl">Your full name <span class="req">*</span></label>
+            <input type="text" id="f_name" placeholder="e.g. Sarah Johnson">
+          </div>
+          <div class="field">
+            <label class="fl">Email address <span class="req">*</span></label>
+            <input type="email" id="f_email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="fl">Phone</label>
+            <input type="text" id="f_phone" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label class="fl">Age <span class="req">*</span></label>
+            <input type="text" id="f_age" placeholder="e.g. 32">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="fs-title">What are we building?</div>
+        <div class="field">
+          <label class="fl">Choose the closest fit <span class="req">*</span></label>
+          <span class="hint">The rest of the form adapts to your answer.</span>
+          <div class="tone-grid" style="margin-top:12px;">
+            <div class="tone-card" data-tone="Race / event training" onclick="selectPlan(this)">
+              <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+              <div class="tone-card-title">Race &amp; Event Training</div>
+              <div class="tone-card-desc">A specific race on the calendar — 5K to marathon and beyond.</div>
+            </div>
+            <div class="tone-card" data-tone="General running plan" onclick="selectPlan(this)">
+              <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+              <div class="tone-card-title">General Running</div>
+              <div class="tone-card-desc">Build distance, pace, or consistency — no race required.</div>
+            </div>
+            <div class="tone-card" data-tone="Gym / strength plan" onclick="selectPlan(this)">
+              <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+              <div class="tone-card-title">Gym &amp; Strength</div>
+              <div class="tone-card-desc">Structured sessions — splits, movements, sets, reps, rest.</div>
+            </div>
+            <div class="tone-card" data-tone="Hybrid — running + gym" onclick="selectPlan(this)">
+              <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+              <div class="tone-card-title">Hybrid</div>
+              <div class="tone-card-desc">Running and strength, balanced in one weekly structure.</div>
+            </div>
+            <div class="tone-card" data-tone="I already have a plan" onclick="selectPlan(this)" style="grid-column:1/-1;">
+              <div class="tone-card-check"><span class="tone-tick">✓</span></div>
+              <div class="tone-card-title">I Already Have a Plan</div>
+              <div class="tone-card-desc">Bought a plan or built your own? We turn it into your interactive tracker.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Race panel -->
+        <div class="tier3-panel" id="race-panel" style="display:none;">
+          <div class="tier3-label">Your Race</div>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">Event name</label>
+              <input type="text" id="f_race_name" placeholder="e.g. Cardiff Half Marathon">
+            </div>
+            <div class="field">
+              <label class="fl">Race date</label>
+              <input type="text" id="f_race_date" placeholder="e.g. 4 October 2026">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">Distance</label>
+              <select id="f_race_dist">
+                <option value="" disabled selected>Select distance</option>
+                <option>5K</option><option>10K</option><option>Half marathon</option><option>Marathon</option><option>Ultra</option><option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="fl">Goal for the day</label>
+              <input type="text" id="f_race_goal" placeholder="e.g. finish strong, sub-2:00, PB attempt">
+            </div>
+          </div>
+        </div>
+
+        <!-- Own plan panel -->
+        <div class="tier3-panel" id="own-panel" style="display:none;">
+          <div class="tier3-label">Your Existing Plan</div>
+          <div class="field">
+            <label class="fl">Paste or describe your plan</label>
+            <span class="hint">You can also email the original (PDF or photos) to yearsleymedia@gmail.com after submitting. We build your tracker around your plan as written.</span>
+            <textarea id="f_ownplan" placeholder="e.g. 12-week half marathon plan from a coach — Mon easy 5K, Wed intervals, Sat long run... or paste the whole thing"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Times -->
+      <div class="form-section" id="times-section" style="display:none;">
+        <div class="fs-title">Your current times</div>
+        <div class="field">
+          <span class="hint" style="margin-bottom:14px;display:block;">All optional — fill in whichever you know, or your best estimate. Your training paces and zones are calculated from these, so the more accurate, the better the plan.</span>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">5K</label>
+              <input type="text" id="f_t5" placeholder="e.g. 26:30">
+            </div>
+            <div class="field">
+              <label class="fl">10K</label>
+              <input type="text" id="f_t10" placeholder="e.g. 55:00">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">15K</label>
+              <input type="text" id="f_t15" placeholder="e.g. 1:26:00">
+            </div>
+            <div class="field">
+              <label class="fl">Half marathon</label>
+              <input type="text" id="f_thalf" placeholder="e.g. 2:05:00">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">Marathon</label>
+              <input type="text" id="f_tfull" placeholder="e.g. 4:20:00">
+            </div>
+            <div class="field">
+              <label class="fl">Distances &amp; paces in</label>
+              <select id="f_units">
+                <option value="" disabled selected>Select an option</option>
+                <option>Kilometres</option><option>Miles</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="fs-title">Where you are now</div>
+        <div class="field">
+          <label class="fl">What does training look like right now? <span class="req">*</span></label>
+          <span class="hint">An honest starting point makes a better plan.</span>
+          <textarea id="f_current" placeholder="e.g. gym twice a week but no real structure, occasional 5K, nothing for the last 3 months — whatever's true"></textarea>
+        </div>
+        <div class="field">
+          <label class="fl">Any recent benchmarks?</label>
+          <span class="hint">Recent times, lifts, or longest runs. Leave blank if not.</span>
+          <input type="text" id="f_bench" placeholder="e.g. 10K in 55 mins, squat 80kg, longest run 8K">
+        </div>
+        <div class="field">
+          <label class="fl">Injuries or limitations we should plan around?</label>
+          <span class="hint">We route around everything you list here. Leave blank if none.</span>
+          <textarea id="f_injuries" style="min-height:70px;" placeholder="e.g. left knee caution, lower back, none"></textarea>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="fs-title">Your week</div>
+        <div class="field-row">
+          <div class="field">
+            <label class="fl">Days per week you can train <span class="req">*</span></label>
+            <select id="f_days">
+              <option value="" disabled selected>Select an option</option>
+              <option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="fl">Typical session length <span class="req">*</span></label>
+            <select id="f_length">
+              <option value="" disabled selected>Select an option</option>
+              <option>~30 mins</option><option>~45 mins</option><option>~60 mins</option><option>90+ mins</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label class="fl">Your work pattern <span class="req">*</span></label>
+          <span class="hint">Your plan is built around your rotation — no long runs the morning after a night shift.</span>
+          <select id="f_work" onchange="checkShift()">
+            <option value="" disabled selected>Select an option</option>
+            <option>Regular weekdays</option><option>Shift worker</option><option>Flexible / other</option>
+          </select>
+        </div>
+
+        <!-- Shift panel -->
+        <div class="tier3-panel" id="shift-panel" style="display:none;">
+          <div class="tier3-label">Your Shifts</div>
+          <div class="field">
+            <label class="fl">Your rotation pattern</label>
+            <input type="text" id="f_rotation" placeholder="e.g. 6 on, 4 off — nights Thursday &amp; Friday">
+          </div>
+          <div class="field">
+            <label class="fl">Anything else about your schedule?</label>
+            <textarea id="f_shiftnotes" style="min-height:70px;" placeholder="e.g. need recovery the day after nights, best training day is first rest day"></textarea>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="fl">Which days suit you best?</label>
+            <input type="text" id="f_prefdays" placeholder="e.g. Mon, Wed, Sat &amp; Sun — or flexible">
+          </div>
+          <div class="field">
+            <label class="fl">What can you train with? <span class="req">*</span></label>
+            <input type="text" id="f_equipment" placeholder="e.g. full gym, treadmill, outdoor running, home weights">
+          </div>
+        </div>
+        <div class="field">
+          <label class="fl">How long should the plan run? <span class="req">*</span></label>
+          <select id="f_planlen">
+            <option value="" disabled selected>Select an option</option>
+            <option>8 weeks</option><option>12 weeks</option><option>16 weeks</option><option>Ongoing structure</option><option>Match my race date</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="fs-title">Your plan, your style</div>
+        <div class="field-row">
+          <div class="field">
+            <label class="fl">Theme</label>
+            <select id="f_theme">
+              <option value="" disabled selected>Select an option</option>
+              <option>Dark</option><option>Light</option><option>No preference</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="fl">Vibe</label>
+            <select id="f_vibe">
+              <option value="" disabled selected>Select an option</option>
+              <option>Clean &amp; minimal</option><option>Bold &amp; energetic</option><option>Premium &amp; editorial</option><option>Sporty &amp; technical</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label class="fl">Colour preferences</label>
+          <span class="hint">Likes and dislikes — your tracker is designed in your colours.</span>
+          <input type="text" id="f_colours" placeholder="e.g. deep green and black — no neon">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="fs-title">In your own words</div>
+        <div class="field">
+          <label class="fl">What would make this plan a success for you? <span class="req">*</span></label>
+          <span class="hint">The part that matters most.</span>
+          <textarea id="f_success" placeholder="e.g. cross the finish line in October, stop guessing at the gym, finally stay consistent for 12 weeks straight"></textarea>
+        </div>
+        <div class="field">
+          <label class="fl">Anything else we should know?</label>
+          <span class="hint">Schedule quirks, motivation style, past plans that didn't work. Leave blank if not.</span>
+          <textarea id="f_else" style="min-height:70px;" placeholder="Anything useful"></textarea>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <div class="submit-title">That's everything.</div>
+        <p class="submit-sub">Click below and your answers come straight to us automatically — then it's on to the final step, payment.</p>
+        <button type="button" class="btn-primary" onclick="submitOnboarding()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Submit &amp; Continue to Payment
+        </button>
+        <p class="submit-note">Your answers are sent securely in the background — nothing else to do.</p>
+        <div class="success-banner" id="ob-success">✓ &nbsp;Onboarding received — one step left.
+          <div style="margin-top:16px;">
+            <button class="btn-primary" onclick="setStage(3)" style="font-size:10px;">
+              Continue to Payment &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /onboarding-form -->
+
+  </div><!-- /stage2 -->
+
+
+  <!-- ══════════════════════════════════════
+       STAGE 3 — PAYMENT
+  ══════════════════════════════════════ -->
+  <div class="stage-panel" id="stage3">
+
+    <div class="sec-header">
+      <div class="sec-eyebrow">Step 3 of 3</div>
+      <div class="sec-title">Payment</div>
+      <p class="sec-desc">Last step — transfer your payment using the bank details below with your unique reference, then click the button to confirm. Once your payment lands, we start building.</p>
+    </div>
+
+    <div class="payment-panel">
+      <p class="payment-intro">Use the details below to make your bank transfer. Include your unique reference number so we can match your payment to your plan instantly.</p>
+
+      <div id="ref-display" style="margin-bottom:16px;background:rgba(212,175,90,0.08);border:1px solid rgba(212,175,90,0.3);border-left:3px solid var(--gold);padding:20px 24px;">
+        <div style="font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Your Payment Reference</div>
+        <div id="ref-number" style="font-family:'Playfair Display',serif;font-size:28px;color:#fff;letter-spacing:4px;margin-bottom:8px;"></div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;">Use this as your bank transfer reference. Keep a note of it.</div>
+      </div>
+
+      <div class="bank-card">
+        <div class="bank-card-label">Bank Transfer Details</div>
+        <div class="bank-row">
+          <span class="bank-key">Account Name</span>
+          <span class="bank-val">Lewis Yearsley</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-key">Bank</span>
+          <span class="bank-val">Monzo</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-key">Sort Code</span>
+          <span class="bank-val">04-00-03</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-key">Account Number</span>
+          <span class="bank-val">91023653</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-key">Amount</span>
+          <span class="bank-val gold" id="payment-amount">£60</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-key">Reference</span>
+          <span class="bank-val" id="payment-ref" style="color:var(--gold);">Generated above</span>
+        </div>
+        <p class="bank-note">The Percorso Plan — £60 · One-off payment · No subscription</p>
+      </div>
+
+      <div class="payment-sent-area">
+        <div class="payment-sent-title">Done your transfer?</div>
+        <p class="payment-sent-note">Click below once you've sent your payment — we're notified automatically, and your plan will be delivered within 3 working days of your payment landing.</p>
+        <button class="btn-primary" onclick="notifyPayment()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          I've Sent Payment
+        </button>
+      </div>
+      <div class="success-banner" id="pay-success" style="margin-top:16px;">
+        ✓ &nbsp;That's everything done. Once your payment lands, we'll build your plan and send your private Percorso link within 3 working days. Keep your reference handy.
+      </div>
+    </div>
+
+  </div><!-- /stage3 -->
+
+</div><!-- /portal-outer -->
+
+<div class="portal-footer">
+  <div>
+    <div class="pf-brand">Percorso by Y Media</div>
+    <div class="pf-note">YOUR GOAL · YOUR PATH · YOUR PLAN</div>
+  </div>
+  <div class="pf-right">yearsleymedia@gmail.com</div>
+</div>
+
+<script>
+// ── STATE ──
+let agreed = false;
+let selectedPlan = '';
+let paymentRef = '';
+
+const FORMSPREE = 'https://formspree.io/f/xwvjkdjk';
+
+// ── UTILS ──
+function v(id){ return (document.getElementById(id)||{}).value||''; }
+function show(id){ document.getElementById(id).style.display='block'; }
+function setTab(n){
+  for(let i=1;i<=3;i++){
+    const tab = document.getElementById('tab'+i);
+    tab.classList.remove('active','done');
+    if(i<n) tab.classList.add('done');
+    if(i===n) tab.classList.add('active');
+  }
+}
+function setStage(n){
+  for(let i=1;i<=3;i++){
+    document.getElementById('stage'+i).classList.remove('active');
+  }
+  document.getElementById('stage'+n).classList.add('active');
+  setTab(n);
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  // Generate reference number when the payment stage loads
+  if(n===3 && !paymentRef){
+    paymentRef = generateRef();
+    const refNumEl = document.getElementById('ref-number');
+    const refEl = document.getElementById('payment-ref');
+    if(refNumEl) refNumEl.textContent = paymentRef;
+    if(refEl) refEl.textContent = paymentRef;
+  }
+}
+
+// ── STAGE 1: AGREEMENT ──
+function toggleAgree(){
+  agreed = !agreed;
+  document.getElementById('agree-box').classList.toggle('checked', agreed);
+  document.getElementById('btn-confirm-ag').disabled = !agreed;
+}
+
+function formatDate(){
+  return v('ag_date') || '[Date not entered]';
+}
+(function(){
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const now = new Date();
+  const el = document.getElementById('ag_date');
+  if(el) el.value = now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
+})();
+
+function confirmAgreement(){
+  const client = v('ag_client');
+  const date = formatDate();
+  if(!client){ alert('Please enter your full name.'); return; }
+
+  // Pre-fill onboarding with their name
+  const nameEl = document.getElementById('f_name');
+  if(nameEl) nameEl.value = client;
+
+  // Build full agreement record
+  let m = '';
+  m += 'PERCORSO SERVICE AGREEMENT — SIGNED COPY\n';
+  m += '==========================================\n\n';
+  m += 'CLIENT NAME: ' + client + '\n';
+  m += 'PACKAGE: The Percorso Plan — £60\n';
+  m += 'DATE SIGNED: ' + date + '\n\n';
+  m += 'CONFIRMATION:\n';
+  m += client + ' has read and agreed to the Percorso service agreement in full via the client portal.\n\n';
+  m += '--- AGREEMENT TERMS ON RECORD ---\n\n';
+  m += 'CLAUSE 1 — THE SERVICE\n';
+  m += 'Percorso by Y Media agrees to create one fully custom training plan (running, gym, or hybrid) delivered as a private interactive tracker, including personal pace zones, automatic recalculation, progress logging, and scheduling built around the client\'s availability and shifts. Clients with an existing plan may have it digitised as written. Delivered within 3 working days of payment and the completed onboarding form being received.\n\n';
+  m += 'CLAUSE 2 — PAYMENT\n';
+  m += 'Payment is required in full before any work begins, made by bank transfer using the unique reference provided. Work begins once payment has been received and matched.\n\n';
+  m += 'CLAUSE 3 — REFUND POLICY\n';
+  m += 'Refunds are not available once the plan has been built and delivered. One round of amendments is included as standard covering scheduling, session structure, or training paces.\n\n';
+  m += 'CLAUSE 4 — WHAT IS AND IS NOT INCLUDED — HEALTH NOTICE\n';
+  m += 'Percorso provides training structure and planning only — no medical advice, physiotherapy, injury treatment, live coaching, or guaranteed results. The client confirms their onboarding information is accurate and that they are fit to undertake physical training.\n\n';
+  m += 'CLAUSE 5 — OWNERSHIP\n';
+  m += 'Once delivered and paid for, the plan belongs to the client. Y Media retains the right to reference the work for portfolio purposes unless requested otherwise in writing.\n\n';
+  m += 'CLAUSE 6 — CONFIDENTIALITY\n';
+  m += 'Onboarding information is used solely to create the plan and is never shared, sold, or disclosed to any third party.\n\n';
+  m += 'CLAUSE 7 — AGREEMENT\n';
+  m += 'By confirming, both parties agree to the terms set out in this document. Governed by the laws of England and Wales.\n\n';
+  m += '--- END OF AGREEMENT ---\n\n';
+  m += 'This record was generated automatically by the Percorso client portal on ' + date + '.';
+
+  fetch(FORMSPREE, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      subject: 'Percorso Service Agreement — ' + client + ' — The Percorso Plan (£60)',
+      message: m
+    })
+  }).catch(err => console.error('Formspree error', err));
+
+  show('ag-success');
+}
+
+// ── STAGE 2: ONBOARDING ──
+function selectPlan(el){
+  document.querySelectorAll('.tone-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlan = el.dataset.tone;
+
+  const isRace = selectedPlan === 'Race / event training';
+  const isRun = isRace || selectedPlan === 'General running plan' || selectedPlan === 'Hybrid — running + gym';
+  const isOwn = selectedPlan === 'I already have a plan';
+
+  document.getElementById('race-panel').style.display = isRace ? 'block' : 'none';
+  document.getElementById('own-panel').style.display = isOwn ? 'block' : 'none';
+  document.getElementById('times-section').style.display = (isRun || isOwn) ? 'block' : 'none';
+}
+
+function checkShift(){
+  const isShift = v('f_work') === 'Shift worker';
+  document.getElementById('shift-panel').style.display = isShift ? 'block' : 'none';
+}
+
+function submitOnboarding(){
+  const name = v('f_name');
+  const email = v('f_email');
+  const age = v('f_age');
+  const current = v('f_current');
+  const days = v('f_days');
+  const len = v('f_length');
+  const work = v('f_work');
+  const equipment = v('f_equipment');
+  const planlen = v('f_planlen');
+  const success = v('f_success');
+
+  if(!name||!email||!age){ alert('Please fill in all required fields in the basics section.'); return; }
+  if(!selectedPlan){ alert('Please choose what we\'re building.'); return; }
+  if(!current){ alert('Please tell us what training looks like right now.'); return; }
+  if(!days||!len||!work){ alert('Please complete the required questions in Your Week.'); return; }
+  if(!equipment){ alert('Please tell us what you can train with.'); return; }
+  if(!planlen){ alert('Please choose how long the plan should run.'); return; }
+  if(!success){ alert('Please tell us what success looks like for you.'); return; }
+
+  let b = '';
+  b += 'PERCORSO ONBOARDING FORM\n========================\n\n';
+  b += 'Name: ' + name + '\n';
+  b += 'Email: ' + email + '\n';
+  b += 'Phone: ' + (v('f_phone')||'Not provided') + '\n';
+  b += 'Age: ' + age + '\n';
+  b += 'Package: The Percorso Plan — £60\n\n';
+  b += 'PLAN TYPE: ' + selectedPlan + '\n\n';
+  if(selectedPlan === 'Race / event training'){
+    b += 'RACE:\nEvent: ' + (v('f_race_name')||'Not provided') + '\nDate: ' + (v('f_race_date')||'Not provided') + '\nDistance: ' + (v('f_race_dist')||'Not provided') + '\nGoal: ' + (v('f_race_goal')||'Not provided') + '\n\n';
+  }
+  if(selectedPlan === 'I already have a plan'){
+    b += 'EXISTING PLAN:\n' + (v('f_ownplan')||'Not provided — client will email it') + '\n\n';
+  }
+  b += 'CURRENT TIMES:\n5K: ' + (v('f_t5')||'—') + '\n10K: ' + (v('f_t10')||'—') + '\n15K: ' + (v('f_t15')||'—') + '\nHalf: ' + (v('f_thalf')||'—') + '\nMarathon: ' + (v('f_tfull')||'—') + '\nUnits: ' + (v('f_units')||'Not specified') + '\n\n';
+  b += 'CURRENT TRAINING:\n' + current + '\n\n';
+  b += 'Benchmarks: ' + (v('f_bench')||'None') + '\n';
+  b += 'Injuries / limitations: ' + (v('f_injuries')||'None') + '\n\n';
+  b += 'YOUR WEEK:\nDays per week: ' + days + '\nSession length: ' + len + '\nWork pattern: ' + work + '\n';
+  if(work === 'Shift worker'){
+    b += 'Rotation: ' + (v('f_rotation')||'Not provided') + '\nShift notes: ' + (v('f_shiftnotes')||'None') + '\n';
+  }
+  b += 'Preferred days: ' + (v('f_prefdays')||'Flexible') + '\nEquipment: ' + equipment + '\nPlan length: ' + planlen + '\n\n';
+  b += 'STYLE:\nTheme: ' + (v('f_theme')||'No preference') + '\nVibe: ' + (v('f_vibe')||'No preference') + '\nColours: ' + (v('f_colours')||'No preference') + '\n\n';
+  b += 'SUCCESS LOOKS LIKE:\n' + success + '\n\n';
+  b += 'ANYTHING ELSE:\n' + (v('f_else')||'None') + '\n';
+
+  fetch(FORMSPREE, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      subject: 'Percorso Onboarding Form — ' + name + ' (' + selectedPlan + ')',
+      message: b
+    })
+  }).catch(err => console.error('Formspree error', err));
+
+  show('ob-success');
+}
+
+// ── STAGE 3: PAYMENT ──
+function generateRef(){
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let ref = 'PERC-';
+  for(let i=0;i<4;i++) ref += chars[Math.floor(Math.random()*chars.length)];
+  return ref;
+}
+
+function notifyPayment(){
+  const client = v('f_name') || v('ag_client') || '[Client name]';
+  fetch(FORMSPREE, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      subject: 'Percorso Payment Sent — ' + client + ' — Ref: ' + paymentRef,
+      message: 'Client: ' + client + '\nPackage: The Percorso Plan — £60\nReference: ' + paymentRef + '\n\nThe client has clicked "I\'ve Sent Payment" in the Percorso portal. Match this reference in Monzo, then begin the build.'
+    })
+  }).catch(err => console.error('Formspree error', err));
+  show('pay-success');
+}
+</script>
+
+</body>
+</html>
