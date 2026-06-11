@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client Portal — Presenza by Y Media</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -232,7 +233,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <div class="hero-inner">
     <div class="hero-label">Presenza by Y Media</div>
     <h1 class="hero-title">Your onboarding<br><em>portal.</em></h1>
-    <p class="hero-sub">Three simple steps — service agreement, payment, and your onboarding form. Complete them all right here and your content journey begins.</p>
+    <p class="hero-sub">Three simple steps — service agreement, your onboarding form, and payment. Complete them all right here and your content journey begins.</p>
   </div>
 </div>
 
@@ -244,11 +245,11 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
     <div class="stage-tab" id="tab2">
       <span class="st-num">Step 02</span>
-      <span class="st-name">Payment</span>
+      <span class="st-name">Onboarding Form</span>
     </div>
     <div class="stage-tab" id="tab3">
       <span class="st-num">Step 03</span>
-      <span class="st-name">Onboarding Form</span>
+      <span class="st-name">Payment</span>
     </div>
   </div>
 </div>
@@ -315,7 +316,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="c-num">Clause 02</div>
         <div class="c-title">Payment</div>
         <div class="c-body">
-          <p>Payment is required in full before any work begins. The onboarding form will only be unlocked once payment has been confirmed. By agreeing to these terms, the client confirms they have read and understood everything set out in this document.</p>
+          <p>Payment is required in full before any work begins. Payment is made at the final step of this portal, once your onboarding form is complete, using the unique reference number provided. Work begins once payment has been received and matched. By agreeing to these terms, the client confirms they have read and understood everything set out in this document.</p>
         </div>
       </div>
       <div class="c-div"></div>
@@ -365,7 +366,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <!-- Signature + Confirm -->
     <div class="confirm-area">
       <div class="confirm-title">Confirmation</div>
-      <p class="confirm-note">Fill in your name, package, and today's date in the boxes above, tick the box below, then click "Send Confirmation" — this opens an email to Presenza by Y Media confirming you've read and agreed to these terms. Once received alongside your payment, your onboarding form will follow within 1 working day.</p>
+      <p class="confirm-note">Fill in your name, package, and today's date in the boxes above, tick the box below, then click "Send Confirmation" — we're notified automatically in the background, and you'll move straight on to your onboarding form.</p>
 
       <div style="background:rgba(212,175,90,0.06);border:1px solid rgba(212,175,90,0.2);padding:28px 32px;margin-top:0;">
         <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:8px;">Digital Confirmation</div>
@@ -388,10 +389,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
 
         <div class="success-banner" id="ag-success">
-          ✓ &nbsp;Agreement confirmed — we've been notified. Proceeding to payment...
+          ✓ &nbsp;Agreement confirmed — we've been notified. Proceeding to your onboarding form...
           <div style="margin-top:16px;">
             <button class="btn-primary" onclick="setStage(2)" style="font-size:10px;">
-              Continue to Payment &rarr;
+              Continue to Onboarding &rarr;
             </button>
           </div>
         </div>
@@ -404,16 +405,16 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <!-- ══════════════════════════════════════
        STAGE 2 — PAYMENT
   ══════════════════════════════════════ -->
-  <div class="stage-panel" id="stage2">
+  <div class="stage-panel" id="stage3">
 
     <div class="sec-header">
-      <div class="sec-eyebrow">Step 2 of 3</div>
+      <div class="sec-eyebrow">Step 3 of 3</div>
       <div class="sec-title">Payment</div>
-      <p class="sec-desc">Please transfer your payment using the bank details below. Once sent, click the button below — your onboarding form will unlock instantly and we'll be notified automatically.</p>
+      <p class="sec-desc">Last step — transfer your payment using the bank details below with your unique reference, then click the button to confirm. Once your payment lands, we start writing.</p>
     </div>
 
     <div class="payment-panel">
-      <p class="payment-intro">Use the details below to make your bank transfer. Include your full name as the payment reference so we can match it to your agreement instantly.</p>
+      <p class="payment-intro">Use the details below to make your bank transfer. Include your unique reference number so we can match your payment to your order instantly.</p>
 
       <div class="bank-card">
         <div class="bank-card-label">Bank Transfer Details</div>
@@ -439,14 +440,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="bank-row">
           <span class="bank-key">Reference</span>
-          <span class="bank-val" id="payment-ref" style="color:var(--gold);">Your full name</span>
+          <span class="bank-val" id="payment-ref" style="color:var(--gold);">Generated above</span>
         </div>
         <p class="bank-note">Tier 1 — £30 &nbsp;·&nbsp; Tier 2 — £40 &nbsp;·&nbsp; Tier 3 Premium — £80</p>
       </div>
 
       <div class="payment-sent-area">
         <div class="payment-sent-title">Done your transfer?</div>
-        <p class="payment-sent-note">Click below once you've sent your payment. You'll receive a reference number to use in your bank transfer and onboarding form — keep a note of it.</p>
+        <p class="payment-sent-note">Click below once you've sent your payment — we're notified automatically, and your content will be delivered within the agreed timeframe once your payment lands.</p>
         <button class="btn-primary" onclick="notifyPayment()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           I've Sent Payment
@@ -458,12 +459,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;">Use this as your bank transfer reference. Keep a note of it — it will also appear on your onboarding form.</div>
       </div>
       <div class="success-banner" id="pay-success" style="margin-top:16px;">
-        ✓ &nbsp;Reference number generated. Make your bank transfer using the reference above, then continue to your onboarding form.
-        <div style="margin-top:16px;">
-          <button class="btn-primary" onclick="setStage(3)" style="font-size:10px;">
-            Continue to Onboarding &rarr;
-          </button>
-        </div>
+        ✓ &nbsp;That's everything done. Once your payment lands, we'll write your content and deliver it within the agreed timeframe. Keep your reference handy.
       </div>
     </div>
 
@@ -473,10 +469,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <!-- ══════════════════════════════════════
        STAGE 3 — ONBOARDING FORM
   ══════════════════════════════════════ -->
-  <div class="stage-panel" id="stage3">
+  <div class="stage-panel" id="stage2">
 
     <div class="sec-header">
-      <div class="sec-eyebrow">Step 3 of 3</div>
+      <div class="sec-eyebrow">Step 2 of 3</div>
       <div class="sec-title">Onboarding Form</div>
       <p class="sec-desc">A few short questions so we can write content that sounds exactly like you. There are no wrong answers — the more naturally you write, the better your content will be.</p>
     </div>
@@ -511,10 +507,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--navy);display:block;margin-bottom:4px;">Package</span>
           <span id="pkg-display-val" style="font-weight:500;"></span>
         </div>
-        <div id="ref-display-ob" style="display:none;background:var(--off-white);border:1px solid var(--light-border);border-left:3px solid var(--gold);padding:13px 16px;margin-top:8px;">
-          <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--navy);display:block;margin-bottom:4px;">Payment Reference</span>
-          <span id="ref-display-ob-val" style="font-weight:500;font-size:13px;letter-spacing:2px;color:var(--text);"></span>
-        </div>
+
       </div>
 
       <div class="form-section">
@@ -614,10 +607,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           </div>
           <div class="field">
             <label class="fl">Will you be sending brand assets?</label>
-            <span class="hint">Logo or photos — attach them to your submission email.</span>
+            <span class="hint">Logo or photos — email them to yearsleymedia@gmail.com after submitting.</span>
             <select id="f_assets">
               <option value="" disabled selected>Select an option</option>
-              <option value="Yes — I'll attach them to my submission email">Yes — I'll attach them to my submission email</option>
+              <option value="Yes — I will email them to yearsleymedia@gmail.com">Yes — I will email them to yearsleymedia@gmail.com</option>
               <option value="No — please create visuals from scratch using my brand details above">No — please create visuals from scratch using my brand details above</option>
             </select>
           </div>
@@ -626,13 +619,19 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
       <div class="submit-area">
         <div class="submit-title">That's everything.</div>
-        <p class="submit-sub">Click below and your answers will open in an email, ready to send to Presenza. If you're on Tier 3, attach any brand assets before hitting send.</p>
+        <p class="submit-sub">Click below and your answers come straight to us automatically — then it's on to the final step, payment. If you're on Tier 3, email any brand assets to yearsleymedia@gmail.com.</p>
         <button type="button" class="btn-primary" onclick="submitOnboarding()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-          Send to Presenza
+          Submit &amp; Continue to Payment
         </button>
-        <p class="submit-note">Clicking "Send to Presenza" opens your email app with everything pre-filled — just hit send.</p>
-        <div class="success-banner" id="ob-success">✓ &nbsp;Your email app should have opened — just hit send. That's everything done. We'll be in touch once your content is ready.</div>
+        <p class="submit-note">Your answers are sent securely in the background — nothing else to do.</p>
+        <div class="success-banner" id="ob-success">✓ &nbsp;Onboarding received — one step left.
+          <div style="margin-top:16px;">
+            <button class="btn-primary" onclick="setStage(3)" style="font-size:10px;">
+              Continue to Payment &rarr;
+            </button>
+          </div>
+        </div>
       </div>
 
     </div><!-- /onboarding-form -->
@@ -694,8 +693,8 @@ function setStage(n){
   setTab(n);
   window.scrollTo({top:0,behavior:'smooth'});
 
-  // Generate reference number when stage 2 loads
-  if(n===2 && !paymentRef){
+  // Generate reference number when the payment stage loads
+  if(n===3 && !paymentRef){
     paymentRef = generateRef();
     const refNumEl = document.getElementById('ref-number');
     const refDispEl = document.getElementById('ref-display');
@@ -749,7 +748,7 @@ function confirmAgreement(){
   agreementMsg += 'CLAUSE 1 — THE SERVICE\n';
   agreementMsg += 'Presenza by Y Media agrees to create written social media content based on the package selected. Tier 1 (£30): 15 captions, 5 working days. Tier 2 (£40): 30 pieces of content, 7 working days. Tier 3 Premium (£80): 30 pieces of content plus custom branded visuals, 10 working days. Delivery begins once the onboarding form is received.\n\n';
   agreementMsg += 'CLAUSE 2 — PAYMENT\n';
-  agreementMsg += 'Payment is required in full before any work begins. The onboarding form will only be unlocked once payment has been confirmed.\n\n';
+  agreementMsg += 'Payment is required in full before any work begins, made by bank transfer at the final step of the portal using the unique reference provided. Work begins once payment has been received and matched.\n\n';
   agreementMsg += 'CLAUSE 3 — REFUND POLICY\n';
   agreementMsg += 'Refunds are not available once content has been written and delivered. One round of amendments is included as standard covering adjustments to tone, wording, or topic.\n\n';
   agreementMsg += 'CLAUSE 4 — WHAT IS AND IS NOT INCLUDED\n';
@@ -777,7 +776,20 @@ function confirmAgreement(){
     console.error('Formspree error', err);
   });
 
-  // Show success and advance to payment
+  // Pre-fill onboarding form
+  const obName = document.getElementById('f_name');
+  if(obName && client) obName.value = client;
+  const pkgEl = document.getElementById('f_pkg');
+  if(pkgEl && pkg){
+    pkgEl.value = pkg;
+    const disp = document.getElementById('pkg-display');
+    const dispVal = document.getElementById('pkg-display-val');
+    if(disp) disp.style.display = 'block';
+    if(dispVal) dispVal.textContent = pkg;
+  }
+  checkTier3();
+
+  // Show success and advance to onboarding
   show('ag-success');
 }
 
@@ -792,28 +804,16 @@ function generateRef(){
 }
 
 function notifyPayment(){
-  const client = v('ag_client') || '[Client name]';
+  const client = v('f_name') || v('ag_client') || '[Client name]';
   const pkg = v('ag_pkg') || '[Package not selected]';
-
-  // Pre-fill onboarding form
-  const nameEl = document.getElementById('f_name');
-  if(nameEl && client !== '[Client name]') nameEl.value = client;
-  const pkgEl = document.getElementById('f_pkg');
-  if(pkgEl && pkg !== '[Package not selected]'){
-    pkgEl.value = pkg;
-    const disp = document.getElementById('pkg-display');
-    const dispVal = document.getElementById('pkg-display-val');
-    if(disp) disp.style.display = 'block';
-    if(dispVal) dispVal.textContent = pkg;
-  }
-  checkTier3();
-
-  // Show reference in onboarding form
-  const refObDisp = document.getElementById('ref-display-ob');
-  const refObVal = document.getElementById('ref-display-ob-val');
-  if(refObDisp && paymentRef){ refObDisp.style.display='block'; refObVal.textContent=paymentRef; }
-
-  // Add EmailJS init at top of script
+  fetch('https://formspree.io/f/xwvjkdjk', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      subject: 'Presenza Payment Sent — ' + client + ' — Ref: ' + paymentRef,
+      message: 'Client: ' + client + '\nPackage: ' + pkg + '\nReference: ' + paymentRef + '\n\nThe client has clicked the payment confirmation button in the Presenza portal. Match this reference in Monzo, then begin the work.'
+    })
+  }).catch(err => console.error('Formspree error', err));
   show('pay-success');
 }
 
@@ -846,10 +846,9 @@ function submitOnboarding(){
   if(!video){ alert('Please let us know whether you post video content.'); return; }
   if(!feeling){ alert('Please tell us how you want your audience to feel.'); return; }
 
-  const subj = 'Presenza Onboarding Form — ' + name + ' (' + biz + ')' + (paymentRef ? ' — Ref: ' + paymentRef : '');
+  const subj = 'Presenza Onboarding Form — ' + name + ' (' + biz + ')';
   let b = 'Hi,' + '\n\n';
   b += 'Please find my completed onboarding form below.\n\n';
-  if(paymentRef) b += 'Payment Reference: ' + paymentRef + '\n\n';
   b += 'Name: ' + name + '\n';
   b += 'Business: ' + biz + '\n';
   b += 'Email: ' + email + '\n';
@@ -872,13 +871,12 @@ function submitOnboarding(){
   }
   b += 'Thanks,\n' + name + (biz ? '\n' + biz : '');
 
-  const _b = document.createElement('a');
-  _b.href = 'mailto:yearsleymedia@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
-  _b.target = '_blank';
-  document.body.appendChild(_b);
-  _b.click();
-  document.body.removeChild(_b);
-  setTimeout(()=>show('ob-success'), 400);
+  fetch('https://formspree.io/f/xwvjkdjk', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({ subject: subj, message: b })
+  }).catch(err => console.error('Formspree error', err));
+  show('ob-success');
 }
 
 </script>
