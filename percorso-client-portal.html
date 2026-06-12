@@ -160,6 +160,22 @@ nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:
 .hint{display:block;font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:300;margin-top:3px;line-height:1.6;}
 input[type=text],input[type=email],select,textarea{width:100%;background:#fff;border:1px solid var(--light-border);padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;appearance:none;border-radius:0;}
 input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{border-color:var(--gold);}
+/* ── Date inputs — match text inputs exactly on mobile/iOS ── */
+input[type=date]{width:100%;background:#fff;border:1px solid var(--light-border);padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;appearance:none;-webkit-appearance:none;border-radius:0;display:block;min-height:46px;text-align:left;}
+input[type=date]:focus{border-color:var(--gold);}
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0;}
+input[type=date]::-webkit-datetime-edit{padding:0;}
+input[type=date]::-webkit-datetime-edit-fields-wrapper{padding:0;}
+/* ── Agreement package select — white box matching the inputs ── */
+.ag-meta-box select{background:#fff;border:1px solid var(--light-border);padding:13px 36px 13px 16px;color:var(--text);background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%231a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;}
+.ag-meta-box select option{background:#fff;color:#1a1a2e;}
+/* ── Date fields — white text box + invisible native calendar overlay ── */
+.date-field{position:relative;}
+.date-field input[type=text]{background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14"><rect x="1" y="2.5" width="12" height="10.5" rx="1" stroke="%231a1a2e" stroke-width="1.2" fill="none"/><path d="M1 5.5h12" stroke="%231a1a2e" stroke-width="1.2"/><path d="M4.2 1v3M9.8 1v3" stroke="%231a1a2e" stroke-width="1.2" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
+.date-field input[type=date]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;margin:0;padding:0;border:0;min-height:0;cursor:pointer;-webkit-appearance:none;appearance:none;}
+
+
+
 textarea{resize:vertical;min-height:88px;line-height:1.7;}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af5a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
 
@@ -287,7 +303,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="date" id="ag_date" autocomplete="off">
+          <div class="date-field">
+            <input type="text" id="ag_date" readonly>
+            <input type="date" id="ag_date_picker" aria-label="Date">
+          </div>
         </div>
       </div>
     </div>
@@ -300,7 +319,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="c-body">
           <p>Percorso by Y Media agrees to create a fully custom training plan and interactive tracker for the client, built from the details provided in the onboarding form. The scope of work is as follows:</p>
           <div class="hb">
-            <strong>The Percorso Plan — £60</strong>One fully custom training plan — running, gym, or hybrid — delivered as a private interactive tracker. The tracker includes the full session-by-session plan, personal pace zones calculated from the client's submitted times (where applicable), automatic recalculation of paces as new times are logged, session tick-off and progress logging, and scheduling built around the client's stated availability and shift pattern. Clients who already have a plan of their own may instead have that plan digitised into the tracker as written. Delivered as a private link within 3 working days of payment being received and the onboarding form being completed.
+            <strong>The Percorso Plan — £60</strong>One fully custom training plan — running, gym, or hybrid — delivered as a private interactive tracker. The tracker includes the full session-by-session plan, personal pace zones calculated from the client's submitted times (where applicable), automatic recalculation of paces as new times are logged, session tick-off and progress logging, and scheduling built around the client's stated availability and shift pattern. Clients who already have a plan of their own may instead have that plan digitised into the tracker as written. Delivered as a private link within 5 working days of payment being received and the onboarding form being completed.
           </div>
           <p>The plan is delivered as a private link hosted by Y Media, which the client can add to their phone's home screen. Delivery timelines begin once both the completed onboarding form and payment have been received.</p>
         </div>
@@ -360,7 +379,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <!-- Signature + Confirm -->
     <div class="confirm-area">
       <div class="confirm-title">Confirmation</div>
-      <p class="confirm-note">Fill in your name and today's date in the boxes above, tick the box below, then click "Confirm Agreement" — we're notified automatically in the background, and you'll move straight on to your onboarding form.</p>
+      <p class="confirm-note">Fill in your name in the box above — today's date is filled in automatically. Then tick the box below and click "Confirm Agreement" — we're notified automatically in the background, and you'll move straight on to your onboarding form.</p>
 
       <div style="background:rgba(212,175,90,0.06);border:1px solid rgba(212,175,90,0.2);padding:28px 32px;margin-top:0;">
         <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:8px;">Digital Confirmation</div>
@@ -478,7 +497,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
             </div>
             <div class="field">
               <label class="fl">Race date</label>
-              <input type="date" id="f_race_date">
+              <div class="date-field">
+                <input type="text" id="f_race_date" readonly placeholder="Tap to choose a date">
+                <input type="date" id="f_race_date_picker" aria-label="Race date">
+              </div>
             </div>
           </div>
           <div class="field-row">
@@ -783,14 +805,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
       <div class="payment-sent-area">
         <div class="payment-sent-title">Done your transfer?</div>
-        <p class="payment-sent-note">Click below once you've sent your payment — we're notified automatically, and your plan will be delivered within 3 working days of your payment landing.</p>
+        <p class="payment-sent-note">Click below once you've sent your payment — we're notified automatically, and your plan will be delivered within 5 working days of your payment landing.</p>
         <button class="btn-primary" onclick="notifyPayment()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           I've Sent Payment
         </button>
       </div>
       <div class="success-banner" id="pay-success" style="margin-top:16px;">
-        ✓ &nbsp;That's everything done. Once your payment lands, we'll build your plan and send your private Percorso link within 3 working days. Keep your reference handy.
+        ✓ &nbsp;That's everything done. Once your payment lands, we'll build your plan and send your private Percorso link within 5 working days. Keep your reference handy.
       </div>
     </div>
 
@@ -858,12 +880,28 @@ function prettyDate(iso){
   return parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0];
 }
 function formatDate(){
-  return prettyDate(v('ag_date')) || '[Date not entered]';
+  return v('ag_date') || '[Date not entered]';
 }
 (function(){
   const now = new Date();
+  const iso = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
   const el = document.getElementById('ag_date');
-  if(el) el.value = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  const picker = document.getElementById('ag_date_picker');
+  if(el) el.value = prettyDate(iso);
+  if(picker){
+    picker.value = iso;
+    picker.addEventListener('click', function(){ try{ if(picker.showPicker) picker.showPicker(); }catch(e){} });
+    picker.addEventListener('change', function(){ if(el && picker.value) el.value = prettyDate(picker.value); });
+  }
+})();
+
+(function(){
+  const vis = document.getElementById('f_race_date');
+  const pick = document.getElementById('f_race_date_picker');
+  if(vis && pick){
+    pick.addEventListener('click', function(){ try{ if(pick.showPicker) pick.showPicker(); }catch(e){} });
+    pick.addEventListener('change', function(){ if(pick.value) vis.value = prettyDate(pick.value); });
+  }
 })();
 
 function confirmAgreement(){
@@ -886,7 +924,7 @@ function confirmAgreement(){
   m += client + ' has read and agreed to the Percorso service agreement in full via the client portal.\n\n';
   m += '--- AGREEMENT TERMS ON RECORD ---\n\n';
   m += 'CLAUSE 1 — THE SERVICE\n';
-  m += 'Percorso by Y Media agrees to create one fully custom training plan (running, gym, or hybrid) delivered as a private interactive tracker, including personal pace zones, automatic recalculation, progress logging, and scheduling built around the client\'s availability and shifts. Clients with an existing plan may have it digitised as written. Delivered within 3 working days of payment and the completed onboarding form being received.\n\n';
+  m += 'Percorso by Y Media agrees to create one fully custom training plan (running, gym, or hybrid) delivered as a private interactive tracker, including personal pace zones, automatic recalculation, progress logging, and scheduling built around the client\'s availability and shifts. Clients with an existing plan may have it digitised as written. Delivered within 5 working days of payment and the completed onboarding form being received.\n\n';
   m += 'CLAUSE 2 — PAYMENT\n';
   m += 'Payment is required in full before any work begins, made by bank transfer using the unique reference provided. Work begins once payment has been received and matched.\n\n';
   m += 'CLAUSE 3 — REFUND POLICY\n';
