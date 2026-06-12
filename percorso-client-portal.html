@@ -286,7 +286,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="text" id="ag_date" autocomplete="off">
+          <input type="date" id="ag_date" autocomplete="off">
         </div>
       </div>
     </div>
@@ -476,7 +476,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
             </div>
             <div class="field">
               <label class="fl">Race date</label>
-              <input type="text" id="f_race_date" placeholder="e.g. 4 October 2026">
+              <input type="date" id="f_race_date">
             </div>
           </div>
           <div class="field-row">
@@ -847,14 +847,20 @@ function toggleAgree(){
   document.getElementById('btn-confirm-ag').disabled = !agreed;
 }
 
+function prettyDate(iso){
+  if(!iso) return '';
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const p = iso.split('-');
+  if(p.length !== 3) return iso;
+  return parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0];
+}
 function formatDate(){
-  return v('ag_date') || '[Date not entered]';
+  return prettyDate(v('ag_date')) || '[Date not entered]';
 }
 (function(){
-  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const now = new Date();
   const el = document.getElementById('ag_date');
-  if(el) el.value = now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
+  if(el) el.value = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
 })();
 
 function confirmAgreement(){
@@ -956,7 +962,7 @@ function submitOnboarding(){
   b += 'Package: The Percorso Plan — £60\n\n';
   b += 'PLAN TYPE: ' + selectedPlan + '\n\n';
   if(selectedPlan === 'Race / event training'){
-    b += 'RACE:\nEvent: ' + (v('f_race_name')||'Not provided') + '\nDate: ' + (v('f_race_date')||'Not provided') + '\nDistance: ' + (v('f_race_dist')||'Not provided') + '\nGoal: ' + (v('f_race_goal')||'Not provided') + '\n\n';
+    b += 'RACE:\nEvent: ' + (v('f_race_name')||'Not provided') + '\nDate: ' + (prettyDate(v('f_race_date'))||'Not provided') + '\nDistance: ' + (v('f_race_dist')||'Not provided') + '\nGoal: ' + (v('f_race_goal')||'Not provided') + '\n\n';
   }
   if(selectedPlan === 'I already have a plan'){
     b += 'EXISTING PLAN:\n' + (v('f_ownplan')||'Not provided — client will email it') + '\n\n';
