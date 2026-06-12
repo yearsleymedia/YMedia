@@ -291,7 +291,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="text" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;" autocomplete="off">
+          <input type="date" id="ag_date" autocomplete="off">
         </div>
       </div>
     </div>
@@ -712,14 +712,20 @@ function toggleAgree(){
   document.getElementById('btn-confirm-ag').disabled = !agreed;
 }
 
+function prettyDate(iso){
+  if(!iso) return '';
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const p = iso.split('-');
+  if(p.length !== 3) return iso;
+  return parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0];
+}
 function formatDate(){
-  return v('ag_date') || '[Date not entered]';
+  return prettyDate(v('ag_date')) || '[Date not entered]';
 }
 (function(){
-  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const now = new Date();
   const el = document.getElementById('ag_date');
-  if(el) el.value = now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
+  if(el) el.value = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
 })();
 function confirmAgreement(){
   const client = v('ag_client');
