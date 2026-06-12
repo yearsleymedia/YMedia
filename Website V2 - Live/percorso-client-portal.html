@@ -286,7 +286,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="text" id="ag_date" style="background:transparent;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,255,255,0.8);width:100%;padding:0;" autocomplete="off">
+          <input type="text" id="ag_date" autocomplete="off">
         </div>
       </div>
     </div>
@@ -546,6 +546,38 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
       </div>
 
+      <!-- Lifts -->
+      <div class="form-section" id="lifts-section" style="display:none;">
+        <div class="fs-title">Your current lifts</div>
+        <div class="field">
+          <span class="hint" style="margin-bottom:14px;display:block;">All optional — working weights or one-rep maxes, whichever you know. These become your starting benchmarks in the tracker, so your plan knows what to build from.</span>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">Bench press</label>
+              <input type="text" id="f_l_bench" placeholder="e.g. 80kg">
+            </div>
+            <div class="field">
+              <label class="fl">Squat</label>
+              <input type="text" id="f_l_squat" placeholder="e.g. 100kg">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">Deadlift</label>
+              <input type="text" id="f_l_dead" placeholder="e.g. 120kg">
+            </div>
+            <div class="field">
+              <label class="fl">Overhead press</label>
+              <input type="text" id="f_l_ohp" placeholder="e.g. 45kg">
+            </div>
+          </div>
+          <div class="field">
+            <label class="fl">Any other lifts worth noting?</label>
+            <input type="text" id="f_l_other" placeholder="e.g. pull-ups × 8, hip thrust 140kg">
+          </div>
+        </div>
+      </div>
+
       <div class="form-section">
         <div class="fs-title">Where you are now</div>
         <div class="field">
@@ -554,9 +586,9 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           <textarea id="f_current" placeholder="e.g. gym twice a week but no real structure, occasional 5K, nothing for the last 3 months — whatever's true"></textarea>
         </div>
         <div class="field">
-          <label class="fl">Any recent benchmarks?</label>
-          <span class="hint">Recent times, lifts, or longest runs. Leave blank if not.</span>
-          <input type="text" id="f_bench" placeholder="e.g. 10K in 55 mins, squat 80kg, longest run 8K">
+          <label class="fl">Anything else worth knowing about your level?</label>
+          <span class="hint">Longest recent run, classes, sports — anything not covered above. Leave blank if not.</span>
+          <input type="text" id="f_bench" placeholder="e.g. longest run 8K, play 5-a-side weekly">
         </div>
         <div class="field">
           <label class="fl">Injuries or limitations we should plan around?</label>
@@ -646,6 +678,18 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           <label class="fl">Colour preferences</label>
           <span class="hint">Likes and dislikes — your tracker is designed in your colours.</span>
           <input type="text" id="f_colours" placeholder="e.g. deep green and black — no neon">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="fl">Name your plan</label>
+            <span class="hint">What it's called on your home screen — e.g. "CPH27", "Lewis's Plan", "Road to 10K".</span>
+            <input type="text" id="f_appname" placeholder="e.g. Road to Cardiff Half">
+          </div>
+          <div class="field">
+            <label class="fl">Your icon</label>
+            <span class="hint">A short label or initials plus colours — this becomes your app icon.</span>
+            <input type="text" id="f_appicon" placeholder="e.g. CH26 in gold on black">
+          </div>
         </div>
       </div>
 
@@ -871,9 +915,11 @@ function selectPlan(el){
   const isRun = isRace || selectedPlan === 'General running plan' || selectedPlan === 'Hybrid — running + gym';
   const isOwn = selectedPlan === 'I already have a plan';
 
+  const isGym = selectedPlan === 'Gym / strength plan' || selectedPlan === 'Hybrid — running + gym';
   document.getElementById('race-panel').style.display = isRace ? 'block' : 'none';
   document.getElementById('own-panel').style.display = isOwn ? 'block' : 'none';
   document.getElementById('times-section').style.display = (isRun || isOwn) ? 'block' : 'none';
+  document.getElementById('lifts-section').style.display = (isGym || isOwn) ? 'block' : 'none';
 }
 
 function checkShift(){
@@ -916,6 +962,7 @@ function submitOnboarding(){
     b += 'EXISTING PLAN:\n' + (v('f_ownplan')||'Not provided — client will email it') + '\n\n';
   }
   b += 'CURRENT TIMES:\n5K: ' + (v('f_t5')||'—') + '\n10K: ' + (v('f_t10')||'—') + '\n15K: ' + (v('f_t15')||'—') + '\nHalf: ' + (v('f_thalf')||'—') + '\nMarathon: ' + (v('f_tfull')||'—') + '\nUnits: ' + (v('f_units')||'Not specified') + '\n\n';
+  b += 'CURRENT LIFTS:\nBench: ' + (v('f_l_bench')||'—') + '\nSquat: ' + (v('f_l_squat')||'—') + '\nDeadlift: ' + (v('f_l_dead')||'—') + '\nOverhead press: ' + (v('f_l_ohp')||'—') + '\nOther: ' + (v('f_l_other')||'—') + '\n\n';
   b += 'CURRENT TRAINING:\n' + current + '\n\n';
   b += 'Benchmarks: ' + (v('f_bench')||'None') + '\n';
   b += 'Injuries / limitations: ' + (v('f_injuries')||'None') + '\n\n';
@@ -924,7 +971,7 @@ function submitOnboarding(){
     b += 'Rotation: ' + (v('f_rotation')||'Not provided') + '\nShift notes: ' + (v('f_shiftnotes')||'None') + '\n';
   }
   b += 'Preferred days: ' + (v('f_prefdays')||'Flexible') + '\nEquipment: ' + equipment + '\nPlan length: ' + planlen + '\n\n';
-  b += 'STYLE:\nTheme: ' + (v('f_theme')||'No preference') + '\nVibe: ' + (v('f_vibe')||'No preference') + '\nColours: ' + (v('f_colours')||'No preference') + '\n\n';
+  b += 'STYLE:\nTheme: ' + (v('f_theme')||'No preference') + '\nVibe: ' + (v('f_vibe')||'No preference') + '\nColours: ' + (v('f_colours')||'No preference') + '\nApp name: ' + (v('f_appname')||'No preference — use plan name') + '\nApp icon: ' + (v('f_appicon')||'No preference — design to match theme') + '\n\n';
   b += 'SUCCESS LOOKS LIKE:\n' + success + '\n\n';
   b += 'ANYTHING ELSE:\n' + (v('f_else')||'None') + '\n';
 
