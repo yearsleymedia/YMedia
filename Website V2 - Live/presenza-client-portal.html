@@ -169,6 +169,11 @@ input[type=date]::-webkit-datetime-edit-fields-wrapper{padding:0;}
 /* ── Agreement package select — white box matching the inputs ── */
 .ag-meta-box select{background:#fff;border:1px solid var(--light-border);padding:13px 36px 13px 16px;color:var(--text);background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%231a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;}
 .ag-meta-box select option{background:#fff;color:#1a1a2e;}
+/* ── Date fields — white text box + invisible native calendar overlay ── */
+.date-field{position:relative;}
+.date-field input[type=text]{background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14"><rect x="1" y="2.5" width="12" height="10.5" rx="1" stroke="%231a1a2e" stroke-width="1.2" fill="none"/><path d="M1 5.5h12" stroke="%231a1a2e" stroke-width="1.2"/><path d="M4.2 1v3M9.8 1v3" stroke="%231a1a2e" stroke-width="1.2" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
+.date-field input[type=date]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;margin:0;padding:0;border:0;min-height:0;cursor:pointer;-webkit-appearance:none;appearance:none;}
+
 
 
 textarea{resize:vertical;min-height:88px;line-height:1.7;}
@@ -303,7 +308,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="text" id="ag_date" readonly>
+          <div class="date-field">
+            <input type="text" id="ag_date" readonly>
+            <input type="date" id="ag_date_picker" aria-label="Date">
+          </div>
         </div>
       </div>
     </div>
@@ -738,8 +746,15 @@ function formatDate(){
 }
 (function(){
   const now = new Date();
+  const iso = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
   const el = document.getElementById('ag_date');
-  if(el) el.value = prettyDate(now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'));
+  const picker = document.getElementById('ag_date_picker');
+  if(el) el.value = prettyDate(iso);
+  if(picker){
+    picker.value = iso;
+    picker.addEventListener('click', function(){ try{ if(picker.showPicker) picker.showPicker(); }catch(e){} });
+    picker.addEventListener('change', function(){ if(el && picker.value) el.value = prettyDate(picker.value); });
+  }
 })();
 function confirmAgreement(){
   const client = v('ag_client');
