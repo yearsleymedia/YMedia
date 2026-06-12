@@ -160,6 +160,17 @@ nav{background:var(--navy);border-bottom:1px solid rgba(212,175,90,0.2);padding:
 .hint{display:block;font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:300;margin-top:3px;line-height:1.6;}
 input[type=text],input[type=email],select,textarea{width:100%;background:#fff;border:1px solid var(--light-border);padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;appearance:none;border-radius:0;}
 input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{border-color:var(--gold);}
+/* ── Date inputs — match text inputs exactly on mobile/iOS ── */
+input[type=date]{width:100%;background:#fff;border:1px solid var(--light-border);padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;appearance:none;-webkit-appearance:none;border-radius:0;display:block;min-height:46px;text-align:left;}
+input[type=date]:focus{border-color:var(--gold);}
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0;}
+input[type=date]::-webkit-datetime-edit{padding:0;}
+input[type=date]::-webkit-datetime-edit-fields-wrapper{padding:0;}
+/* ── Agreement package select — white box matching the inputs ── */
+.ag-meta-box select{background:#fff;border:1px solid var(--light-border);padding:13px 36px 13px 16px;color:var(--text);background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%231a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;}
+.ag-meta-box select option{background:#fff;color:#1a1a2e;}
+
+
 textarea{resize:vertical;min-height:88px;line-height:1.7;}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af5a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
 
@@ -292,7 +303,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
         <div class="ag-meta-box">
           <div class="ag-meta-label">Date</div>
-          <input type="date" id="ag_date" autocomplete="off">
+          <input type="text" id="ag_date" readonly>
         </div>
       </div>
     </div>
@@ -367,7 +378,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <!-- Signature + Confirm -->
     <div class="confirm-area">
       <div class="confirm-title">Confirmation</div>
-      <p class="confirm-note">Fill in your name, package, and today's date in the boxes above, tick the box below, then click "Send Confirmation" — we're notified automatically in the background, and you'll move straight on to your onboarding form.</p>
+      <p class="confirm-note">Fill in your name and select your package in the boxes above — today's date is filled in automatically. Then tick the box below and click "Send Confirmation" — we're notified automatically in the background, and you'll move straight on to your onboarding form.</p>
 
       <div style="background:rgba(212,175,90,0.06);border:1px solid rgba(212,175,90,0.2);padding:28px 32px;margin-top:0;">
         <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:8px;">Digital Confirmation</div>
@@ -723,12 +734,12 @@ function prettyDate(iso){
   return parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0];
 }
 function formatDate(){
-  return prettyDate(v('ag_date')) || '[Date not entered]';
+  return v('ag_date') || '[Date not entered]';
 }
 (function(){
   const now = new Date();
   const el = document.getElementById('ag_date');
-  if(el) el.value = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  if(el) el.value = prettyDate(now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'));
 })();
 function confirmAgreement(){
   const client = v('ag_client');
