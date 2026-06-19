@@ -570,6 +570,48 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </div>
       </div>
 
+      <!-- Heart Rate (running plans only) -->
+      <div class="form-section" id="hr-section" style="display:none;">
+        <div class="fs-title">Heart rate zones <span style="font-size:11px;font-weight:400;opacity:.55;letter-spacing:1px;text-transform:uppercase;margin-left:8px">Optional</span></div>
+        <div class="field">
+          <span class="hint" style="margin-bottom:14px;display:block;">If you train with a heart rate monitor and know your zones, share them here — your plan will include heart rate targets alongside pace ranges, making your zones far more accurate and personal. If you don't have this data, leave it blank and your zones will be calculated from your PB times instead.</span>
+          <div class="field-row">
+            <div class="field">
+              <label class="fl">Max heart rate (bpm)</label>
+              <input type="text" id="f_hr_max" placeholder="e.g. 185">
+            </div>
+            <div class="field">
+              <label class="fl">Resting heart rate (bpm)</label>
+              <input type="text" id="f_hr_rest" placeholder="e.g. 52">
+            </div>
+          </div>
+          <div class="field">
+            <label class="fl">Lactate threshold HR (bpm) — if known</label>
+            <span class="hint">Your watch may estimate this. Leave blank if unsure.</span>
+            <input type="text" id="f_hr_lt" placeholder="e.g. 168">
+          </div>
+          <div class="field">
+            <label class="fl">Your heart rate zones — if you know them</label>
+            <span class="hint">Paste your zones as your device shows them, e.g. "Z1 &lt;130, Z2 130–145, Z3 146–158, Z4 159–170, Z5 &gt;170". Leave blank if you don't have these.</span>
+            <textarea id="f_hr_zones" style="min-height:80px;" placeholder="e.g. Z1 &lt;130, Z2 130–145, Z3 146–158, Z4 159–170, Z5 &gt;170"></textarea>
+          </div>
+          <div class="field">
+            <label class="fl">Device you use</label>
+            <select id="f_hr_device">
+              <option value="">— Select if applicable —</option>
+              <option>Apple Watch</option>
+              <option>Garmin</option>
+              <option>COROS</option>
+              <option>Polar</option>
+              <option>Wahoo</option>
+              <option>Suunto</option>
+              <option>Other</option>
+              <option>No heart rate monitor</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <!-- Lifts -->
       <div class="form-section" id="lifts-section" style="display:none;">
         <div class="fs-title">Your current lifts</div>
@@ -966,6 +1008,9 @@ function selectPlan(el){
   document.getElementById('race-panel').style.display = isRace ? 'block' : 'none';
   document.getElementById('own-panel').style.display = isOwn ? 'block' : 'none';
   document.getElementById('times-section').style.display = (isRun || isOwn) ? 'block' : 'none';
+  // HR section: running plans only (not gym, not hybrid, not own)
+  const isPureRun = isRace || selectedPlan === 'General running plan';
+  document.getElementById('hr-section').style.display = isPureRun ? 'block' : 'none';
   document.getElementById('lifts-section').style.display = (isGym || isOwn) ? 'block' : 'none';
 }
 
@@ -1010,6 +1055,15 @@ function submitOnboarding(){
   }
   b += 'CURRENT TIMES:\n5K: ' + (v('f_t5')||'—') + '\n10K: ' + (v('f_t10')||'—') + '\n15K: ' + (v('f_t15')||'—') + '\nHalf: ' + (v('f_thalf')||'—') + '\nMarathon: ' + (v('f_tfull')||'—') + '\nUnits: ' + (v('f_units')||'Not specified') + '\n\n';
   b += 'CURRENT LIFTS:\nBench: ' + (v('f_l_bench')||'—') + '\nSquat: ' + (v('f_l_squat')||'—') + '\nDeadlift: ' + (v('f_l_dead')||'—') + '\nOverhead press: ' + (v('f_l_ohp')||'—') + '\nOther: ' + (v('f_l_other')||'—') + '\n\n';
+  const hrMax = v('f_hr_max'); const hrRest = v('f_hr_rest'); const hrLT = v('f_hr_lt'); const hrZones = v('f_hr_zones'); const hrDevice = v('f_hr_device');
+  if(hrMax || hrRest || hrZones){
+    b += 'HEART RATE DATA:\n';
+    b += 'Max HR: ' + (hrMax||'Not provided') + '\n';
+    b += 'Resting HR: ' + (hrRest||'Not provided') + '\n';
+    b += 'Lactate threshold HR: ' + (hrLT||'Not provided') + '\n';
+    b += 'Zones: ' + (hrZones||'Not provided') + '\n';
+    b += 'Device: ' + (hrDevice||'Not specified') + '\n\n';
+  }
   b += 'CURRENT TRAINING:\n' + current + '\n\n';
   b += 'Benchmarks: ' + (v('f_bench')||'None') + '\n';
   b += 'Injuries / limitations: ' + (v('f_injuries')||'None') + '\n\n';
